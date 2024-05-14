@@ -9,7 +9,7 @@
  * @package     vilcom-assets
  * @author      Hillary Chesaro
  * @license     Vilcom Networks
- * @link        https://github.com/Hillario/vilcom-invoice.git
+ * @link        https://github.com/Hillario/vilcom-assets.git
  */
 
 /**
@@ -41,6 +41,13 @@
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!--datatable css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
+    <!--datatable responsive css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
 
     <!-- Sweet Alert css-->
     <link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
@@ -498,6 +505,68 @@
                                 </ul>
                             </div>
                         </li>
+
+                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Warranties</span></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#office_equipment_warranties" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarUI">
+                                <i class="las la-briefcase"></i> <span data-key="t-bootstrap-ui">Office Equipment</span>
+                            </a>
+                            <div class="collapse menu-dropdown mega-dropdown-menu" id="office_equipment_warranties">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <ul class="nav nav-sm flex-column">
+                                            <li class="nav-item">
+                                                <a href="ui-alerts.html" class="nav-link" data-key="t-alerts">Add Warranty</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="ui-badges.html" class="nav-link" data-key="t-badges">View Warranty</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#network_equipment_warranties" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarUI">
+                                <i class="las la-wifi"></i> <span data-key="t-bootstrap-ui">Network Equipment</span>
+                            </a>
+                            <div class="collapse menu-dropdown mega-dropdown-menu" id="network_equipment_warranties">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <ul class="nav nav-sm flex-column">
+                                            <li class="nav-item">
+                                                <a href="ui-alerts.html" class="nav-link" data-key="t-alerts">Add Warranty</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="ui-badges.html" class="nav-link" data-key="t-badges">View Warranty</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#server_equipment_warranties" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarUI">
+                                <i class="las la-server"></i> <span data-key="t-bootstrap-ui">Server Equipment</span>
+                            </a>
+                            <div class="collapse menu-dropdown mega-dropdown-menu" id="server_equipment_warranties">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <ul class="nav nav-sm flex-column">
+                                            <li class="nav-item">
+                                                <a href="ui-alerts.html" class="nav-link" data-key="t-alerts">Add Warranty</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="ui-badges.html" class="nav-link" data-key="t-badges">View Warranty</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>   
                         
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Repairs</span></li>
 

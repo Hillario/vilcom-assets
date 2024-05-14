@@ -9,7 +9,7 @@
  * @package     vilcom-assets
  * @author      Hillary Chesaro
  * @license     Vilcom Networks
- * @link        https://github.com/Hillario/vilcom-invoice.git
+ * @link        https://github.com/Hillario/vilcom-assets.git
  */
 
 /**
@@ -56,23 +56,7 @@
                     <div class="row pb-4 gy-3">
                         <div class="col-sm-4">
                             <a href="#" class="btn btn-primary addMembers-modal"><i class="las la-bullhorn me-1"></i>View Requests</a>
-                        </div>
-
-                        <div class="col-sm-auto ms-auto">
-                            <div class="d-flex gap-3">
-                                <div class="search-box">
-                                    <input type="text" class="form-control" placeholder="Search for name or designation...">
-                                    <i class="las la-search search-icon"></i>
-                                </div>
-                                <div class="">
-                                    <button type="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false" class="btn btn-soft-info btn-icon fs-14"><i class="las la-ellipsis-v fs-18"></i></button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
-                                        <li><a class="dropdown-item" href="#">Print</a></li>
-                                        <li><a class="dropdown-item" href="#">Export to Excel</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        </div>                        
                     </div>
 
                     <div class="row">
@@ -82,8 +66,8 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2">$<span class="counter-value" data-target="559.25">0</span>k</h4>
-                                            <p class="text-uppercase fw-medium fs-14 text-muted mb-0">Invoices Sent
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2">Ksh<span class="counter-value" data-target="559.25">0</span>k</h4>
+                                            <p class="text-uppercase fw-medium fs-14 text-muted mb-0">Total Assets
                                                 <span class="text-success fs-14 mb-0 ms-1">
                                                     <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +89.24 %
                                                 </span>
@@ -97,7 +81,7 @@
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <span class="badge bg-primary me-1">2,258</span> <span class="text-muted">Invoices sent</span>
+                                            <span class="badge bg-primary me-1">2,258</span> <span class="text-muted">Total Assets</span>
                                         </div>
                                     </div>
                                 </div><!-- end card body -->
@@ -109,8 +93,8 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2">$<span class="counter-value" data-target="409.66">0</span>k</h4>
-                                            <p class="text-uppercase fw-medium fs-14 text-muted mb-0">Paid Invoices
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2"><span class="counter-value" data-target="409.66">0</span>k</h4>
+                                            <p class="text-uppercase fw-medium fs-14 text-muted mb-0">Allocated Assets
                                                 <span class="text-danger fs-14 mb-0 ms-1">
                                                     <i class="ri-arrow-right-down-line fs-13 align-middle"></i> +8.09 %
                                                 </span>
@@ -124,7 +108,7 @@
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <span class="badge bg-danger me-1">1,958</span> <span class="text-muted">Paid by clients</span>
+                                            <span class="badge bg-danger me-1">1,958</span> <span class="text-muted">Allocated Assets</span>
                                         </div>
                                     </div>
                                 </div><!-- end card body -->
@@ -136,8 +120,8 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2 text-white">$<span class="counter-value" data-target="136.98">0</span>k</h4>
-                                            <p class="text-uppercase fw-medium fs-14 text-white-50 mb-0"> Unpaid Invoices
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2 text-white"><span class="counter-value" data-target="136.98">0</span>k</h4>
+                                            <p class="text-uppercase fw-medium fs-14 text-white-50 mb-0"> Pending Assets
                                                 <span class="text-danger fs-14 mb-0 ms-1">
                                                     <i class="ri-arrow-right-down-line fs-13 align-middle"></i> +9.01 %
                                                 </span>
@@ -151,7 +135,7 @@
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <span class="badge bg-danger me-1">338</span> <span class="text-white">Unpaid by clients</span>
+                                            <span class="badge bg-danger me-1">338</span> <span class="text-white">Pending Assets</span>
                                         </div>
                                     </div>
                                 </div><!-- end card body -->
@@ -164,8 +148,8 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2">$<span class="counter-value" data-target="84.20">0</span>k</h4>
-                                            <p class="text-uppercase fw-medium fs-14 text-muted mb-0"> Cancelled Invoices
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2"><span class="counter-value" data-target="84.20">0</span>k</h4>
+                                            <p class="text-uppercase fw-medium fs-14 text-muted mb-0"> Network Assets
                                                 <span class="text-success fs-14 mb-0 ms-1">
                                                     <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +7.55 %
                                                 </span>
@@ -179,7 +163,7 @@
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <span class="badge bg-primary me-1">502</span> <span class="text-muted">Cancelled by clients</span>
+                                            <span class="badge bg-primary me-1">502</span> <span class="text-muted">Network Assets</span>
                                         </div>
                                     </div>
                                 </div><!-- end card body -->
@@ -188,533 +172,335 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-xl-12">
+                        <div class="col-lg-12">
                             <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Scroll - Vertical</h5>
+                                </div>
                                 <div class="card-body">
-                                    <div class="table-responsive table-card">
-                                        <table class="table table-hover table-nowrap align-middle mb-0">
-                                            <thead>
-                                                <tr class="text-muted text-uppercase">
-                                                    <th style="width: 50px;">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                        </div>
-                                                    </th>
-                                                    <th scope="col">Invoice ID</th>
-                                                    <th scope="col">Client</th>
-                                                    <th scope="col" style="width: 20%;">Email</th>
-                                                    <th scope="col">Date</th>
-                                                    <th scope="col">Billed</th>
-                                                    <th scope="col" style="width: 16%;">Status</th>
-                                                    <th scope="col" style="width: 12%;">Action</th>
-                                                </tr>
-                                            </thead>
-
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" id="check1" value="option">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <p class="fw-medium mb-0">Lec-2152</p>
-                                                    </td>
-                                                    <td><img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-xs rounded-circle me-2">
-                                                        <a href="#javascript: void(0);" class="text-body align-middle fw-medium">Donald Risher</a>
-                                                    </td>
-                                                    <td>morbi.quis@protonmail.org</td>
-                                                    <td>20 Sep, 2022</td>
-                                                    <td>$240.00</td>
-                                                    <td><span class="badge bg-success-subtle text-success p-2">Paid</span></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <i class="las la-ellipsis-h align-middle fs-18"></i>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-eye fs-18 align-middle me-2 text-muted"></i>
-                                                                        View</button>
-                                                                </li>
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-pen fs-18 align-middle me-2 text-muted"></i>
-                                                                        Edit</button>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="las la-file-download fs-18 align-middle me-2 text-muted"></i>
-                                                                        Download</a>
-                                                                </li>
-                                                                <li class="dropdown-divider"></li>
-                                                                <li>
-                                                                    <a class="dropdown-item remove-item-btn" href="#">
-                                                                        <i class="las la-trash-alt fs-18 align-middle me-2 text-muted"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" id="check2" value="option">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <p class="fw-medium mb-0">Lec-2153</p>
-                                                    </td>
-                                                    <td><img src="assets/images/users/avatar-2.jpg" alt="" class="avatar-xs rounded-circle me-2">
-                                                        <a href="#javascript: void(0);" class="text-body align-middle fw-medium">Brody Holman</a>
-                                                    </td>
-                                                    <td>metus@protonmail.org</td>
-                                                    <td>12 Arl, 2022</td>
-                                                    <td>$390.00</td>
-                                                    <td><span class="badge bg-warning-subtle text-warning p-2">Unpaid</span></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <i class="las la-ellipsis-h align-middle fs-18"></i>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-eye fs-18 align-middle me-2 text-muted"></i>
-                                                                        View</button>
-                                                                </li>
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-pen fs-18 align-middle me-2 text-muted"></i>
-                                                                        Edit</button>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="las la-file-download fs-18 align-middle me-2 text-muted"></i>
-                                                                        Download</a>
-                                                                </li>
-                                                                <li class="dropdown-divider"></li>
-                                                                <li>
-                                                                    <a class="dropdown-item remove-item-btn" href="#">
-                                                                        <i class="las la-trash-alt fs-18 align-middle me-2 text-muted"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" id="check3" value="option">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <p class="fw-medium mb-0">Lec-2154</p>
-                                                    </td>
-                                                    <td><img src="assets/images/users/avatar-3.jpg" alt="" class="avatar-xs rounded-circle me-2">
-                                                        <a href="#javascript: void(0);" class="text-body align-middle fw-medium">Jolie Hood</a>
-                                                    </td>
-                                                    <td>morbi.quis@protonmail.org</td>
-                                                    <td>28 Mar, 2022</td>
-                                                    <td>$440.00</td>
-                                                    <td><span class="badge bg-success-subtle text-success p-2">Paid</span></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <i class="las la-ellipsis-h align-middle fs-18"></i>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-eye fs-18 align-middle me-2 text-muted"></i>
-                                                                        View</button>
-                                                                </li>
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-pen fs-18 align-middle me-2 text-muted"></i>
-                                                                        Edit</button>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="las la-file-download fs-18 align-middle me-2 text-muted"></i>
-                                                                        Download</a>
-                                                                </li>
-                                                                <li class="dropdown-divider"></li>
-                                                                <li>
-                                                                    <a class="dropdown-item remove-item-btn" href="#">
-                                                                        <i class="las la-trash-alt fs-18 align-middle me-2 text-muted"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" id="check4" value="option">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <p class="fw-medium mb-0">Lec-2155</p>
-                                                    </td>
-                                                    <td><img src="assets/images/users/avatar-4.jpg" alt="" class="avatar-xs rounded-circle me-2">
-                                                        <a href="#javascript: void(0);" class="text-body align-middle fw-medium">Buckminster Wong</a>
-                                                    </td>
-                                                    <td>morbi.quis@protonmail.org</td>
-                                                    <td>23 Aug, 2022</td>
-                                                    <td>$520.00</td>
-                                                    <td><span class="badge bg-success-subtle text-success p-2">Paid</span></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <i class="las la-ellipsis-h align-middle fs-18"></i>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-eye fs-18 align-middle me-2 text-muted"></i>
-                                                                        View</button>
-                                                                </li>
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-pen fs-18 align-middle me-2 text-muted"></i>
-                                                                        Edit</button>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="las la-file-download fs-18 align-middle me-2 text-muted"></i>
-                                                                        Download</a>
-                                                                </li>
-                                                                <li class="dropdown-divider"></li>
-                                                                <li>
-                                                                    <a class="dropdown-item remove-item-btn" href="#">
-                                                                        <i class="las la-trash-alt fs-18 align-middle me-2 text-muted"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" id="check5" value="option">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <p class="fw-medium mb-0">Lec-2156</p>
-                                                    </td>
-                                                    <td><img src="assets/images/users/avatar-5.jpg" alt="" class="avatar-xs rounded-circle me-2">
-                                                        <a href="#javascript: void(0);" class="text-body align-middle fw-medium">Howard Lyons</a>
-                                                    </td>
-                                                    <td>neque.sed.dictum@icloud.org</td>
-                                                    <td>18 Sep, 2022</td>
-                                                    <td>$480.00</td>
-                                                    <td><span class="badge bg-info-subtle text-info  p-2">Refund</span></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <i class="las la-ellipsis-h align-middle fs-18"></i>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-eye fs-18 align-middle me-2 text-muted"></i>
-                                                                        View</button>
-                                                                </li>
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-pen fs-18 align-middle me-2 text-muted"></i>
-                                                                        Edit</button>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="las la-file-download fs-18 align-middle me-2 text-muted"></i>
-                                                                        Download</a>
-                                                                </li>
-                                                                <li class="dropdown-divider"></li>
-                                                                <li>
-                                                                    <a class="dropdown-item remove-item-btn" href="#">
-                                                                        <i class="las la-trash-alt fs-18 align-middle me-2 text-muted"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" id="check6" value="option">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <p class="fw-medium mb-0">Lec-2157</p>
-                                                    </td>
-                                                    <td><img src="assets/images/users/avatar-6.jpg" alt="" class="avatar-xs rounded-circle me-2">
-                                                        <a href="#javascript: void(0);" class="text-body align-middle fw-medium">Howard Oneal</a>
-                                                    </td>
-                                                    <td>metus@protonmail.org</td>
-                                                    <td>12 Feb, 2022</td>
-                                                    <td>$550.00</td>
-                                                    <td><span class="badge bg-success-subtle text-success p-2">Paid</span></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <i class="las la-ellipsis-h align-middle fs-18"></i>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-eye fs-18 align-middle me-2 text-muted"></i>
-                                                                        View</button>
-                                                                </li>
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-pen fs-18 align-middle me-2 text-muted"></i>
-                                                                        Edit</button>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="las la-file-download fs-18 align-middle me-2 text-muted"></i>
-                                                                        Download</a>
-                                                                </li>
-                                                                <li class="dropdown-divider"></li>
-                                                                <li>
-                                                                    <a class="dropdown-item remove-item-btn" href="#">
-                                                                        <i class="las la-trash-alt fs-18 align-middle me-2 text-muted"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" id="check7" value="option">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <p class="fw-medium mb-0">Lec-2158</p>
-                                                    </td>
-                                                    <td><img src="assets/images/users/avatar-7.jpg" alt="" class="avatar-xs rounded-circle me-2">
-                                                        <a href="#javascript: void(0);" class="text-body align-middle fw-medium">Jena Hall</a>
-                                                    </td>
-                                                    <td>morbi.quis@protonmail.org</td>
-                                                    <td>30 Nov, 2022</td>
-                                                    <td>$170.00</td>
-                                                    <td><span class="badge bg-danger-subtle text-danger p-2">Cancel</span></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <i class="las la-ellipsis-h align-middle fs-18"></i>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-eye fs-18 align-middle me-2 text-muted"></i>
-                                                                        View</button>
-                                                                </li>
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-pen fs-18 align-middle me-2 text-muted"></i>
-                                                                        Edit</button>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="las la-file-download fs-18 align-middle me-2 text-muted"></i>
-                                                                        Download</a>
-                                                                </li>
-                                                                <li class="dropdown-divider"></li>
-                                                                <li>
-                                                                    <a class="dropdown-item remove-item-btn" href="#">
-                                                                        <i class="las la-trash-alt fs-18 align-middle me-2 text-muted"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" id="check8" value="option">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <p class="fw-medium mb-0">Lec-2159</p>
-                                                    </td>
-                                                    <td><img src="assets/images/users/avatar-8.jpg" alt="" class="avatar-xs rounded-circle me-2">
-                                                        <a href="#javascript: void(0);" class="text-body align-middle fw-medium">Paki Edwards</a>
-                                                    </td>
-                                                    <td>dictum.phasellus.in@hotmail.org</td>
-                                                    <td>23 Sep, 2022</td>
-                                                    <td>$720.00</td>
-                                                    <td><span class="badge bg-success-subtle text-success p-2">Paid</span></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <i class="las la-ellipsis-h align-middle fs-18"></i>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-eye fs-18 align-middle me-2 text-muted"></i>
-                                                                        View</button>
-                                                                </li>
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-pen fs-18 align-middle me-2 text-muted"></i>
-                                                                        Edit</button>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="las la-file-download fs-18 align-middle me-2 text-muted"></i>
-                                                                        Download</a>
-                                                                </li>
-                                                                <li class="dropdown-divider"></li>
-                                                                <li>
-                                                                    <a class="dropdown-item remove-item-btn" href="#">
-                                                                        <i class="las la-trash-alt fs-18 align-middle me-2 text-muted"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" id="check9" value="option">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <p class="fw-medium mb-0">Lec-2160</p>
-                                                    </td>
-                                                    <td><img src="assets/images/users/avatar-9.jpg" alt="" class="avatar-xs rounded-circle me-2">
-                                                        <a href="#javascript: void(0);" class="text-body align-middle fw-medium">James Diaz</a>
-                                                    </td>
-                                                    <td>nascetur@yahoo.com</td>
-                                                    <td>16 Aug, 2022</td>
-                                                    <td>$820.00</td>
-                                                    <td><span class="badge bg-success-subtle text-success p-2">Paid</span></td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <i class="las la-ellipsis-h align-middle fs-18"></i>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-eye fs-18 align-middle me-2 text-muted"></i>
-                                                                        View</button>
-                                                                </li>
-                                                                <li>
-                                                                    <button class="dropdown-item" href="javascript:void(0);"><i class="las la-pen fs-18 align-middle me-2 text-muted"></i>
-                                                                        Edit</button>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item" href="javascript:void(0);"><i class="las la-file-download fs-18 align-middle me-2 text-muted"></i>
-                                                                        Download</a>
-                                                                </li>
-                                                                <li class="dropdown-divider"></li>
-                                                                <li>
-                                                                    <a class="dropdown-item remove-item-btn" href="#">
-                                                                        <i class="las la-trash-alt fs-18 align-middle me-2 text-muted"></i>
-                                                                        Delete
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-
-                                            </tbody><!-- end tbody -->
-                                        </table><!-- end table -->
-                                    </div><!-- end table responsive -->
+                                    <table id="scroll-vertical" class="table table-bordered dt-responsive nowrap align-middle mdl-data-table" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Project</th>
+                                                <th>Task</th>
+                                                <th>Client Name</th>
+                                                <th>Assigned To</th>
+                                                <th>Due Date</th>
+                                                <th>Status</th>
+                                                <th>Priority</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>VLZ-452</td>
+                                                <td>Symox v1.0.0</td>
+                                                <td><a href="#!">Add Dynamic Contact List</a></td>
+                                                <td>RH Nichols</td>
+                                                <td>
+                                                    <div class="avatar-group">
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-3.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-3.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>03 Oct, 2021</td>
+                                                <td><span class="badge bg-info-subtle text-info ">Re-open</span></td>
+                                                <td><span class="badge bg-danger">High</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>VLZ-453</td>
+                                                <td>Doot - Chat App Template</td>
+                                                <td><a href="#!">Additional Calendar</a></td>
+                                                <td>Diana Kohler</td>
+                                                <td>
+                                                    <div class="avatar-group">
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-4.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-4.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-5.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-5.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>05 Oct, 2021</td>
+                                                <td><span class="badge bg-secondary-subtle text-secondary ">On-Hold</span></td>
+                                                <td><span class="badge bg-info">Medium</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>VLZ-454</td>
+                                                <td>Qexal - Landing Page</td>
+                                                <td><a href="#!">Make a creating an account profile</a></td>
+                                                <td>David Nichols</td>
+                                                <td>
+                                                    <div class="avatar-group">
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-6.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-6.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-7.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-7.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-8.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-8.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>27 April, 2022</td>
+                                                <td><span class="badge bg-danger-subtle text-danger ">Closed</span></td>
+                                                <td><span class="badge bg-success">Low</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>VLZ-455</td>
+                                                <td>Dorsin - Landing Page</td>
+                                                <td><a href="#!">Apologize for shopping Error!</a></td>
+                                                <td>Tonya Noble</td>
+                                                <td>
+                                                    <div class="avatar-group">
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-6.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-6.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-7.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-7.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>14 June, 2021</td>
+                                                <td><span class="badge bg-warning-subtle text-warning">Inprogress</span></td>
+                                                <td><span class="badge bg-info">Medium</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>VLZ-456</td>
+                                                <td>Minimal - v2.1.0</td>
+                                                <td><a href="#!">Support for theme</a></td>
+                                                <td>Donald Palmer</td>
+                                                <td>
+                                                    <div class="avatar-group">
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-2.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-2.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>25 June, 2021</td>
+                                                <td><span class="badge bg-danger-subtle text-danger ">Closed</span></td>
+                                                <td><span class="badge bg-success">Low</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>VLZ-457</td>
+                                                <td>Dason - v1.0.0</td>
+                                                <td><a href="#!">Benner design for FB & Twitter</a></td>
+                                                <td>Jennifer Carter</td>
+                                                <td>
+                                                    <div class="avatar-group">
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-5.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-5.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-6.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-6.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-7.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-7.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-8.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-8.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>14 Aug, 2021</td>
+                                                <td><span class="badge bg-warning-subtle text-warning">Inprogress</span></td>
+                                                <td><span class="badge bg-info">Medium</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>VLZ-458</td>
+                                                <td>Hybrix v1.6.0</td>
+                                                <td><a href="#!">Add datatables</a></td>
+                                                <td>James Morris</td>
+                                                <td>
+                                                    <div class="avatar-group">
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-4.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-4.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-5.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-5.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>12 March, 2022</td>
+                                                <td><span class="badge bg-primary-subtle text-primary ">Open</span></td>
+                                                <td><span class="badge bg-danger">High</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>VLZ-460</td>
+                                                <td>Skote v2.0.0</td>
+                                                <td><a href="#!">Support for theme</a></td>
+                                                <td>Nancy Martino</td>
+                                                <td>
+                                                    <div class="avatar-group">
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-3.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-3.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-10.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-10.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-9.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-9.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>28 Feb, 2022</td>
+                                                <td><span class="badge bg-secondary-subtle text-secondary ">On-Hold</span></td>
+                                                <td><span class="badge bg-success">Low</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>VLZ-461</td>
+                                                <td>Hybrix v1.0.0</td>
+                                                <td><a href="#!">Form submit issue</a></td>
+                                                <td>Grace Coles</td>
+                                                <td>
+                                                    <div class="avatar-group">
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-5.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-5.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-9.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-9.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-10.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-10.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>07 Jan, 2022</td>
+                                                <td><span class="badge bg-success-subtle text-success ">New</span></td>
+                                                <td><span class="badge bg-danger">High</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>VLZ-462</td>
+                                                <td>Minimal - v2.2.0</td>
+                                                <td><a href="#!">Edit customer testimonial</a></td>
+                                                <td>Freda</td>
+                                                <td>
+                                                    <div class="avatar-group">
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-2.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-2.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>16 Aug, 2021</td>
+                                                <td><span class="badge bg-danger-subtle text-danger ">Closed</span></td>
+                                                <td><span class="badge bg-info">Medium</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>VLZ-454</td>
+                                                <td>Qexal - Landing Page</td>
+                                                <td><a href="#!">Make a creating an account profile</a></td>
+                                                <td>David Nichols</td>
+                                                <td>
+                                                    <div class="avatar-group">
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-6.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-6.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                            
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-7.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-7.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                            
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-8.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-8.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>27 April, 2022</td>
+                                                <td><span class="badge bg-danger-subtle text-danger ">Closed</span></td>
+                                                <td><span class="badge bg-success">Low</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>VLZ-455</td>
+                                                <td>Dorsin - Landing Page</td>
+                                                <td><a href="#!">Apologize for shopping Error!</a></td>
+                                                <td>Tonya Noble</td>
+                                                <td>
+                                                    <div class="avatar-group">
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-6.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-6.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                            
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-7.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-7.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>14 June, 2021</td>
+                                                <td><span class="badge bg-warning-subtle text-warning">Inprogress</span></td>
+                                                <td><span class="badge bg-info">Medium</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>VLZ-456</td>
+                                                <td>Minimal - v2.1.0</td>
+                                                <td><a href="#!">Support for theme</a></td>
+                                                <td>Donald Palmer</td>
+                                                <td>
+                                                    <div class="avatar-group">
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-2.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-2.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>25 June, 2021</td>
+                                                <td><span class="badge bg-danger-subtle text-danger ">Closed</span></td>
+                                                <td><span class="badge bg-success">Low</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>VLZ-457</td>
+                                                <td>Dason - v1.0.0</td>
+                                                <td><a href="#!">Benner design for FB & Twitter</a></td>
+                                                <td>Jennifer Carter</td>
+                                                <td>
+                                                    <div class="avatar-group">
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-5.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-5.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                            
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-6.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-6.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                            
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-7.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-7.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                            
+                                                        <a href="javascript: void(0);" class="avatar-group-item" data-img="avatar-8.jpg" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Username">
+                                                            <img src="assets/images/users/avatar-8.jpg" alt="" class="rounded-circle avatar-xxs">
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>14 Aug, 2021</td>
+                                                <td><span class="badge bg-warning-subtle text-warning">Inprogress</span></td>
+                                                <td><span class="badge bg-info">Medium</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </div><!--end col-->
+                    </div><!--end row-->
 
-                    <div class="row align-items-center mb-4 gy-3">
-                        <div class="col-md-5">
-                            <p class="mb-0 text-muted">Showing <b>1</b> to <b>5</b> of <b>10</b> results</p>
-                        </div>
-                        <div class="col-sm-auto ms-auto">
-                            <nav aria-label="...">
-                                <ul class="pagination mb-0">
-                                    <li class="page-item disabled">
-                                        <span class="page-link">Previous</span>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item" aria-current="page">
-                                        <span class="page-link">2</span>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">Next</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+              
                 </div>
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script> © Invoika.
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Themesbrand
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
-        <!-- end main content-->
-
-    </div>
-    <!-- END layout-wrapper -->
-
-
-
-
-    <!--start back-to-top-->
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
-    <!--end back-to-top-->
-
-    <!--preloader-->
-    <div id="preloader">
-        <div id="status">
-            <div class="spinner-border text-primary avatar-sm" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
-    </div>
-
-    
-
-    <!-- JAVASCRIPT -->
-    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="assets/libs/node-waves/waves.min.js"></script>
-    <script src="assets/libs/feather-icons/feather.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-
-    <!-- Sweet Alerts js -->
-    <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
-
-    <!-- App js -->
-    <script src="assets/js/app.js"></script>
-</body>
-
-
-</html>
+            
+            <?php
+            include "footer.php";
+            ?>

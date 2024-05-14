@@ -8,6 +8,9 @@ CREATE TABLE Equipment_Repair (equipment_repair_id int(11) NOT NULL AUTO_INCREME
 CREATE TABLE Server_Repair (server_repair_id int(11) NOT NULL AUTO_INCREMENT, status varchar(30), priority varchar(30), due_date date, server_id int(11) NOT NULL, updated_at timestamp NULL, PRIMARY KEY (server_repair_id));
 CREATE TABLE Network_Repair (network_repair_id int(11) NOT NULL AUTO_INCREMENT, status varchar(30), priority varchar(30), due_date date, network_id int(11) NOT NULL, updated_at timestamp NULL, PRIMARY KEY (network_repair_id));
 CREATE TABLE Request (request_id int(11) NOT NULL AUTO_INCREMENT, item_name text, description text, status varchar(30), priority varchar(30), user_id int(11) NOT NULL, updated_at timestamp NULL, PRIMARY KEY (request_id));
+CREATE TABLE Equipment_Warranty (equipment_warranty_id int(11) NOT NULL AUTO_INCREMENT, start_date date, end_date date, warranty_provider text comment 'The name of the company or provider offering warranty', warranty_type varchar(30) comment 'Type of warranty(e.g. manufacturer''s warranty, extended warranty)', warranty_details text comment 'Details about what is covered under the warranty', warranty_contact text comment 'Contact information for the warranty provider, email of phone', equipment_id int(11) NOT NULL, updated_at timestamp NULL, PRIMARY KEY (equipment_warranty_id));
+CREATE TABLE Network_Warranty (network_warranty_id int(11) NOT NULL AUTO_INCREMENT, start_date date, end_date date, warranty_provider text, warranty_type varchar(30), warranty_details text, warranty_contact text, network_id int(11) NOT NULL, updated_at timestamp NULL, PRIMARY KEY (network_warranty_id));
+CREATE TABLE Server_Warranty (server_warranty_id int(11) NOT NULL AUTO_INCREMENT, start_date date, end_date date, warranty_provider text, warranty_type varchar(30), warranty_details text, warranty_contact text, server_id int(11) NOT NULL, updated_at timestamp NULL, PRIMARY KEY (server_warranty_id));
 ALTER TABLE `User` ADD CONSTRAINT department_has_user FOREIGN KEY (department_id) REFERENCES Department (department_id);
 ALTER TABLE `User` ADD CONSTRAINT role_has_user FOREIGN KEY (role_id) REFERENCES Role (role_id);
 ALTER TABLE Office_Equipment ADD CONSTRAINT user_has_office_equipment FOREIGN KEY (user_id) REFERENCES `User` (user_id);
@@ -15,3 +18,6 @@ ALTER TABLE Equipment_Repair ADD CONSTRAINT equipment_has_repair FOREIGN KEY (eq
 ALTER TABLE Network_Repair ADD CONSTRAINT network_has_repair FOREIGN KEY (network_id) REFERENCES Network_Equipment (network_id);
 ALTER TABLE Server_Repair ADD CONSTRAINT server_has_repair FOREIGN KEY (server_id) REFERENCES Server (server_id);
 ALTER TABLE Request ADD CONSTRAINT user_has_request FOREIGN KEY (user_id) REFERENCES `User` (user_id);
+ALTER TABLE Equipment_Warranty ADD CONSTRAINT equipment_has_warranty FOREIGN KEY (equipment_id) REFERENCES Office_Equipment (equipment_id);
+ALTER TABLE Network_Warranty ADD CONSTRAINT network_has_warranty FOREIGN KEY (network_id) REFERENCES Network_Equipment (network_id);
+ALTER TABLE Server_Warranty ADD CONSTRAINT server_has_warranty FOREIGN KEY (server_id) REFERENCES Server (server_id);
