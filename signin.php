@@ -30,8 +30,8 @@
     <meta charset="utf-8" />
     <title>Vilcom Networks | Assets IMS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-    <meta content="Themesbrand" name="author" />
+    <meta content="Vilcom Assets Information Management System" name="description" />
+    <meta content="Vilcom Networks" name="Hillary Chesaro" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
@@ -75,7 +75,7 @@
                                                         </div>
                                                     
                                                         <div class="mt-4">
-                                                            <form action="https://themesbrand.com/invoika/layouts/index.html" class="auth-input">
+                                                            <form action="" class="auth-input">
                                                                 <div class="mb-3">
                                                                     <label for="username" class="form-label">Username</label>
                                                                     <input type="text" class="form-control" id="username" placeholder="Enter username">
@@ -105,7 +105,7 @@
                                                                 
                     
                                                                 <div class="mt-4 text-center">
-                                                                    <p class="mb-0">Don't have an account ? <a href="auth-signup.html" class="fw-medium text-info text-decoration-underline"> Signup now </a> </p>
+                                                                    <p class="mb-0">Don't have an account ? <a href="signup.php" class="fw-medium text-info text-decoration-underline"> Signup now </a> </p>
                                                                 </div>
                                                             </form>
                                                         </div>
