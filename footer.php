@@ -88,6 +88,22 @@
     <!-- Sweet Alerts js -->
     <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
 
+    <!-- multi.js -->
+    <script src="assets/libs/multi.js/multi.min.js"></script>
+    <!-- autocomplete js -->
+    <script src="assets/libs/%40tarekraafat/autocomplete.js/autoComplete.min.js"></script>
+
+    <!-- init js -->
+    <script src="assets/js/pages/form-advanced.init.js"></script>
+    <!-- input spin init -->
+    <script src="assets/js/pages/form-input-spin.init.js"></script>
+    <!-- input flag init -->
+    <script src="assets/js/pages/flag-input.init.js"></script>
+
+    <!-- prismjs plugin -->
+    <script src="assets/libs/prismjs/prism.js"></script>
+
+
     <!-- App js -->
     <script src="assets/js/app.js"></script>
 </body>

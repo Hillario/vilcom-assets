@@ -55,7 +55,7 @@
 
                     <div class="row pb-4 gy-3">
                         <div class="col-sm-4">
-                            <a href="#" class="btn btn-primary addMembers-modal"><i class="las la-bullhorn me-1"></i>View Requests</a>
+                            <a href="#" class="btn btn-info addMembers-modal"><i class="las la-bullhorn me-1"></i>View Requests</a>
                         </div>                        
                     </div>
 
@@ -167,7 +167,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title mb-0">Basic Datatables</h5>
+                                    <h5 class="card-title mb-0">All Assets</h5>
                                 </div>
                                 <div class="card-body">
                                     <table id="example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
