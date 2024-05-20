@@ -78,17 +78,17 @@
                                                                 
                                                             <div class="mb-3">
                                                                     <label for="username" class="form-label">First Name</label>
-                                                                    <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                                                    <input type="text" class="form-control" id="username" placeholder="Enter your first name">
                                                                 </div>
 
                                                                 <div class="mb-3">
                                                                     <label for="username" class="form-label">Last Name</label>
-                                                                    <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                                                    <input type="text" class="form-control" id="username" placeholder="Enter your last name">
                                                                 </div>
 
                                                                 <div class="mb-3">
                                                                     <label for="email " class="form-label">Email</label>
-                                                                    <input type="text" class="form-control" id="email" placeholder="Enter email">
+                                                                    <input type="text" class="form-control" id="email" placeholder="Enter company email">
                                                                 </div>
 
                                                                 <div class="mb-2">
@@ -102,7 +102,7 @@
                                                                 <div class="mb-2">
                                                                     <label for="userpassword" class="form-label">Confirm Password</label>
                                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                                        <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input">
+                                                                        <input type="password" class="form-control pe-5 password-input" placeholder="Confirm password" id="password-input">
                                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="las la-eye align-middle fs-18"></i></button>
                                                                    </div>
                                                                 </div>
@@ -179,7 +179,7 @@
                                     
                                     <div class="mt-5 text-center">
                                         <p class="mb-0 text-muted">©
-                                            <script>document.write(new Date().getFullYear())</script>Vilcom Networks Limited.
+                                            <script>document.write(new Date().getFullYear())</script> Vilcom Networks Limited.
                                         </p>
                                     </div>
                                 </div>

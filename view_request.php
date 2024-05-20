@@ -13,9 +13,9 @@
  */
 
 /**
- * index.php
+ * view_request.php
  *
- * This is the homepage of the invoice management system
+ * This file enables the admin to view all requests.
  * 
  * @author Hillary Chesaro
  */
@@ -39,12 +39,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">VILCOM ASSETS INFORMATION MANAGEMENT SYSTEM</h4>
+                                <h4 class="mb-sm-0">VIEW ALL REQUESTS</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                                        <li class="breadcrumb-item active">Dashboard</li>
+                                        <li class="breadcrumb-item active">View Requests</li>
                                     </ol>
                                 </div>
 
@@ -52,115 +52,9 @@
                         </div>
                     </div>
                     <!-- end page title -->
-
-                    <div class="row pb-4 gy-3">
-                        <div class="col-sm-4">
-                            <a href="#" class="btn btn-primary addMembers-modal"><i class="las la-bullhorn me-1"></i>View Requests</a>
-                        </div>                        
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xl-3 col-md-6">
-                            <!-- card -->
-                            <div class="card bg-warning">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1">
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2">Ksh<span class="counter-value" data-target="559.25">0</span>k</h4>
-                                            <p class="text-uppercase fw-medium fs-14 text-muted mb-0">Total Assets
-                                                
-                                            </p>
-                                        </div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <span class="avatar-title bg-light rounded-circle fs-3">
-                                                <i class="las la-layer-group fs-24 text-primary"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <span class="badge bg-info me-1">2,258</span> <span class="text-muted">Total Assets</span>
-                                        </div>
-                                    </div>
-                                </div><!-- end card body -->
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-primary">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1">
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2"><span class="counter-value" data-target="409.66">0</span>k</h4>
-                                            <p class="text-uppercase fw-medium fs-14 text-muted mb-0">Total Repairs
-                                                
-                                            </p>
-                                        </div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <span class="avatar-title bg-light rounded-circle fs-3">
-                                                <i class="las la-tools fs-24 text-primary"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <span class="badge bg-danger me-1">1,958</span> <span class="text-muted">Total Repairs</span>
-                                        </div>
-                                    </div>
-                                </div><!-- end card body -->
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-info">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1">
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2 text-white"><span class="counter-value" data-target="136.98">0</span>k</h4>
-                                            <p class="text-uppercase fw-medium fs-14 text-white-50 mb-0"> Total Requests
-                                                
-                                            </p>
-                                        </div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <span class="avatar-title bg-light-subtle text-light  rounded-circle fs-3">
-                                                <i class="las la-bullhorn fs-24 text-white"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <span class="badge bg-primary me-1">338</span> <span class="text-white">Total Requests</span>
-                                        </div>
-                                    </div>
-                                </div><!-- end card body -->
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-xl-3 col-md-6">
-                            <!-- card -->
-                            <div class="card bg-danger">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1">
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2"><span class="counter-value" data-target="84.20">0</span>k</h4>
-                                            <p class="text-uppercase fw-medium fs-14 text-muted mb-0"> Total Incidents
-                                                
-                                            </p>
-                                        </div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <span class="avatar-title bg-light rounded-circle fs-3">
-                                                <i class="las la-exclamation-triangle fs-24 text-primary"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <span class="badge bg-info me-1">502</span> <span class="text-muted">Total Incidents</span>
-                                        </div>
-                                    </div>
-                                </div><!-- end card body -->
-                            </div><!-- end card -->
-                        </div><!-- end col -->
+                    
+                    <div class="alert alert-info" role="alert">
+                        <strong>Streamlined</strong> purchase tracking and approval
                     </div>
 
                     <div class="row">
