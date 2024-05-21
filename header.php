@@ -607,10 +607,10 @@
                                     <div class="col-lg-4">
                                         <ul class="nav nav-sm flex-column">
                                             <li class="nav-item">
-                                                <a href="ui-alerts.html" class="nav-link" data-key="t-alerts">Add Repair</a>
+                                                <a href="add_equipment_repair.php" class="nav-link" data-key="t-alerts">Add Repair</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="ui-badges.html" class="nav-link" data-key="t-badges">View Repair</a>
+                                                <a href="view_equipment_repair.php" class="nav-link" data-key="t-badges">View Repair</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -627,10 +627,10 @@
                                     <div class="col-lg-4">
                                         <ul class="nav nav-sm flex-column">
                                             <li class="nav-item">
-                                                <a href="ui-alerts.html" class="nav-link" data-key="t-alerts">Add Repair</a>
+                                                <a href="add_network_repairs.php" class="nav-link" data-key="t-alerts">Add Repair</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="ui-badges.html" class="nav-link" data-key="t-badges">View Repair</a>
+                                                <a href="view_network_repairs.php" class="nav-link" data-key="t-badges">View Repair</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -647,10 +647,10 @@
                                     <div class="col-lg-4">
                                         <ul class="nav nav-sm flex-column">
                                             <li class="nav-item">
-                                                <a href="ui-alerts.html" class="nav-link" data-key="t-alerts">Add Repair</a>
+                                                <a href="add_server_repair.php" class="nav-link" data-key="t-alerts">Add Repair</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="ui-badges.html" class="nav-link" data-key="t-badges">View Repair</a>
+                                                <a href="view_server_repair.php" class="nav-link" data-key="t-badges">View Repair</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -667,12 +667,9 @@
                             <div class="collapse menu-dropdown mega-dropdown-menu" id="all_staff">
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <ul class="nav nav-sm flex-column">
+                                        <ul class="nav nav-sm flex-column">                                            
                                             <li class="nav-item">
-                                                <a href="ui-alerts.html" class="nav-link" data-key="t-alerts">Add Staff</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="ui-badges.html" class="nav-link" data-key="t-badges">View Staff</a>
+                                                <a href="view_staff.php" class="nav-link" data-key="t-badges">View Staff</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -691,10 +688,10 @@
                                     <div class="col-lg-4">
                                         <ul class="nav nav-sm flex-column">
                                             <li class="nav-item">
-                                                <a href="ui-alerts.html" class="nav-link" data-key="t-alerts">Add Department</a>
+                                                <a href="add_department.php" class="nav-link" data-key="t-alerts">Add Department</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="ui-badges.html" class="nav-link" data-key="t-badges">View Department</a>
+                                                <a href="view_department.php" class="nav-link" data-key="t-badges">View Department</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -713,10 +710,10 @@
                                     <div class="col-lg-4">
                                         <ul class="nav nav-sm flex-column">
                                             <li class="nav-item">
-                                                <a href="ui-alerts.html" class="nav-link" data-key="t-alerts">Add Role</a>
+                                                <a href="add_role.php" class="nav-link" data-key="t-alerts">Add Role</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="ui-badges.html" class="nav-link" data-key="t-badges">View Role</a>
+                                                <a href="view_role.php" class="nav-link" data-key="t-badges">View Role</a>
                                             </li>
                                         </ul>
                                     </div>

@@ -68,6 +68,17 @@
                                 <div class="card-body">
                                     <div class="row g-3">
                                         <div class="col-lg-6">
+
+                                        
+                                        <div class="mt-3">
+                                                <label class="form-label">Select Network Equipment</label>
+                                                <div class="form-icon">
+                                                <select class="form-select mb-3" aria-label="Default select example">
+                                                    <option selected>HP 830 G6</option>
+                                                    <option value="1">Dell Monitor</option>                                                                                                       
+                                                </select>                                                        
+                                                    </div>
+                                            </div>
                                             
                                         
                                         <div class="mt-3">

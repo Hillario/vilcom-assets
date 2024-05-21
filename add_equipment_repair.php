@@ -13,9 +13,9 @@
  */
 
 /**
- * add_equipment_warranty.php
+ * add_equipment_repair.php
  *
- * This file enables the admin to add office equipment warranties.
+ * This file enables the admin to add office equipment repairs.
  * 
  * @author Hillary Chesaro
  */
@@ -39,12 +39,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">ADD OFFICE EQUIPMENT WARRANTY</h4>
+                                <h4 class="mb-sm-0">ADD OFFICE EQUIPMENT REPAIR</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                                        <li class="breadcrumb-item active">Add Office Equipment Warranty</li>
+                                        <li class="breadcrumb-item active">Add Office Equipment Repair</li>
                                     </ol>
                                 </div>
 
@@ -54,21 +54,21 @@
                     <!-- end page title -->
                     
                     <div class="alert alert-info" role="alert">
-                        <strong>Seamlessly</strong> add office equipment warranty with ease
+                        <strong>Seamlessly</strong> add office equipment repair with ease
                     </div>
 
-                    <!-- Add office equipment warranty form-->
+                    <!-- Add office equipment repair form-->
 
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title mb-0">Add office equipment warranty form</h4>
+                                    <h4 class="card-title mb-0">Add office equipment repair form</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="row g-3">
-                                        <div class="col-lg-6">
-
+                                        <div class="col-lg-6">  
+                                            
                                         <div class="mt-3">
                                                 <label class="form-label">Select Staff</label>
                                                 <div class="form-icon">
@@ -88,70 +88,54 @@
                                                 </select>                                                        
                                                     </div>
                                             </div>
-                                            
+                                          
                                         
-                                        <div class="mt-3">
-                                                <label class="form-label">Start Date</label>
-                                                <div>                                                    
-                                                    <input type="date" class="form-control" id="exampleInputdate">
-                                                </div>
+                                       
+
+                                            <div class="mt-3">
+                                                <label class="form-label">Status</label>
+                                                <div class="form-icon">
+                                                <select class="form-select mb-3" aria-label="Default select example">
+                                                    <option selected>Pending Assessment</option>
+                                                    <option value="1">Under Inspection</option>
+                                                    <option value="1">Awaiting parts</option>
+                                                    <option value="1">In Repair</option>
+                                                    <option value="1">Repaired</option>
+                                                    <option value="1">Testing</option>
+                                                    <option value="1">Ready for Pickup</option>
+                                                    <option value="1">Completed</option>
+                                                    <option value="1">Not Repairable</option>
+                                                    <option value="1">Replacement Recommended</option>
+                                                    <option value="1">On Hold</option>
+                                                    <option value="1">Canceled</option>                                                    
+                                                </select>                                                        
+                                                    </div>
                                             </div>
                                             
                                             <div class="mt-3">
-                                                <label class="form-label">End Date</label>
+                                                <label class="form-label">Priority</label>
+                                                <div class="form-icon">
+                                                <select class="form-select mb-3" aria-label="Default select example">
+                                                    <option selected>Low</option>
+                                                    <option value="1">Medium</option>
+                                                    <option value="1">High</option>
+                                                    <option value="1">Critical</option>
+                                                    <option value="1">Urgent</option>                                                                                                        
+                                                </select>                                                        
+                                                    </div>
+                                            </div> 
+
+                                            <div class="mt-3">
+                                                <label class="form-label">Due Date</label>
                                                 <div>                                                    
                                                     <input type="date" class="form-control" id="exampleInputdate">
                                                 </div>
                                             </div>
                                            
-                                        </div>
+                                                                                   
 
-                                        <div class="col-lg-6">
-
-
-
-                                            <div class="mt-3">
-                                                <label class="form-label">Warranty Type</label>
-                                                <div class="form-icon">
-                                                <select class="form-select mb-3" aria-label="Default select example">
-                                                    <option selected>Manufacturer's Warranty</option>
-                                                    <option value="1">Extended Warranty</option>
-                                                    <option value="1">On-Site Warranty</option>
-                                                    <option value="1">Parts-Only Warranty</option>
-                                                    <option value="1">Limited Warranty</option>
-                                                    <option value="1">Lifetime Warranty</option>
-                                                    <option value="1">Service Contract</option>
-                                                    <option value="1">RMA Warranty</option>
-                                                    <option value="1">Third-Party Warranty</option>
-                                                    <option value="1">Software Warranty</option>                                                    
-                                                </select>                                                        
-                                                    </div>
-                                            </div>
-
-                                            <div class="mt-3">
-                                                <label class="form-label">Warranty Details</label>
-                                                <div class="form-icon">
-                                                        <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="Enter warranty details">
-                                                        <i class="ri-book-read-line"></i>
-                                                    </div>
-                                            </div>
-
-                                            <div class="mt-3">
-                                                <label class="form-label">Warranty Contact</label>
-                                                <div class="form-icon">
-                                                        <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="Enter details of the warranty contact">
-                                                        <i class="ri-contacts-book-3-line"></i>
-                                                    </div>
-                                            </div>
-                                            
-                                            <div class="mt-3">
-                                                <label class="form-label">Warranty Provider</label>
-                                                <div class="form-icon">
-                                                        <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="Enter details of the warranty provider">
-                                                        <i class="ri-home-office-line"></i>
-                                                    </div>
-                                            </div>  
-                                        </div>
+                                           
+                                        </div>                                        
 
                                         <div class="text-end">
                                                         <button type="submit" class="btn btn-info">Submit</button>
@@ -166,7 +150,7 @@
                     </div>
                     <!-- end row -->
 
-                    <!-- Add office equipment warranty form-->
+                    <!-- Add office equipment repair form-->
 
               
                 </div>
