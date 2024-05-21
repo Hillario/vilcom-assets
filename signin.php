@@ -77,8 +77,8 @@
                                                         <div class="mt-4">
                                                             <form action="" class="auth-input">
                                                                 <div class="mb-3">
-                                                                    <label for="username" class="form-label">Username</label>
-                                                                    <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                                                    <label for="username" class="form-label">Email</label>
+                                                                    <input type="text" class="form-control" id="username" placeholder="Enter company email">
                                                                 </div>
                                         
                                                                 <div class="mb-2">

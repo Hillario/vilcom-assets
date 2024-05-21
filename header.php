@@ -509,10 +509,10 @@
                             <div class="collapse menu-dropdown" id="network_equipment">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link" data-key="t-signin">Add Equipment</a>
+                                        <a href="add_network_equipment.php" class="nav-link" data-key="t-signin">Add Equipment</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link" data-key="t-signup">View Equipment</a>
+                                        <a href="view_network_equipment.php" class="nav-link" data-key="t-signup">View Equipment</a>
                                     </li>
                                 </ul>
                             </div>
@@ -525,10 +525,10 @@
                             <div class="collapse menu-dropdown" id="server_equipment">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link" data-key="t-signin">Add Equipment</a>
+                                        <a href="add_server_equipment.php" class="nav-link" data-key="t-signin">Add Equipment</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link" data-key="t-signup">View Equipment</a>
+                                        <a href="view_server_equipment.php" class="nav-link" data-key="t-signup">View Equipment</a>
                                     </li>
                                 </ul>
                             </div>
@@ -545,10 +545,10 @@
                                     <div class="col-lg-4">
                                         <ul class="nav nav-sm flex-column">
                                             <li class="nav-item">
-                                                <a href="ui-alerts.html" class="nav-link" data-key="t-alerts">Add Warranty</a>
+                                                <a href="add_equipment_warranty.php" class="nav-link" data-key="t-alerts">Add Warranty</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="ui-badges.html" class="nav-link" data-key="t-badges">View Warranty</a>
+                                                <a href="view_equipment_warranty.php" class="nav-link" data-key="t-badges">View Warranty</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -565,10 +565,10 @@
                                     <div class="col-lg-4">
                                         <ul class="nav nav-sm flex-column">
                                             <li class="nav-item">
-                                                <a href="ui-alerts.html" class="nav-link" data-key="t-alerts">Add Warranty</a>
+                                                <a href="add_network_warranty.php" class="nav-link" data-key="t-alerts">Add Warranty</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="ui-badges.html" class="nav-link" data-key="t-badges">View Warranty</a>
+                                                <a href="view_network_warranty.php" class="nav-link" data-key="t-badges">View Warranty</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -585,10 +585,10 @@
                                     <div class="col-lg-4">
                                         <ul class="nav nav-sm flex-column">
                                             <li class="nav-item">
-                                                <a href="ui-alerts.html" class="nav-link" data-key="t-alerts">Add Warranty</a>
+                                                <a href="add_server_warranty.php" class="nav-link" data-key="t-alerts">Add Warranty</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="ui-badges.html" class="nav-link" data-key="t-badges">View Warranty</a>
+                                                <a href="view_server_warranty.php" class="nav-link" data-key="t-badges">View Warranty</a>
                                             </li>
                                         </ul>
                                     </div>

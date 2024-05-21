@@ -13,9 +13,9 @@
  */
 
 /**
- * view_incident.php
+ * view_network_equipment.php
  *
- * This file enables the admin to view all incidents.
+ * This file enables the admin to view all network equipments.
  * 
  * @author Hillary Chesaro
  */
@@ -39,12 +39,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">VIEW OFFICE EQUIPMENTS</h4>
+                                <h4 class="mb-sm-0">VIEW NETWORK EQUIPMENTS</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                                        <li class="breadcrumb-item active">View Office Equipments</li>
+                                        <li class="breadcrumb-item active">View Network Equipments</li>
                                     </ol>
                                 </div>
 
@@ -54,14 +54,14 @@
                     <!-- end page title -->
                     
                     <div class="alert alert-info" role="alert">
-                        <strong>View</strong> and <b>Update</b> office equipments
+                        <strong>View</strong> and <b>Update</b> network equipments
                     </div>
 
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title mb-0">Office Equipments</h5>
+                                    <h5 class="card-title mb-0">Network Equipments</h5>
                                 </div>
                                 <div class="card-body">
                                     <table id="example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">

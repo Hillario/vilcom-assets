@@ -13,9 +13,9 @@
  */
 
 /**
- * add_equipment.php
+ * add_network_equipment.php
  *
- * This file enables the admin to add office equipment.
+ * This file enables the admin to add network equipment.
  * 
  * @author Hillary Chesaro
  */
@@ -39,12 +39,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">ADD OFFICE EQUIPMENT</h4>
+                                <h4 class="mb-sm-0">ADD NETWORK EQUIPMENT</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                                        <li class="breadcrumb-item active">Add Office Equipment</li>
+                                        <li class="breadcrumb-item active">Add Network Equipment</li>
                                     </ol>
                                 </div>
 
@@ -54,7 +54,7 @@
                     <!-- end page title -->
                     
                     <div class="alert alert-info" role="alert">
-                        <strong>Seamlessly</strong> add office equipment with ease
+                        <strong>Seamlessly</strong> add network equipment with ease
                     </div>
 
                     <!-- Add office equipment form-->
@@ -63,7 +63,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title mb-0">Add office equipment form</h4>
+                                    <h4 class="card-title mb-0">Add network equipment form</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="row g-3">
@@ -106,23 +106,23 @@
                                                         <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="Enter Serial Number">
                                                         <i class="ri-hashtag"></i>
                                                     </div>
-                                            </div>
-
-                                            <div class="mt-3">
-                                                <label class="form-label">Mouse Assigned</label>
-                                                <div class="form-icon">
-                                                <select class="form-select mb-3" aria-label="Default select example">
-                                                    <option selected>Yes</option>
-                                                    <option value="1">No</option>                                                    
-                                                </select>                                                        
-                                                    </div>
-                                            </div>
+                                            </div>                                            
 
                                             <div class="mt-3">
                                                 <label class="form-label">Purchase Cost</label>
                                                 <div class="form-icon">
                                                         <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="Enter Purchase Cost">
                                                         <i class="ri-wallet-3-fill"></i>
+                                                    </div>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <label class="form-label">Origin</label>
+                                                <div class="form-icon">
+                                                <select class="form-select mb-3" aria-label="Default select example">
+                                                    <option selected>Vilcom</option>
+                                                    <option value="1">Geonet</option>                                                    
+                                                </select>                                                        
                                                     </div>
                                             </div>
 
@@ -175,17 +175,7 @@
                                                 <div>                                                    
                                                     <input type="date" class="form-control" id="exampleInputdate">
                                                 </div>
-                                            </div>
-
-                                            <div class="mt-3">
-                                                <label class="form-label">Origin</label>
-                                                <div class="form-icon">
-                                                <select class="form-select mb-3" aria-label="Default select example">
-                                                    <option selected>Vilcom</option>
-                                                    <option value="1">Geonet</option>                                                    
-                                                </select>                                                        
-                                                    </div>
-                                            </div>
+                                            </div>                                            
                                         </div>
 
                                         <div class="text-end">

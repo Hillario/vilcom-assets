@@ -55,7 +55,7 @@
 
                     <div class="row pb-4 gy-3">
                         <div class="col-sm-4">
-                            <a href="#" class="btn btn-info addMembers-modal"><i class="las la-bullhorn me-1"></i>View Requests</a>
+                            <a href="view_request.php" class="btn btn-info addMembers-modal"><i class="las la-bullhorn me-1"></i>View Requests</a>
                         </div>                        
                     </div>
 
