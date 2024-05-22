@@ -64,11 +64,11 @@
     
 
     <!-- JAVASCRIPT -->
-    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="assets/libs/node-waves/waves.min.js"></script>
-    <script src="assets/libs/feather-icons/feather.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
+    <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="../assets/libs/node-waves/waves.min.js"></script>
+    <script src="../assets/libs/feather-icons/feather.min.js"></script>
+    <script src="../assets/js/plugins.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
@@ -83,29 +83,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 
-    <script src="assets/js/pages/datatables.init.js"></script>
+    <script src="../assets/js/pages/datatables.init.js"></script>
 
     <!-- Sweet Alerts js -->
-    <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
+    <script src="../assets/libs/sweetalert2/sweetalert2.min.js"></script>
 
     <!-- multi.js -->
-    <script src="assets/libs/multi.js/multi.min.js"></script>
+    <script src="../assets/libs/multi.js/multi.min.js"></script>
     <!-- autocomplete js -->
-    <script src="assets/libs/%40tarekraafat/autocomplete.js/autoComplete.min.js"></script>
+    <script src="../assets/libs/%40tarekraafat/autocomplete.js/autoComplete.min.js"></script>
 
     <!-- init js -->
-    <script src="assets/js/pages/form-advanced.init.js"></script>
+    <script src="../assets/js/pages/form-advanced.init.js"></script>
     <!-- input spin init -->
-    <script src="assets/js/pages/form-input-spin.init.js"></script>
+    <script src="../assets/js/pages/form-input-spin.init.js"></script>
     <!-- input flag init -->
-    <script src="assets/js/pages/flag-input.init.js"></script>
+    <script src="../assets/js/pages/flag-input.init.js"></script>
 
     <!-- prismjs plugin -->
-    <script src="assets/libs/prismjs/prism.js"></script>
+    <script src="../assets/libs/prismjs/prism.js"></script>
 
 
     <!-- App js -->
-    <script src="assets/js/app.js"></script>
+    <script src="../assets/js/app.js"></script>
 </body>
 
 
