@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         header('Location:hod/index.php');
                     }elseif($role_id=3)
                     {
-                        header('Location:index.php');
+                        header('Location:management/index.php');
                     }elseif($role_id=4)
                     {
                         header('Location:index.php');
