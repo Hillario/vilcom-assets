@@ -19,11 +19,23 @@
  * 
  * @author Hillary Chesaro
  */
+//include the Database API
+include "../api/MySql.php";
+//include the session manager API
+include "../api/session_manager.php";
 
- include "../api/MySql.php";
+//instantiate the database
+$db=new MySql();
 
- //instantiate the database
- $db=new MySql();
+if (loggedin()) {
+   $user_id=($_SESSION['user_id']);
+   $un1=($_SESSION['userf']);
+   $un2=($_SESSION['userl']);
+   $role_id=($_SESSION['role_id']);   
+   $mymail= ($_SESSION['ml']);
+}else{
+   header('Location:../signin.php');
+}
 
 ?>
 
@@ -360,20 +372,17 @@
                         <div class="dropdown header-item">
                             <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="d-flex align-items-center">
-                                    <img class="rounded-circle header-profile-user" src="../assets/images/users/avatar-4.jpg" alt="Header Avatar">
+                                    <img class="rounded-circle header-profile-user" src="../assets/images/users/user.png" alt="Header Avatar">
                                     <span class="text-start ms-xl-2">
-                                        <span class="d-none d-xl-inline-block fw-medium user-name-text fs-16">Calvin D. <i class="las la-angle-down fs-12 ms-1"></i></span>
+                                        <span class="d-none d-xl-inline-block fw-medium user-name-text fs-16"><?php echo $un1." ".$un2?><i class="las la-angle-down fs-12 ms-1"></i></span>
                                     </span>
                                 </span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
-                                <a class="dropdown-item" href="#"><i class="bx bx-user fs-15 align-middle me-1"></i> <span key="t-profile">Profile</span></a>
-                                <a class="dropdown-item" href="#"><i class="bx bx-wallet fs-15 align-middle me-1"></i> <span key="t-my-wallet">My Wallet</span></a>
-                                <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench fs-15 align-middle me-1"></i> <span key="t-settings">Settings</span></a>
-                                <a class="dropdown-item" href="auth-lockscreen.html"><i class="bx bx-lock-open fs-15 align-middle me-1"></i> <span key="t-lock-screen">Lock screen</span></a>
+                                <a class="dropdown-item" href="#"><i class="bx bx-user fs-15 align-middle me-1"></i> <span key="t-profile">Profile</span></a>                                
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item text-danger" href="#"><i class="bx bx-power-off fs-15 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
+                                <a class="dropdown-item text-danger" href="../logout.php"><i class="bx bx-power-off fs-15 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
                             </div>
                         </div>
                     </div>
@@ -686,10 +695,7 @@
                             <div class="collapse menu-dropdown mega-dropdown-menu" id="all_departments">
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <ul class="nav nav-sm flex-column">
-                                            <li class="nav-item">
-                                                <a href="add_department.php" class="nav-link" data-key="t-alerts">Add Department</a>
-                                            </li>
+                                        <ul class="nav nav-sm flex-column">                                            
                                             <li class="nav-item">
                                                 <a href="view_department.php" class="nav-link" data-key="t-badges">View Department</a>
                                             </li>
@@ -708,10 +714,7 @@
                             <div class="collapse menu-dropdown mega-dropdown-menu" id="all_roles">
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <ul class="nav nav-sm flex-column">
-                                            <li class="nav-item">
-                                                <a href="add_role.php" class="nav-link" data-key="t-alerts">Add Role</a>
-                                            </li>
+                                        <ul class="nav nav-sm flex-column">                                            
                                             <li class="nav-item">
                                                 <a href="view_role.php" class="nav-link" data-key="t-badges">View Role</a>
                                             </li>

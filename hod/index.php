@@ -15,7 +15,7 @@
 /**
  * index.php
  *
- * This is the homepage of the invoice management system
+ * This is the HOD homepage of the invoice management system
  * 
  * @author Hillary Chesaro
  */
