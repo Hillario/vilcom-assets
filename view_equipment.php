@@ -122,10 +122,10 @@
                                                 <?php
                                   if($row['mouse_assigned']=='Yes')
                                   {
-                                    echo '<td><span class="badge bg-primary-subtle text-info ">'.$row['mouse_assigned'].'</span></td>';                                    
+                                    echo '<td><span class="badge bg-primary-subtle text-primary ">'.$row['mouse_assigned'].'</span></td>';                                    
                                   }else
                                   {
-                                    echo '<td><span class="badge bg-danger-subtle text-info ">'.$row['mouse_assigned'].'</span></td>';
+                                    echo '<td><span class="badge bg-danger-subtle text-danger ">'.$row['mouse_assigned'].'</span></td>';
                                   }
                                   ?>
                                   <td><?php echo $row['date_issued'];?></td>
