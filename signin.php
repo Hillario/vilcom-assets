@@ -66,13 +66,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if($role_id==1)
                     {
                         header('Location:staff/index.php');
-                    }elseif($role_id=2)
+                    }elseif($role_id==2)
                     {
                         header('Location:hod/index.php');
-                    }elseif($role_id=3)
+                    }elseif($role_id==3)
                     {
                         header('Location:management/index.php');
-                    }elseif($role_id=4)
+                    }elseif($role_id==4)
                     {
                         header('Location:index.php');
                     }
@@ -126,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="d-flex flex-column h-100 py-0 py-xl-4">
 
                                 <div class="text-center mb-5">
-                                    <a href="index.html">
+                                    <a href="#">
                                         <span class="logo-lg">
                                             <img src="assets/images/logo-dark.png" alt="" height="21">
                                         </span>

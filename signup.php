@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error[] = 'Please choose your role';
     }
     if (empty($_POST["password"])) {
-        $error[] = 'Please your password';
+        $error[] = 'Please enter your password';
     }
     if (empty($_POST["passwordconf"])) {
         $error[] = 'Please confirm your password';
@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="d-flex flex-column h-100 py-0 py-xl-4">
 
                                 <div class="text-center mb-5">
-                                    <a href="index.html">
+                                    <a href="#">
                                         <span class="logo-lg">
                                             <img src="assets/images/logo-dark.png" alt="" height="21">
                                         </span>
