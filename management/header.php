@@ -665,7 +665,26 @@ if (loggedin()) {
                                     </div>
                                 </div>
                             </div>
-                        </li>                        
+                        </li>
+                        
+                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Invoices</span></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#invoices" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInvoiceManagement">
+                                <i class="las la-file-alt"></i> <span data-key="t-invoices">Generate Invoices</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="invoices">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="add_equipment.php" class="nav-link" data-key="t-invoice"> Add Invoice </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="view_equipment.php" class="nav-link" data-key="t-add-invoice"> View Invoice </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
 
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Staff</span></li>
 

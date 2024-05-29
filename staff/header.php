@@ -453,29 +453,7 @@
                             <a class="nav-link menu-link" href="index.php">
                                 <i class="las la-house-damage"></i> <span data-key="t-dashboard">Dashboard</span>
                             </a>
-                        </li>
-
-                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Incidents</span></li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#all_incidents" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarUI">
-                                <i class="las la-exclamation-triangle"></i> <span data-key="t-bootstrap-ui">Report Incident</span>
-                            </a>
-                            <div class="collapse menu-dropdown mega-dropdown-menu" id="all_incidents">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <ul class="nav nav-sm flex-column">                                            
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link" data-key="t-badges">Add Incident</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link" data-key="t-badges">View Incident</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                        </li>                        
 
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Requests</span></li>
 
@@ -519,13 +497,35 @@
     </div>
 </li>
 
+<li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Incidents</span></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#all_incidents" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarUI">
+                                <i class="las la-exclamation-triangle"></i> <span data-key="t-bootstrap-ui">Report Incident</span>
+                            </a>
+                            <div class="collapse menu-dropdown mega-dropdown-menu" id="all_incidents">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <ul class="nav nav-sm flex-column">                                            
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link" data-key="t-badges">Add Incident</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link" data-key="t-badges">View Incident</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Invoices</span></li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="#office_equipment" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInvoiceManagement">
-                                <i class="las la-briefcase"></i> <span data-key="t-invoices">Generate Invoices</span>
+                            <a class="nav-link menu-link" href="#invoices" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInvoiceManagement">
+                                <i class="las la-file-alt"></i> <span data-key="t-invoices">Generate Invoices</span>
                             </a>
-                            <div class="collapse menu-dropdown" id="office_equipment">
+                            <div class="collapse menu-dropdown" id="invoices">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
                                         <a href="add_equipment.php" class="nav-link" data-key="t-invoice"> Add Invoice </a>

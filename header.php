@@ -57,6 +57,9 @@ else{
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
+    <!-- dropzone css -->
+    <link rel="stylesheet" href="assets/libs/dropzone/dropzone.css" type="text/css" />
+
     <!--datatable css-->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
     <!--datatable responsive css-->
@@ -668,7 +671,26 @@ else{
                                     </div>
                                 </div>
                             </div>
-                        </li>                        
+                        </li>
+                        
+                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Invoices</span></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#invoices" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInvoiceManagement">
+                                <i class="las la-file-alt"></i> <span data-key="t-invoices">Generate Invoices</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="invoices">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="add_invoice.php" class="nav-link" data-key="t-invoice"> Add Invoice </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="view_invoice.php" class="nav-link" data-key="t-add-invoice"> View Invoice </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
 
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Staff</span></li>
 
