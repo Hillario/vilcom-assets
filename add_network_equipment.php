@@ -1,7 +1,7 @@
 <?php
 
 /**
- * vilcom networks invoice management system
+ * vilcom networks asset information management system
  *
  * PHP version 8.2.12
  *

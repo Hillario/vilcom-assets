@@ -13,9 +13,9 @@
  */
 
 /**
- * add_equipment.php
+ * add_incident.php
  *
- * This file enables the admin to add office equipment.
+ * This file enables the staff to report an incident.
  * 
  * @author Hillary Chesaro
  */
@@ -23,14 +23,14 @@
  include "header.php";
 
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $system_name = trim($_POST['system_name']);
-    $system_manufacturer = trim($_POST['system_manufacturer']);
-    $system_model = trim($_POST['system_model']);
-    $system_sku = trim($_POST['system_sku']);
-    $processor = trim($_POST['processor']);
-    $baseboard_product = trim($_POST['baseboard_product']);
-    $installed_ram = trim($_POST['installed_ram']);
-    $storage_medium = trim($_POST['storage_medium']);
+    $incident_date = trim($_POST['incident_date']);
+    $type_of_incident = trim($_POST['type_of_incident']);
+    $source = trim($_POST['source']);
+    $process = trim($_POST['process']);
+    $priority = trim($_POST['priority']);
+    $status = trim($_POST['status']);
+    $description = trim($_POST['description']);
+    $root_cause = trim($_POST['root_cause']);
     $serial_number = trim($_POST['serial_number']);
     $charger = trim($_POST['charger']);
     $mouse_assigned = trim($_POST['mouse_assigned']);
@@ -134,7 +134,7 @@
                     <!-- end page title -->
                     
                     <div class="alert alert-info" role="alert">
-                        <strong>Seamlessly</strong> add office equipment with ease
+                        <strong>Seamlessly</strong> report equipment incident
                     </div>
 
                     <!-- Add office equipment form-->
@@ -143,21 +143,21 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title mb-0">Add office equipment form</h4>
+                                    <h4 class="card-title mb-0">Report Incident form</h4>
                                 </div>
                                 <form action="" method="POST" class="auth-input" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <div class="row g-3">
                                         <div class="col-lg-6">
                                         <div class="mt-3">
-                                                            <label class="form-label">Choose Staff</label>
+                                                            <label class="form-label">Choose Equipment</label>
                                                             <div class="form-icon">
                                                                 <select name="staff" id="staff" class="form-select mb-3" aria-label="Default select example">
                                                                     <?php
-                                                                    $squery = "SELECT * FROM user";
-                                                                    $ssquery = $db->select($squery);
-                                                                    foreach ($ssquery as $row) {
-                                                                        echo '<option value="' . $row['user_id'] . '">' . $row['first_name']." ".$row['last_name'] . '</option>';
+                                                                    $equipmentQuery = "SELECT * FROM office_equipment WHERE user_id=$user_id";
+                                                                    $equipmentSelect = $db->select($equipmentQuery);
+                                                                    foreach ($equipmentSelect as $row) {
+                                                                        echo '<option value="' . $row['equipment_id'] . '">' . $row['system_name'].'</option>';
                                                                     }
                                                                     ?>
                                                                 </select>

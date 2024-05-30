@@ -1,6 +1,6 @@
 <?php
 /**
- * vilcom networks invoice management system
+ * vilcom networks asset information management system
  *
  * PHP version 8.2.12
  *
@@ -60,19 +60,19 @@
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
                                             <h4 class="fs-22 fw-semibold ff-secondary mb-2">Ksh<span class="counter-value" data-target="559.25">0</span>k</h4>
-                                            <p class="text-uppercase fw-medium fs-14 text-muted mb-0">Total Assets
+                                            <p class="text-uppercase fw-medium fs-14 text-muted mb-0">Invoices Generated
                                                 
                                             </p>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-light rounded-circle fs-3">
-                                                <i class="las la-layer-group fs-24 text-primary"></i>
+                                                <i class="las la-file-code fs-24 text-primary"></i>
                                             </span>
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <span class="badge bg-info me-1">2,258</span> <span class="text-muted">Total Assets</span>
+                                            <span class="badge bg-info me-1">2,258</span> <span class="text-muted">Invoices Generated</span>
                                         </div>
                                     </div>
                                 </div><!-- end card body -->
@@ -84,20 +84,20 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2"><span class="counter-value" data-target="409.66">0</span>k</h4>
-                                            <p class="text-uppercase fw-medium fs-14 text-muted mb-0">Total Repairs
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2">Ksh<span class="counter-value" data-target="409.66">0</span>k</h4>
+                                            <p class="text-uppercase fw-medium fs-14 text-muted mb-0">Paid Invoices
                                                 
                                             </p>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-light rounded-circle fs-3">
-                                                <i class="las la-tools fs-24 text-primary"></i>
+                                                <i class="las la-file-powerpoint fs-24 text-primary"></i>
                                             </span>
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <span class="badge bg-danger me-1">1,958</span> <span class="text-muted">Total Repairs</span>
+                                            <span class="badge bg-danger me-1">1,958</span> <span class="text-muted">Paid Invoices</span>
                                         </div>
                                     </div>
                                 </div><!-- end card body -->
@@ -109,20 +109,20 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2 text-white"><span class="counter-value" data-target="136.98">0</span>k</h4>
-                                            <p class="text-uppercase fw-medium fs-14 text-white-50 mb-0"> Total Requests
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2 text-white">Ksh<span class="counter-value" data-target="136.98">0</span>k</h4>
+                                            <p class="text-uppercase fw-medium fs-14 text-white-50 mb-0"> Unpaid Invoices
                                                 
                                             </p>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-light-subtle text-light  rounded-circle fs-3">
-                                                <i class="las la-bullhorn fs-24 text-white"></i>
+                                                <i class="las la-file-archive fs-24 text-white"></i>
                                             </span>
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <span class="badge bg-primary me-1">338</span> <span class="text-white">Total Requests</span>
+                                            <span class="badge bg-primary me-1">338</span> <span class="text-white">Unpaid Invoices</span>
                                         </div>
                                     </div>
                                 </div><!-- end card body -->
@@ -135,20 +135,20 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2"><span class="counter-value" data-target="84.20">0</span>k</h4>
-                                            <p class="text-uppercase fw-medium fs-14 text-muted mb-0"> Total Incidents
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2">Ksh<span class="counter-value" data-target="84.20">0</span>k</h4>
+                                            <p class="text-uppercase fw-medium fs-14 text-muted mb-0"> Cancelled Invoices
                                                 
                                             </p>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-light rounded-circle fs-3">
-                                                <i class="las la-exclamation-triangle fs-24 text-primary"></i>
+                                                <i class="las la-file-excel fs-24 text-primary"></i>
                                             </span>
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <span class="badge bg-info me-1">502</span> <span class="text-muted">Total Incidents</span>
+                                            <span class="badge bg-info me-1">502</span> <span class="text-muted">Cancelled Invoices</span>
                                         </div>
                                     </div>
                                 </div><!-- end card body -->
@@ -160,7 +160,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title mb-0">Incidents</h5>
+                                    <h5 class="card-title mb-0">View Invoices</h5>
                                 </div>
                                 <div class="card-body">
                                     <table id="example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">

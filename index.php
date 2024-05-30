@@ -1,7 +1,7 @@
 <?php
 
 /**
- * vilcom networks invoice management system
+ * vilcom networks asset information management system
  *
  * PHP version 8.2.12
  *
@@ -95,7 +95,7 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2"><span class="counter-value" data-target="409.66">0</span>k</h4>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2">Ksh<span class="counter-value" data-target="409.66">0</span>k</h4>
                                             <p class="text-uppercase fw-medium fs-14 text-muted mb-0">Total Repairs
                                                 
                                             </p>
@@ -120,7 +120,7 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2 text-white"><span class="counter-value" data-target="136.98">0</span>k</h4>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2 text-white">Ksh<span class="counter-value" data-target="136.98">0</span>k</h4>
                                             <p class="text-uppercase fw-medium fs-14 text-white-50 mb-0"> Total Requests
                                                 
                                             </p>
@@ -146,7 +146,7 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2"><span class="counter-value" data-target="84.20">0</span>k</h4>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2">Ksh<span class="counter-value" data-target="84.20">0</span>k</h4>
                                             <p class="text-uppercase fw-medium fs-14 text-muted mb-0"> Total Incidents
                                                 
                                             </p>
