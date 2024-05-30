@@ -508,7 +508,7 @@
                                     <div class="col-lg-4">
                                         <ul class="nav nav-sm flex-column">                                            
                                             <li class="nav-item">
-                                                <a href="#" class="nav-link" data-key="t-badges">Add Incident</a>
+                                                <a href="add_incident.php" class="nav-link" data-key="t-badges">Add Incident</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a href="#" class="nav-link" data-key="t-badges">View Incident</a>

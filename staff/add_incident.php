@@ -31,75 +31,56 @@
     $status = trim($_POST['status']);
     $description = trim($_POST['description']);
     $root_cause = trim($_POST['root_cause']);
-    $serial_number = trim($_POST['serial_number']);
-    $charger = trim($_POST['charger']);
-    $mouse_assigned = trim($_POST['mouse_assigned']);
-    $date_issued = trim($_POST['date_issued']);
-    $purchase_cost = trim($_POST['purchase_cost']);
-    $origin = trim($_POST['origin']);
-    $staff = trim($_POST['staff']);
+    $action_plan = trim($_POST['action_plan']);
+    $date_action_completed = trim($_POST['date_action_completed']);
+    $equipment = trim($_POST['equipment']);
     
-    if (isset($_POST['system_name'])) $system_name = $_POST['system_name'];
-    if (isset($_POST['system_manufacturer'])) $system_manufacturer = $_POST['system_manufacturer'];
-    if (isset($_POST['system_model'])) $system_model = $_POST['system_model'];
-    if (isset($_POST['system_sku'])) $system_sku= $_POST['system_sku'];
-    if (isset($_POST['processor'])) $processor = $_POST['processor'];
-    if (isset($_POST['baseboard_product'])) $baseboard_product = $_POST['baseboard_product'];
-    if (isset($_POST['installed_ram'])) $installed_ram = $_POST['installed_ram'];
-    if (isset($_POST['storage_medium'])) $storage_medium = $_POST['storage_medium'];
-    if (isset($_POST['serial_number'])) $serial_number = $_POST['serial_number'];
-    if (isset($_POST['charger'])) $charger = $_POST['charger'];
-    if (isset($_POST['mouse_assigned'])) $mouse_assigned = $_POST['mouse_assigned'];
-    if (isset($_POST['date_issued'])) $date_issued = $_POST['date_issued'];
-    if (isset($_POST['purchase_cost'])) $purchase_cost = $_POST['purchase_cost'];
-    if (isset($_POST['origin'])) $origin = $_POST['origin'];
-    if (isset($_POST['staff'])) $staff = $_POST['staff'];
+    if (isset($_POST['incident_date'])) $incident_date = $_POST['incident_date'];
+    if (isset($_POST['type_of_incident'])) $type_of_incident = $_POST['type_of_incident'];
+    if (isset($_POST['source'])) $source = $_POST['source'];
+    if (isset($_POST['process'])) $process= $_POST['process'];
+    if (isset($_POST['priority'])) $priority = $_POST['priority'];
+    if (isset($_POST['status'])) $status = $_POST['status'];
+    if (isset($_POST['description'])) $description = $_POST['description'];
+    if (isset($_POST['root_cause'])) $root_cause = $_POST['root_cause'];
+    if (isset($_POST['action_plan'])) $action_plan = $_POST['action_plan'];
+    if (isset($_POST['date_action_completed'])) $date_action_completed = $_POST['date_action_completed'];
+    if (isset($_POST['equipment'])) $equipment = $_POST['equipment'];
+    
     $error = array();
-    if (empty($_POST["system_name"])) {
-        $error[] = 'Please enter the system name';
+    if (empty($_POST["incident_date"])) {
+        $error[] = 'Please enter the incident date';
     }
-    if (empty($_POST["system_manufacturer"])) {
-        $error[] = 'Please enter the system manufacturer';
+    if (empty($_POST["type_of_incident"])) {
+        $error[] = 'Please enter the type of incident';
     }
-    if (empty($_POST["system_model"])) {
-        $error[] = 'Please enter the system model';
+    if (empty($_POST["source"])) {
+        $error[] = 'Please enter the source';
     }
-    if (empty($_POST["system_sku"])) {
-        $error[] = 'Please enter the system sku';
+    if (empty($_POST["process"])) {
+        $error[] = 'Please enter the process';
     }
-    if (empty($_POST["processor"])) {
-        $error[] = 'Please enter the processor';
+    if (empty($_POST["priority"])) {
+        $error[] = 'Please enter the priority';
     }
-    if (empty($_POST["baseboard_product"])) {
-        $error[] = 'Please enter the baseboard product';
+    if (empty($_POST["status"])) {
+        $error[] = 'Please enter the status';
     }
-    if (empty($_POST["installed_ram"])) {
-        $error[] = 'Please enter the installed RAM';
+    if (empty($_POST["description"])) {
+        $error[] = 'Please enter the description';
     }
-    if (empty($_POST["storage_medium"])) {
-        $error[] = 'Please enter the storage medium';
+    if (empty($_POST["root_cause"])) {
+        $error[] = 'Please enter the root cause';
     }
-    if (empty($_POST["serial_number"])) {
-        $error[] = 'Please enter the serial number';
+    if (empty($_POST["action_plan"])) {
+        $error[] = 'Please enter the action plan';
     }
-    if (empty($_POST["charger"])) {
-        $error[] = 'Please enter the charger details';
+    if (empty($_POST["date_action_completed"])) {
+        $error[] = 'Please enter the date action was completed';
     }
-    if (empty($_POST["mouse_assigned"])) {
-        $error[] = 'Please select if mouse is assigned';
-    }
-    if (empty($_POST["date_issued"])) {
-        $error[] = 'Please choose the date of issue';
-    }
-    if (empty($_POST["purchase_cost"])) {
-        $error[] = 'Please enter the purchase cost';
-    }
-    if (empty($_POST["origin"])) {
-        $error[] = 'Please choose the origin of equipment';
-    }
-    if (empty($_POST["staff"])) {
-        $error[] = 'Please choose staff';
-    }
+    if (empty($_POST["equipment"])) {
+        $error[] = 'Please select the equipment';
+    }    
 }
 
 ?>
@@ -119,12 +100,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">ADD OFFICE EQUIPMENT</h4>
+                                <h4 class="mb-sm-0">REPORT INCIDENT</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                                        <li class="breadcrumb-item active">Add Office Equipment</li>
+                                        <li class="breadcrumb-item active">Report incident</li>
                                     </ol>
                                 </div>
 
@@ -152,7 +133,7 @@
                                         <div class="mt-3">
                                                             <label class="form-label">Choose Equipment</label>
                                                             <div class="form-icon">
-                                                                <select name="staff" id="staff" class="form-select mb-3" aria-label="Default select example">
+                                                                <select name="equipment" id="equipment" class="form-select mb-3" aria-label="Default select example">
                                                                     <?php
                                                                     $equipmentQuery = "SELECT * FROM office_equipment WHERE user_id=$user_id";
                                                                     $equipmentSelect = $db->select($equipmentQuery);
@@ -162,124 +143,140 @@
                                                                     ?>
                                                                 </select>
                                                             </div>
+                                                            
                                                         </div>
-                                            <div>
-                                                <label class="form-label">System Name</label>
-                                                <div class="form-icon">
-                                                        <input name="system_name" type="text" class="form-control form-control-icon" id="system_name" placeholder="Enter System Name">
-                                                        <i class="ri-menu-unfold-3-fill"></i>
-                                                    </div>
-                                            </div>
 
-                                            <div class="mt-3">
-                                                <label class="form-label">System Manufacturer</label>
+                                                        <div class="mt-3">
+                                                <label class="form-label">Type of Incident</label>
                                                 <div class="form-icon">
-                                                        <input name="system_manufacturer" type="text" class="form-control form-control-icon" id="system_manufacturer" placeholder="Enter System Manufacturer">
-                                                        <i class="ri-align-item-bottom-fill"></i>
-                                                    </div>
-                                            </div>
-
-                                            <div class="mt-3">
-                                                <label class="form-label">System Model</label>
-                                                <div class="form-icon">
-                                                        <input name="system_model" type="text" class="form-control form-control-icon" id="system_model" placeholder="Enter System Model">
-                                                        <i class="ri-shapes-fill"></i>
-                                                    </div>
-                                            </div>
-
-                                            <div class="mt-3">
-                                                <label class="form-label">Installed RAM</label>
-                                                <div class="form-icon">
-                                                        <input name="installed_ram" type="text" class="form-control form-control-icon" id="installed_ram" placeholder="Enter Installed RAM">
-                                                        <i class="ri-ram-fill"></i>
-                                                    </div>
-                                            </div>
-
-                                            <div class="mt-3">
-                                                <label class="form-label">Serial Number</label>
-                                                <div class="form-icon">
-                                                        <input name="serial_number" type="text" class="form-control form-control-icon" id="serial_number" placeholder="Enter Serial Number">
-                                                        <i class="ri-hashtag"></i>
-                                                    </div>
-                                            </div>
-
-                                            <div class="mt-3">
-                                                <label class="form-label">Mouse Assigned</label>
-                                                <div class="form-icon">
-                                                <select name="mouse_assigned" id="mouse_assigned" class="form-select mb-3" aria-label="Default select example">
-                                                    <option value="Yes" selected>Yes</option>
-                                                    <option value="No">No</option>                                                    
+                                                <select name="type_of_incident" id="type_of_incident" class="form-select mb-3" aria-label="Default select example">
+                                                    <option value="Hardware Failure" selected>Hardware Failure</option>
+                                                    <option value="Software Issue">Software Issue</option>
+                                                    <option value="Network Connectivity">Network Connectivity</option>
+                                                    <option value="Security Breach">Security Breach</option>
+                                                    <option value="Data Loss">Data Loss</option>
+                                                    <option value="User Error">User Error</option>
+                                                    <option value="Physical Damage">Physical Damage</option>
+                                                    <option value="Performance Issue">Performance Issue</option>
+                                                    <option value="Power Issue">Power Issue</option>
+                                                    <option value="Peripheral Issue">Peripheral Issue</option>
+                                                    <option value="Configuration Error">Configuration Error</option>
+                                                    <option value="Maintenance Required">Maintenance Required</option>                                                    
                                                 </select>                                                        
                                                     </div>
                                             </div>
 
                                             <div class="mt-3">
-                                                <label class="form-label">Purchase Cost</label>
+                                                <label class="form-label">Source</label>
                                                 <div class="form-icon">
-                                                        <input name="purchase_cost" type="number" class="form-control form-control-icon" id="purchase_cost" placeholder="Enter Purchase Cost">
-                                                        <i class="ri-wallet-3-fill"></i>
-                                                    </div>
-                                            </div>
-
-                                           
-                                        </div>
-
-                                        <div class="col-lg-6">
-                                        <div class="mt-3">
-                                                <label class="form-label">Origin</label>
-                                                <div class="form-icon">
-                                                <select name="origin" id="origin" class="form-select mb-3" aria-label="Default select example">
-                                                    <option value="Vilcom" selected>Vilcom</option>
-                                                    <option value="Geonet">Geonet</option>                                                    
+                                                <select name="source" id="source" class="form-select mb-3" aria-label="Default select example">
+                                                    <option value="Employee Feedback" selected>Employee Feedback</option>
+                                                    <option value="Customer Feedback">Customer Feedback</option>
+                                                    <option value="Supplier Feedback">Supplier Feedback</option>
+                                                    <option value="External Audit Finding">External Audit Finding</option>
+                                                    <option value="Internal Audit Finding">Internal Audit Finding</option>
+                                                    <option value="Management Review Action Item">Management Review Action Item</option>                                                                                                       
                                                 </select>                                                        
                                                     </div>
                                             </div>
-                                            <div>
-                                                <label class="form-label">System SKU</label>
-                                                <div class="form-icon">
-                                                        <input name="system_sku" type="text" class="form-control form-control-icon" id="system_sku" placeholder="Enter System SKU">
-                                                        <i class="ri-scroll-to-bottom-line"></i>
-                                                    </div>
-                                            </div>
 
                                             <div class="mt-3">
-                                                <label class="form-label">Processor</label>
+                                                <label class="form-label">Process</label>
                                                 <div class="form-icon">
-                                                        <input name="processor" type="text" class="form-control form-control-icon" id="processor" placeholder="Enter Processor">
-                                                        <i class="ri-cpu-fill"></i>
+                                                <select name="process" id="process" class="form-select mb-3" aria-label="Default select example">
+                                                    <option value="Business Planning Process" selected>Business Planning Process</option>
+                                                    <option value="Rollout Process">Rollout Process</option>
+                                                    <option value="HR Process">HR Process</option>
+                                                    <option value="Tendering Process">Tendering Process</option>
+                                                    <option value="Planning and Design">Planning and Design</option>
+                                                    <option value="OHS Processes">OHS Processes</option>
+                                                    <option value="Shipping">Shipping</option>
+                                                    <option value="Support and Maintenance">Support and Maintenance</option>
+                                                    <option value="Procurement and Logistics">Procurement and Logistics</option>
+                                                    <option value="IMS Process">IMS Process</option>                                                                                                       
+                                                </select>                                                        
                                                     </div>
-                                            </div>
+                                            </div> 
 
                                             <div class="mt-3">
-                                                <label class="form-label">BaseBoard Product</label>
+                                                <label class="form-label">Action Plan</label>
                                                 <div class="form-icon">
-                                                        <input name="baseboard_product" type="text" class="form-control form-control-icon" id="baseboard_product" placeholder="Enter BaseBoard Product">
-                                                        <i class="ri-artboard-2-line"></i>
-                                                    </div>
-                                            </div>
-
-                                            <div class="mt-3">
-                                                <label class="form-label">Storage Medium</label>
-                                                <div class="form-icon">
-                                                        <input name="storage_medium" type="text" class="form-control form-control-icon" id="storage_medium" placeholder="Enter Storage Medium">
+                                                        <input name="action_plan" type="text" class="form-control form-control-icon" id="action_plan" placeholder="Enter Action Plan">
                                                         <i class="ri-hard-drive-3-fill"></i>
                                                     </div>
                                             </div>
 
                                             <div class="mt-3">
-                                                <label class="form-label">Charger</label>
+                                                <label class="form-label">Date of Incident</label>
+                                                <div>                                                    
+                                                    <input name="incident_date" type="date" class="form-control" id="incident_date">
+                                                </div>
+                                            </div> 
+                                            
+                                                                                 
+
+                                           
+                                        </div>
+
+                                        <div class="col-lg-6">
+
+                                        <div class="mt-3">
+                                                <label class="form-label">Priority</label>
                                                 <div class="form-icon">
-                                                        <input name="charger" type="text" class="form-control form-control-icon" id="charger" placeholder="Enter Charger">
-                                                        <i class="ri-battery-charge-fill"></i>
+                                                <select name="priority" id="priority" class="form-select mb-3" aria-label="Default select example">
+                                                    <option value="Low" selected>Low</option>
+                                                    <option value="Medium">Medium</option>
+                                                    <option value="High">High</option>
+                                                    <option value="Critical">Critical</option>                                                                                                                                                        
+                                                </select>                                                        
+                                                    </div>
+                                            </div>
+                                        
+                                            <div class="mt-3">
+                                                <label class="form-label">Status</label>
+                                                <div class="form-icon">
+                                                <select name="type_of_incident" id="type_of_incident" class="form-select mb-3" aria-label="Default select example">
+                                                    <option selected>Reported</option>
+                                                    <option value="1">In Review</option>
+                                                    <option value="1">Under Investigation</option>
+                                                    <option value="1">Repair In Progress</option>
+                                                    <option value="1">Awaiting Parts</option>
+                                                    <option value="1">Resolved</option>
+                                                    <option value="1">Closed</option>
+                                                    <option value="1">Pending User Action</option>
+                                                    <option value="1">Escalated</option>
+                                                    <option value="1">Unable To Repair</option>
+                                                    <option value="1">Replacement Issued</option>
+                                                    <option value="1">Awaiting Approval</option>                                                                                                         
+                                                </select>                                                        
                                                     </div>
                                             </div>
 
                                             <div class="mt-3">
-                                                <label class="form-label">Date Issued</label>
+                                                <label class="form-label">Description</label>
+                                                <div class="form-icon">
+                                                        <input name="description" type="text" class="form-control form-control-icon" id="description" placeholder="Enter the description">
+                                                        <i class="ri-cpu-fill"></i>
+                                                    </div>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <label class="form-label">Root Cause</label>
+                                                <div class="form-icon">
+                                                        <input name="root_cause" type="text" class="form-control form-control-icon" id="root_cause" placeholder="Enter the root cause">
+                                                        <i class="ri-artboard-2-line"></i>
+                                                    </div>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <label class="form-label">Date of Action Plan</label>
                                                 <div>                                                    
-                                                    <input name="date_issued" type="date" class="form-control" id="date_issued">
+                                                    <input name="date_action_completed" type="date" class="form-control" id="date_action_completed">
                                                 </div>
-                                            </div>                                           
+                                            </div>  
+
+                                                                                        
+                                                                                    
                                         </div>
 
                                         <div class="text-end">
