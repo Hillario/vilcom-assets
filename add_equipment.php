@@ -1,7 +1,7 @@
 <?php
 
 /**
- * vilcom networks asset information management system
+ * Vilcom Staff Portal
  *
  * PHP version 8.2.12
  *
@@ -38,6 +38,8 @@
     $purchase_cost = trim($_POST['purchase_cost']);
     $origin = trim($_POST['origin']);
     $staff = trim($_POST['staff']);
+    $date_of_purchase = trim($_POST['date_of_purchase']);
+    $category = trim($_POST['category']);
     
     if (isset($_POST['system_name'])) $system_name = $_POST['system_name'];
     if (isset($_POST['system_manufacturer'])) $system_manufacturer = $_POST['system_manufacturer'];
@@ -54,6 +56,8 @@
     if (isset($_POST['purchase_cost'])) $purchase_cost = $_POST['purchase_cost'];
     if (isset($_POST['origin'])) $origin = $_POST['origin'];
     if (isset($_POST['staff'])) $staff = $_POST['staff'];
+    if (isset($_POST['date_of_purchase'])) $date_of_purchase = $_POST['date_of_purchase'];
+    if (isset($_POST['category'])) $category = $_POST['category'];
     $error = array();
     if (empty($_POST["system_name"])) {
         $error[] = 'Please enter the system name';
@@ -99,6 +103,12 @@
     }
     if (empty($_POST["staff"])) {
         $error[] = 'Please choose staff';
+    }
+    if (empty($_POST["date_of_purchase"])) {
+        $error[] = 'Please choose the date of purchase';
+    }
+    if (empty($_POST["category"])) {
+        $error[] = 'Please choose category';
     }
 }
 
@@ -221,6 +231,21 @@
                                                     </div>
                                             </div>
 
+                                            <div class="mt-3">
+                                                            <label class="form-label">Choose Category</label>
+                                                            <div class="form-icon">
+                                                                <select name="category" id="category" class="form-select mb-3" aria-label="Default select example">
+                                                                    <?php
+                                                                    $squery = "SELECT * FROM category";
+                                                                    $ssquery = $db->select($squery);
+                                                                    foreach ($ssquery as $row) {
+                                                                        echo '<option value="' . $row['category_id'] . '">' . $row['name'] . '</option>';
+                                                                    }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
                                            
                                         </div>
 
@@ -279,10 +304,17 @@
                                                 <div>                                                    
                                                     <input name="date_issued" type="date" class="form-control" id="date_issued">
                                                 </div>
-                                            </div>                                           
+                                            </div>
+                                            
+                                            <div class="mt-3">
+                                                <label class="form-label">Date Of Purchase</label>
+                                                <div>                                                    
+                                                    <input name="date_of_purchase" type="date" class="form-control" id="date_of_purchase">
+                                                </div>
+                                            </div>
                                         </div>
 
-                                        <div class="text-end">
+                                        <div class="text-left">
                                                         <button type="submit" class="btn btn-info">Submit</button>
                                                     </div>
                                     </div>
@@ -290,6 +322,14 @@
                                 </form>
                                 <!-- end card body -->
                                 <?php
+
+                                //Function to calculate current value from depreciation rate
+                                function calculateDepreciatedValue($purchaseCost, $purchaseDate, $depreciationRate) {
+                                    $years = (date('Y') - date('Y', strtotime($purchaseDate))) + ((date('m') - date('m', strtotime($purchaseDate))) / 12);
+                                    $currentValue = $purchaseCost * pow((1 - $depreciationRate), $years);
+                                    return round($currentValue, 2);
+                                }
+                                
                                                     //  form operations
                                                     if (isset($error)) {
                                                         if (!empty($error)) {
@@ -297,8 +337,10 @@
                                                             <i class="ri-megaphone-line"></i>
 										<strong>Error Imminent! </strong>' . @implode('</li><li>', $error) . ' 
 									</div>';
-                                                        } else {                                                            
-                                                                $insertQuery = "INSERT INTO `office_equipment` (`equipment_id`, `system_name`, `system_manufacturer`, `system_model`, `system_sku`, `processor`, `baseboard_product`, `installed_ram`, `storage_medium`, `serial_number`, `charger`, `mouse_assigned`, `date_issued`, `purchase_cost`, `origin`, `user_id`, `updated_at`) VALUES (NULL, '".$system_name."', '".$system_manufacturer."', '".$system_model."', '".$system_sku."', '".$processor."', '".$baseboard_product."', '".$installed_ram."', '".$storage_medium."', '".$serial_number."', '".$charger."', '".$mouse_assigned."', '".$date_issued."', '".$purchase_cost."', '".$origin."', '".$staff."', current_timestamp());";
+                                                        } else {
+                                                                $depreciation_rate=0.25;
+                                                                $current_value=calculateDepreciatedValue($purchase_cost,$date_of_purchase,$depreciation_rate);                                                            
+                                                                $insertQuery = "INSERT INTO `office_equipment` (`equipment_id`, `system_name`, `system_manufacturer`, `system_model`, `system_sku`, `processor`, `baseboard_product`, `installed_ram`, `storage_medium`, `serial_number`, `charger`, `mouse_assigned`, `date_issued`, `date_of_purchase`, `depreciation_rate`, `current_value`, `purchase_cost`, `origin`, `user_id`, `category_id`, `updated_at`) VALUES (NULL, '".$system_name."', '".$system_manufacturer."', '".$system_model."', '".$system_sku."', '".$processor."', '".$baseboard_product."', '".$installed_ram."', '".$storage_medium."', '".$serial_number."', '".$charger."', '".$mouse_assigned."', '".$date_issued."', '".$date_of_purchase."', '".$depreciation_rate."', '".$current_value."', '".$purchase_cost."', '".$origin."', '".$staff."', '".$category."', current_timestamp());";
                                                                 $db->insert($insertQuery);
                                                                 echo '<div class="alert alert-info">										
 										<strong>Success! </strong>Office equipment has been added

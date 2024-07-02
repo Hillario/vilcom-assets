@@ -259,7 +259,7 @@ INSERT INTO `role` (`role_id`, `name`, `description`, `updated_at`) VALUES
 (1, 'Staff', 'This an employee of Vilcom', '2024-05-24 05:58:17'),
 (2, 'HOD ', 'This is a head of department at Vilcom Networks', '2024-05-24 05:58:17'),
 (3, 'Management', 'This is the top level management at Vilcom Networks', '2024-05-24 05:59:35'),
-(4, 'Admin', 'This is the administrator of the whole web portal', '2024-05-24 05:59:35');
+(4, 'Admin', 'This is the administrator of the whole Vilcom Staff Portal', '2024-05-24 05:59:35');
 
 -- --------------------------------------------------------
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * vilcom networks asset information management system
+ * Vilcom Staff Portal
  *
  * PHP version 8.2.12
  *
@@ -195,9 +195,13 @@
                                                 <th>Charger</th>
                                                 <th>Mouse Assigned</th>
                                                 <th>Date Issued</th>
+                                                <th>Date Of Purchase</th>
+                                                <th>Depreciation Rate</th>
+                                                <th>Current Value</th>
                                                 <th>Purchase Cost</th>
                                                 <th>Origin</th>
                                                 <th>Staff</th>
+                                                <th>Category</th>
                                                 <th>Updated_At</th>
                                                 <th>Action</th>
                                             </tr>
@@ -235,6 +239,9 @@
                                   }
                                   ?>
                                   <td><?php echo $row['date_issued'];?></td>
+                                  <td><?php echo $row['date_of_purchase'];?></td>
+                                  <td><?php echo $row['depreciation_rate'];?></td>
+                                  <td><?php echo $row['current_value'];?></td>
                                   <td><?php echo $row['purchase_cost'];?></td>
                                   <td><?php echo $row['origin'];?></td>
                                   <?php
@@ -248,6 +255,19 @@
                                     echo '<td>'.$row1['first_name'].' '.$row1['last_name'].'</td>';
                                   }
                                   ?>
+
+                                <?php
+                                  //select category from ID
+                                  $category_id=$row['category_id'];
+                                  $categoryQuery="SELECT name from category where category_id=$category_id";
+                                  $categorySelect=$db->select($categoryQuery);
+
+                                  foreach($categorySelect as $row1)
+                                  {
+                                    echo '<td>'.$row1['name'].'</td>';
+                                  }
+                                  ?>
+                                  
                                   <td><?php echo $row['updated_at'];?></td>                                                                    
                                                 
                                                 <td>

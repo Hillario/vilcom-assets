@@ -1,7 +1,7 @@
 <?php
 
 /**
- * vilcom networks asset information management system
+ * Vilcom Staff Portal
  *
  * PHP version 8.2.12
  *

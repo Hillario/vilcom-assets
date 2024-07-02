@@ -1,7 +1,7 @@
 <?php
 
 /**
- * vilcom networks web portal
+ * vilcom networks Vilcom Staff Portal
  *
  * PHP version 8.2.12
  *
@@ -63,16 +63,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['user_id'] = $user_id;
                     $_SESSION['ml'] = $ml;
                     $_SESSION['role_id'] = $role_id;
-                    if($role_id==1)
+                    if($role_id==4)
                     {
                         header('Location:staff/index.php');
-                    }elseif($role_id==2)
-                    {
-                        header('Location:hod/index.php');
                     }elseif($role_id==3)
                     {
+                        header('Location:hod/index.php');
+                    }elseif($role_id==2)
+                    {
                         header('Location:management/index.php');
-                    }elseif($role_id==4)
+                    }elseif($role_id==1)
                     {
                         header('Location:index.php');
                     }
