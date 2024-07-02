@@ -1,7 +1,7 @@
 <?php
 
 /**
- * vilcom networks assets information management system
+ * vilcom networks web portal
  *
  * PHP version 8.2.12
  *
@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="utf-8" />
     <title>Vilcom Networks | Assets IMS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Vilcom Assets Information Management System" name="description" />
+    <meta content="VILCOM STAFF PORTAL" name="description" />
     <meta content="Vilcom Networks" name="Hillary Chesaro" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
@@ -139,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <div class="p-lg-5 p-4">
                                                 <div class="text-center">
                                                     <h5 class="mb-0">Welcome!</h5>
-                                                    <p class="text-muted mt-2">Vilcom Assets Information Management System</p>
+                                                    <p class="text-muted mt-2">VILCOM STAFF PORTAL</p>
                                                 </div>
 
                                                 <div class="mt-4">
@@ -207,7 +207,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                                     <div class="testi-contain text-center">
                                                                         <h5 class="fs-20 text-white mb-0">“ Unlock the Power of Organized Assets”
                                                                         </h5>
-                                                                        <p class="fs-15 text-white-50 mt-2 mb-0">Dive into a world of streamlined efficiency with the Vilcom Assets Information Management System. Seamlessly track, manage, and optimize your organization's assets with precision and ease. Experience the next level of asset management today.</p>
+                                                                        <p class="fs-15 text-white-50 mt-2 mb-0">Dive into a world of streamlined efficiency with the VILCOM STAFF PORTAL. Seamlessly track, manage, and optimize your organization's assets with precision and ease. Experience the next level of asset management today.</p>
                                                                     </div>
                                                                 </div>
 
@@ -215,7 +215,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                                     <div class="testi-contain text-center">
                                                                         <h5 class="fs-20 text-white mb-0">“Elevate Your Workflow”</h5>
                                                                         <p class="fs-15 text-white-50 mt-2 mb-0">
-                                                                            Integrate your assets seamlessly into your workflow with the Vilcom Assets Information Management System. Say goodbye to tedious manual processes and hello to increased productivity and efficiency. Empower your team to achieve more with intuitive asset management solutions.
+                                                                            Integrate your assets seamlessly into your workflow with the VILCOM STAFF PORTAL. Say goodbye to tedious manual processes and hello to increased productivity and efficiency. Empower your team to achieve more with intuitive asset management solutions.
                                                                         </p>
                                                                     </div>
                                                                 </div>
@@ -224,7 +224,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                                     <div class="testi-contain text-center">
                                                                         <h5 class="fs-20 text-white mb-0">“Insight-driven Decision Making”</h5>
                                                                         <p class="fs-15 text-white-50 mt-2 mb-0">
-                                                                            Secure the future of your organization with intelligent insights from the Vilcom Assets Information Management System. Harness the power of data-driven decisions and strategic planning to propel your business forward. Unlock unparalleled visibility and control over your assets today.
+                                                                            Secure the future of your organization with intelligent insights from the VILCOM STAFF PORTAL. Harness the power of data-driven decisions and strategic planning to propel your business forward. Unlock unparalleled visibility and control over your assets today.
                                                                         </p>
                                                                     </div>
                                                                 </div>

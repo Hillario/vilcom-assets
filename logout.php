@@ -1,6 +1,6 @@
 <?php
 /**
- * vilcom networks assets information management system
+ * vilcom networks web portal
  *
  * PHP version 8.2.12
  *

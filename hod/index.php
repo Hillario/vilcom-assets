@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">VILCOM ASSETS INFORMATION MANAGEMENT SYSTEM-HOD</h4>
+                                <h4 class="mb-sm-0">VILCOM STAFF PORTAL-HOD</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">

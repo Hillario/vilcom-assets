@@ -15,7 +15,7 @@
 /**
  * header.php
  *
- * This is the header file of the whole website portal
+ * This is the header file of the staff
  * 
  * @author Hillary Chesaro
  */

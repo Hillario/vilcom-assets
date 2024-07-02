@@ -1,7 +1,7 @@
 <?php
 
 /**
- * vilcom networks assets information management system
+ * vilcom networks web portal
  *
  * PHP version 8.2.12
  *
@@ -15,7 +15,7 @@
 /**
  * footer.php
  *
- * This is the footer of the vilcom assets information management system
+ * This is the footer of the VILCOM STAFF PORTAL
  * 
  * @author Hillary Chesaro
  */
@@ -31,7 +31,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
-                               Vilcom Assets Information Management System.
+                               VILCOM STAFF PORTAL.
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
-# Vilcom Assets Information Management System
+# VILCOM STAFF PORTAL
 
 ## Overview
-The Vilcom Assets Information Management System is a comprehensive system designed to manage and track various assets within an organization. It provides functionalities for departments, equipment repair, network equipment, office equipment, user requests, user roles, servers, and their maintenance.
+The VILCOM STAFF PORTAL is a comprehensive system designed to manage and track various assets within an organization. It provides functionalities for departments, equipment repair, network equipment, office equipment, user requests, user roles, servers, and their maintenance.
 
 ## Table of Contents
 1. [Features](#features)
@@ -34,7 +34,7 @@ The system uses the following database tables to store information:
 - **user**: Stores user information.
 
 ## Installation
-To install and run the Vilcom Assets Information Management System, follow these steps:
+To install and run the VILCOM STAFF PORTAL, follow these steps:
 1. Clone the repository: `git clone <repository_url>`
 2. Install dependencies: `npm install`
 3. Set up the database:
@@ -53,7 +53,7 @@ Once the application is set up, users can perform the following actions:
 - Track equipment repairs and maintenance activities.
 
 ## Contributing
-Contributions to the Vilcom Assets Information Management System are welcome! If you'd like to contribute, please follow these steps:
+Contributions to the VILCOM STAFF PORTAL are welcome! If you'd like to contribute, please follow these steps:
 1. Fork the repository.
 2. Create a new branch: `git checkout -b feature/new-feature`
 3. Make your changes and commit them: `git commit -m 'Add new feature'`
