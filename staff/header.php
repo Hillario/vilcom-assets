@@ -48,7 +48,7 @@
 <head>
    
     <meta charset="utf-8" />
-    <title>Vilcom Networks | Assets IMS</title>
+    <title>Vilcom Networks | Staff Portal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -466,11 +466,11 @@
                                     <div class="col-lg-4">
                                         <ul class="nav nav-sm flex-column">                                            
                                             <li class="nav-item">
-                                                <a href="#" class="nav-link" data-key="t-badges">Add Request</a>
+                                                <a href="add_request.php" class="nav-link" data-key="t-badges">Add Request</a>
                                             </li>
 
                                             <li class="nav-item">
-                                                <a href="#" class="nav-link" data-key="t-badges">View Request</a>
+                                                <a href="view_request.php" class="nav-link" data-key="t-badges">View Request</a>
                                             </li>
                                         </ul>
                                     </div>
