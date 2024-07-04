@@ -55,6 +55,9 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="../assets/images/favicon.ico">
 
+    <!-- dropzone css -->
+    <link rel="stylesheet" href="../assets/libs/dropzone/dropzone.css" type="text/css" />
+
     <!--datatable css-->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
     <!--datatable responsive css-->
@@ -238,6 +241,12 @@
                                 <i class='las la-expand fs-24'></i>
                             </button>
                         </div>
+
+                        <div class="ms-1 header-item d-none d-sm-flex">
+                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-primary rounded-circle light-dark-mode">
+                        <i class='las la-moon fs-24'></i>
+                    </button>
+                </div>
                                                 
                         <div class="dropdown topbar-head-dropdown ms-1 header-item" id="notificationDropdown">
                             <button type="button" class="btn btn-icon btn-topbar btn-ghost-primary rounded-circle" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
@@ -489,7 +498,7 @@
             <div class="col-lg-4">
                 <ul class="nav nav-sm flex-column">
                     <li class="nav-item">
-                        <a href="#" class="nav-link" data-key="t-badges">View Repairs </a>
+                        <a href="view_repair.php" class="nav-link" data-key="t-badges">View Repairs </a>
                     </li>
                 </ul>
             </div>
@@ -511,11 +520,30 @@
                                                 <a href="add_incident.php" class="nav-link" data-key="t-badges">Add Incident</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="#" class="nav-link" data-key="t-badges">View Incident</a>
+                                                <a href="view_incident.php" class="nav-link" data-key="t-badges">View Incident</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Quotes</span></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#quotes" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInvoiceManagement">
+                                <i class="las la-edit"></i> <span data-key="t-invoices">Generate Quotes</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="quotes">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="add_quote.php" class="nav-link" data-key="t-invoice"> Add Quote </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="view_quote.php" class="nav-link" data-key="t-add-invoice"> View Quote </a>
+                                    </li>
+                                </ul>
                             </div>
                         </li>
 
@@ -528,15 +556,16 @@
                             <div class="collapse menu-dropdown" id="invoices">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="add_equipment.php" class="nav-link" data-key="t-invoice"> Add Invoice </a>
+                                        <a href="add_invoice.php" class="nav-link" data-key="t-invoice"> Add Invoice </a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="view_equipment.php" class="nav-link" data-key="t-add-invoice"> View Invoice </a>
+                                        <a href="view_invoice.php" class="nav-link" data-key="t-add-invoice"> View Invoice </a>
                                     </li>
                                 </ul>
                             </div>
-                        </li> 
+                        </li>                       
+                        
                     </ul>
                 </div>
                 <!-- Sidebar -->

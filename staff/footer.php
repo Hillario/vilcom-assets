@@ -85,6 +85,15 @@
 
     <script src="../assets/js/pages/datatables.init.js"></script>
 
+    <!-- dropzone min -->
+    <script src="../assets/libs/dropzone/dropzone-min.js"></script>
+
+    <!-- cleave.js -->
+    <script src="../assets/libs/cleave.js/cleave.min.js"></script>
+
+    <!--Invoice create init js-->
+    <script src="../assets/js/pages/invoicecreate.init.js"></script>
+
     <!-- Sweet Alerts js -->
     <script src="../assets/libs/sweetalert2/sweetalert2.min.js"></script>
 

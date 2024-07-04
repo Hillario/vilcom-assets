@@ -26,25 +26,17 @@
     $incident_date = trim($_POST['incident_date']);
     $type_of_incident = trim($_POST['type_of_incident']);
     $source = trim($_POST['source']);
-    $process = trim($_POST['process']);
-    $priority = trim($_POST['priority']);
-    $status = trim($_POST['status']);
+    $process = trim($_POST['process']);    
     $description = trim($_POST['description']);
-    $root_cause = trim($_POST['root_cause']);
-    $action_plan = trim($_POST['action_plan']);
-    $date_action_completed = trim($_POST['date_action_completed']);
+    $root_cause = trim($_POST['root_cause']);    
     $equipment = trim($_POST['equipment']);
     
     if (isset($_POST['incident_date'])) $incident_date = $_POST['incident_date'];
     if (isset($_POST['type_of_incident'])) $type_of_incident = $_POST['type_of_incident'];
     if (isset($_POST['source'])) $source = $_POST['source'];
-    if (isset($_POST['process'])) $process= $_POST['process'];
-    if (isset($_POST['priority'])) $priority = $_POST['priority'];
-    if (isset($_POST['status'])) $status = $_POST['status'];
+    if (isset($_POST['process'])) $process= $_POST['process'];    
     if (isset($_POST['description'])) $description = $_POST['description'];
-    if (isset($_POST['root_cause'])) $root_cause = $_POST['root_cause'];
-    if (isset($_POST['action_plan'])) $action_plan = $_POST['action_plan'];
-    if (isset($_POST['date_action_completed'])) $date_action_completed = $_POST['date_action_completed'];
+    if (isset($_POST['root_cause'])) $root_cause = $_POST['root_cause'];    
     if (isset($_POST['equipment'])) $equipment = $_POST['equipment'];
     
     $error = array();
@@ -59,25 +51,13 @@
     }
     if (empty($_POST["process"])) {
         $error[] = 'Please enter the process';
-    }
-    if (empty($_POST["priority"])) {
-        $error[] = 'Please enter the priority';
-    }
-    if (empty($_POST["status"])) {
-        $error[] = 'Please enter the status';
-    }
+    }    
     if (empty($_POST["description"])) {
         $error[] = 'Please enter the description';
     }
     if (empty($_POST["root_cause"])) {
         $error[] = 'Please enter the root cause';
-    }
-    if (empty($_POST["action_plan"])) {
-        $error[] = 'Please enter the action plan';
-    }
-    if (empty($_POST["date_action_completed"])) {
-        $error[] = 'Please enter the date action was completed';
-    }
+    }    
     if (empty($_POST["equipment"])) {
         $error[] = 'Please select the equipment';
     }    
@@ -139,6 +119,7 @@
                                                                     $equipmentSelect = $db->select($equipmentQuery);
                                                                     foreach ($equipmentSelect as $row) {
                                                                         echo '<option value="' . $row['equipment_id'] . '">' . $row['system_name'].'</option>';
+                                                                        $equipment_id=$row['equipment_id'];
                                                                     }
                                                                     ?>
                                                                 </select>
@@ -178,8 +159,42 @@
                                                     <option value="Management Review Action Item">Management Review Action Item</option>                                                                                                       
                                                 </select>                                                        
                                                     </div>
+                                            </div>                                          
+
+                                            
+
+                                            <div class="mt-3">
+                                                <label class="form-label">Date of Incident</label>
+                                                <div>                                                    
+                                                    <input name="incident_date" type="date" class="form-control" id="incident_date">
+                                                </div>
+                                            </div>                                          
+                                            
+                                            
+                                                                                 
+
+                                           
+                                        </div>
+
+                                        <div class="col-lg-6">                                       
+                                        
+                                            
+
+                                            <div class="mt-3">
+                                                <label class="form-label">Description</label>
+                                                <div class="form-icon">
+                                                        <textarea name="description" class="form-control form-control-icon" id="description"></textarea>                                                        
+                                                    </div>
                                             </div>
 
+                                            <div class="mt-3">
+                                                <label class="form-label">Root Cause</label>
+                                                <div class="form-icon">
+                                                        <input name="root_cause" type="text" class="form-control form-control-icon" id="root_cause" placeholder="Enter the root cause">
+                                                        <i class="ri-questionnaire-line"></i>
+                                                    </div>
+                                            </div>                                            
+                                            
                                             <div class="mt-3">
                                                 <label class="form-label">Process</label>
                                                 <div class="form-icon">
@@ -196,90 +211,15 @@
                                                     <option value="IMS Process">IMS Process</option>                                                                                                       
                                                 </select>                                                        
                                                     </div>
-                                            </div> 
-
-                                            <div class="mt-3">
-                                                <label class="form-label">Action Plan</label>
-                                                <div class="form-icon">
-                                                        <input name="action_plan" type="text" class="form-control form-control-icon" id="action_plan" placeholder="Enter Action Plan">
-                                                        <i class="ri-hard-drive-3-fill"></i>
-                                                    </div>
                                             </div>
-
-                                            <div class="mt-3">
-                                                <label class="form-label">Date of Incident</label>
-                                                <div>                                                    
-                                                    <input name="incident_date" type="date" class="form-control" id="incident_date">
-                                                </div>
-                                            </div> 
                                             
-                                                                                 
-
-                                           
-                                        </div>
-
-                                        <div class="col-lg-6">
-
-                                        <div class="mt-3">
-                                                <label class="form-label">Priority</label>
-                                                <div class="form-icon">
-                                                <select name="priority" id="priority" class="form-select mb-3" aria-label="Default select example">
-                                                    <option value="Low" selected>Low</option>
-                                                    <option value="Medium">Medium</option>
-                                                    <option value="High">High</option>
-                                                    <option value="Critical">Critical</option>                                                                                                                                                        
-                                                </select>                                                        
-                                                    </div>
-                                            </div>
-                                        
-                                            <div class="mt-3">
-                                                <label class="form-label">Status</label>
-                                                <div class="form-icon">
-                                                <select name="type_of_incident" id="type_of_incident" class="form-select mb-3" aria-label="Default select example">
-                                                    <option selected>Reported</option>
-                                                    <option value="1">In Review</option>
-                                                    <option value="1">Under Investigation</option>
-                                                    <option value="1">Repair In Progress</option>
-                                                    <option value="1">Awaiting Parts</option>
-                                                    <option value="1">Resolved</option>
-                                                    <option value="1">Closed</option>
-                                                    <option value="1">Pending User Action</option>
-                                                    <option value="1">Escalated</option>
-                                                    <option value="1">Unable To Repair</option>
-                                                    <option value="1">Replacement Issued</option>
-                                                    <option value="1">Awaiting Approval</option>                                                                                                         
-                                                </select>                                                        
-                                                    </div>
-                                            </div>
-
-                                            <div class="mt-3">
-                                                <label class="form-label">Description</label>
-                                                <div class="form-icon">
-                                                        <input name="description" type="text" class="form-control form-control-icon" id="description" placeholder="Enter the description">
-                                                        <i class="ri-cpu-fill"></i>
-                                                    </div>
-                                            </div>
-
-                                            <div class="mt-3">
-                                                <label class="form-label">Root Cause</label>
-                                                <div class="form-icon">
-                                                        <input name="root_cause" type="text" class="form-control form-control-icon" id="root_cause" placeholder="Enter the root cause">
-                                                        <i class="ri-artboard-2-line"></i>
-                                                    </div>
-                                            </div>
-
-                                            <div class="mt-3">
-                                                <label class="form-label">Date of Action Plan</label>
-                                                <div>                                                    
-                                                    <input name="date_action_completed" type="date" class="form-control" id="date_action_completed">
-                                                </div>
-                                            </div>  
+                                            
 
                                                                                         
                                                                                     
                                         </div>
 
-                                        <div class="text-end">
+                                        <div class="text-left">
                                                         <button type="submit" class="btn btn-info">Submit</button>
                                                     </div>
                                     </div>
@@ -295,10 +235,10 @@
 										<strong>Error Imminent! </strong>' . @implode('</li><li>', $error) . ' 
 									</div>';
                                                         } else {                                                            
-                                                                $insertQuery = "INSERT INTO `office_equipment` (`equipment_id`, `system_name`, `system_manufacturer`, `system_model`, `system_sku`, `processor`, `baseboard_product`, `installed_ram`, `storage_medium`, `serial_number`, `charger`, `mouse_assigned`, `date_issued`, `purchase_cost`, `origin`, `user_id`, `updated_at`) VALUES (NULL, '".$system_name."', '".$system_manufacturer."', '".$system_model."', '".$system_sku."', '".$processor."', '".$baseboard_product."', '".$installed_ram."', '".$storage_medium."', '".$serial_number."', '".$charger."', '".$mouse_assigned."', '".$date_issued."', '".$purchase_cost."', '".$origin."', '".$staff."', current_timestamp());";
+                                                                $insertQuery = "INSERT INTO `equipment_incident` (`equipment_incident_id`, `incident_date`, `type_of_incident`, `source`, `process`, `priority`, `status`, `description`, `root_cause`, `action_plan`, `date_action_completed`, `equipment_id`, `updated_at`) VALUES (NULL, '".$incident_date."', '".$type_of_incident."', '".$source."', '".$process."', 'Medium', 'Pending', '".$description."', '".$root_cause."', 'Action plan pending', '".$incident_date."', '".$equipment_id."', CURRENT_TIMESTAMP);";
                                                                 $db->insert($insertQuery);
                                                                 echo '<div class="alert alert-info">										
-										<strong>Success! </strong>Office equipment has been added
+										<strong>Success! </strong>Incident has been reported
 									</div>';
                                                             } 
                                                         }                                                    
