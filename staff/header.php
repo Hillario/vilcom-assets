@@ -537,11 +537,7 @@
                             <div class="collapse menu-dropdown" id="quotes">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="add_quote.php" class="nav-link" data-key="t-invoice"> Add Quote </a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="view_quote.php" class="nav-link" data-key="t-add-invoice"> View Quote </a>
+                                        <a href="add_quote.php" class="nav-link" data-key="t-invoice"> Generate Quote </a>
                                     </li>
                                 </ul>
                             </div>
@@ -556,11 +552,7 @@
                             <div class="collapse menu-dropdown" id="invoices">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="add_invoice.php" class="nav-link" data-key="t-invoice"> Add Invoice </a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="view_invoice.php" class="nav-link" data-key="t-add-invoice"> View Invoice </a>
+                                        <a href="add_invoice.php" class="nav-link" data-key="t-invoice"> Generate Invoice </a>
                                     </li>
                                 </ul>
                             </div>

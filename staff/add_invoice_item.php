@@ -22,6 +22,9 @@
 
  include "header.php";
 
+ //temporarily suppress warnings
+ error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
+
  //Retrieve Invoice ID
  if(isset($_POST['myInvoiceId']))
  {
@@ -95,11 +98,13 @@
                     <?php
                     //select invoice number
                     
-                    $queryInvoiceNumber="SELECT invoice_number from invoice WHERE invoice_id=$invoiceid";
+                    $queryInvoiceNumber="SELECT invoice_number,total_amount,tax from invoice WHERE invoice_id=$invoiceid";
                     $selectInvoiceNumber=$db->select($queryInvoiceNumber);
                     foreach($selectInvoiceNumber as $row)
                     {
                         $globalInvoiceNumber=$row['invoice_number'];
+                        $globalTotalAmount=$row['total_amount'];
+                        $globalTax=$row['tax'];
                     }
                     ?>
                     
@@ -139,7 +144,15 @@
                                                     </div>
                                             </div>
                                             
-                                            <div class="mt-3">
+                                             
+                                            
+                                           
+                                        </div>
+
+                                        <div class="col-lg-6">                                          
+                                        
+                                        
+                                        <div class="mt-3">
                                                 <label class="form-label">Quantity</label>
                                                 <div class="form-icon">
                                                         <input name="quantity" type="number" class="form-control form-control-icon" id="quantity" placeholder="Enter the Quantity">
@@ -153,18 +166,7 @@
                                                         <input name="unit_price" type="number" class="form-control form-control-icon" id="unit_price" placeholder="Enter the Unit Price in Ksh">
                                                         <i class="ri-price-tag-3-line"></i>
                                                     </div>
-                                            </div> 
-                                            
-                                           
-                                        </div>
-
-                                        <div class="col-lg-6">                                          
-                                        
-                                        <div class="mt-3">
-                                        <label for="invoicenoInput">Total Amount</label>
-                                        <input type="text" class="form-control bg-light border-0" id="invoicenoInput" placeholder="Invoice No" value="Ksh 0.00" readonly="readonly">
-                                        </div>
-                                            
+                                            </div>
 
                                                                                 
                                         </div>
@@ -176,7 +178,32 @@
                                 </div>
                                 </form>
                                 <!-- end card body -->
-                                <?php                                
+                                <?php  
+                                
+                                //generate sequential item number
+                                //select previous invoice number
+                                $queryPreviousItemNumber="SELECT item_number FROM invoice_item WHERE invoice_id=$invoiceid ORDER BY invoice_item_id DESC LIMIT 1";
+                                $selectPreviousItemNumber=$db->select($queryPreviousItemNumber);
+                                foreach($selectPreviousItemNumber as $row)
+                                {
+                                    $lastItemNumber=$row['item_number'];
+                                }
+
+                                //generate the new invoice number
+                                function generateItemNumber($previousItemNumber) {
+                                    $prefix = "VL";                                    
+                                    
+                                    if ($previousItemNumber) {
+                                        $lastSequence = intval(substr($previousItemNumber, -3));
+                                        $newSequence = str_pad($lastSequence + 1, 3, '0', STR_PAD_LEFT);
+                                    } else {
+                                        $newSequence = '001';
+                                    }
+                                
+                                    return $prefix . $newSequence;
+                                }
+
+                                $newItemNumber=generateItemNumber($lastItemNumber);
                                 
                                                     //  form operations
                                                     if (isset($error)) {
@@ -185,11 +212,19 @@
                                                             <i class="ri-megaphone-line"></i>
 										<strong>Take Note! </strong>' . @implode('</li><li>', $error) . ' 
 									</div>';
-                                                        } else {                                                            
-                                                                $insertQuery = "INSERT INTO `invoice` (`invoice_id`, `invoice_number`, `due_date`, `customer_name`, `customer_address`, `customer_email`, `customer_phone`, `status`, `total_amount`, `user_id`, `updated_at`) VALUES (NULL, '".$newInvoiceNumber."', '".$due_date."', '".$customer_name."', '".$customer_address."', '".$customer_email."', '".$customer_phone."', '".$status."', '0.00', '".$user_id."', CURRENT_TIMESTAMP);";
+                                                        } else {    
+                                                                $localTotalAmount=$quantity*$unit_price;                                                        
+                                                                $insertQuery = "INSERT INTO `invoice_item` (`invoice_item_id`, `item_number`, `item_name`, `description`, `quantity`, `unit_price`, `amount`, `invoice_id`, `updated_at`) VALUES (NULL, '".$newItemNumber."', '".$item_name."', '".$description."', '".$quantity."', '".$unit_price."', '".$localTotalAmount."', '".$invoiceid."', CURRENT_TIMESTAMP);";
                                                                 $db->insert($insertQuery);
+                                                                //update total_amount field in the invoice table                                                                
+                                                                $finalTotalAmount=$globalTotalAmount+$localTotalAmount;
+                                                                $taxAmount=0.16*$finalTotalAmount;
+                                                                $grandTotal=$finalTotalAmount+$taxAmount;                                                                
+                                                                //update invoice table
+                                                                $updateQuery="UPDATE `invoice` SET `total_amount` = '".$finalTotalAmount."', `tax` = '".$taxAmount."', `grand_total` = '".$grandTotal."' WHERE `invoice`.`invoice_id` = '".$invoiceid."';";
+                                                                $db->insert($updateQuery);
                                                                 echo '<div class="alert alert-info">										
-										<strong>Success! </strong>Invoice has been added, proceed to add invoice items below
+										<strong>Success! </strong>Invoice item has been added, please add another item or proceed to download invoice
 									</div>';
                                                             } 
                                                         }                                                    
@@ -199,14 +234,14 @@
                             <!-- end card -->
 
                             <?php
-                            //select invoices to add
-                            $queryInvoices="SELECT * FROM invoice WHERE user_id=$user_id ORDER BY invoice_id DESC";
+                            //select invoice items by ID
+                            $queryInvoices="SELECT * FROM invoice_item WHERE invoice_id=$invoiceid ORDER BY invoice_item_id ASC";
                             $selectInvoices=$db->select($queryInvoices); 
                             ?>
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title mb-0">Your Invoices</h5>
+                                    <h5 class="card-title mb-0">Invoice Items for Invoice Number: <?php echo $globalInvoiceNumber;?></h5>
                                 </div>
                                 <div class="card-body">
                                     <table id="example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
@@ -218,17 +253,13 @@
                                                     </div>
                                                 </th>
                                                 <th data-ordering="false">ID</th>
-                                                <th data-ordering="false">Invoice Number</th>
-                                                <th data-ordering="false">Due Date</th>
-                                                <th data-ordering="false">Customer Name</th>
-                                                <th data-ordering="false">Customer Address</th>
-                                                <th>Customer Email</th>
-                                                <th>Customer Phone</th>                                                
-                                                <th>Status</th>
-                                                <th>Total Amount</th>
-                                                <th>Staff</th>
-                                                <th>Updated_At</th>
-                                                <th>Action</th>
+                                                <th data-ordering="false">Item Number</th>
+                                                <th data-ordering="false">Item Name</th>
+                                                <th data-ordering="false">Description</th>
+                                                <th data-ordering="false">Quantity</th>
+                                                <th>Unit Price</th>
+                                                <th>Amount</th>                                               
+                                                <th>Updated_At</th>                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -243,54 +274,14 @@
                                                         <input class="form-check-input fs-15" type="checkbox" name="checkAll" value="option1">
                                                     </div>
                                                 </th>
-                                                <td><?php echo $row['invoice_id'];?></td>
-                                                <td><?php echo $row['invoice_number'];?></td>
-                                                <td><?php echo $row['due_date'];?></td>
-                                                <td><?php echo $row['customer_name'];?></td>
-                                                <td><?php echo $row['customer_address'];?></td>
-                                                <td><?php echo $row['customer_email'];?></td>
-                                                <td><?php echo $row['customer_phone'];?></td>                                                    
-                                                <?php
-                                  if($row['status']=='Unpaid')
-                                  {
-                                    echo '<td><span class="badge bg-warning-subtle text-warning ">'.$row['status'].'</span></td>';                                    
-                                  }else if($row['status']=='Paid')
-                                  {
-                                    echo '<td><span class="badge bg-primary-subtle text-primary ">'.$row['status'].'</span></td>';
-                                  }else if($row['status']=='Cancelled')
-                                  {
-                                    echo '<td><span class="badge bg-danger-subtle text-danger ">'.$row['status'].'</span></td>';
-                                  }
-                                  else
-                                  {
-                                    echo '<td><span class="badge bg-info-subtle text-info ">'.$row['status'].'</span></td>';
-                                  }
-                                  ?>
-
-                                  <td><?php echo $row['total_amount'];?></td>
-                                                                
-                                  <?php
-                                  //select staff from ID
-                                  $office_user_id=$row['user_id'];
-                                  $userQuery="SELECT first_name, last_name from user where user_id=$office_user_id";
-                                  $userSelect=$db->select($userQuery);
-
-                                  foreach($userSelect as $row1)
-                                  {
-                                    echo '<td>'.$row1['first_name'].' '.$row1['last_name'].'</td>';
-                                  }
-                                  ?>
-                                  <td><?php echo $row['updated_at'];?></td>                                                                    
-                                                
-                                                <td>
-                                                    <div class="dropdown d-inline-block">
-                                                    <form method="post" action="add_invoice_item.php"><input type="hidden" name="myInvoiceId"  value="<?php echo $row['invoice_id'];?>">
-                                                        <button name="add_items" id="add_items" class="btn btn-info" type="submit">
-                                                            Add Items
-                                                        </button>
-                                                    </form>                                                        
-                                                    </div>
-                                                </td>
+                                                <td><?php echo $row['invoice_item_id'];?></td>
+                                                <td><?php echo $row['item_number'];?></td>
+                                                <td><?php echo $row['item_name'];?></td>
+                                                <td><?php echo $row['description'];?></td>
+                                                <td><?php echo $row['quantity'];?></td>
+                                                <td><?php echo $row['unit_price'];?></td>
+                                                <td><?php echo $row['amount'];?></td>
+                                  <td><?php echo $row['updated_at'];?></td>
                                             </tr>
                                             <?php
                           }
@@ -302,6 +293,11 @@
                       ?>                                            
                                         </tbody>
                                     </table>
+                                    <div class="text-left">
+                                    <form action="preview_invoice.php">
+                                    <button type="submit" class="btn btn-info"><i class="ri-contract-line align-bottom me-1"></i>Preview Invoice</button>
+                                    </form>
+                                                    </div>
                                 </div>
                             </div>
                         </div>

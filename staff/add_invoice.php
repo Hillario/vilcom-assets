@@ -22,20 +22,37 @@
 
  include "header.php";
 
+ //temporarily suppress warnings
+ error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
+
+
  if ($_SERVER["REQUEST_METHOD"] == "POST") {    
     $due_date = trim($_POST['due_date']);
     $customer_name = trim($_POST['customer_name']);
     $customer_address = trim($_POST['customer_address']);    
     $customer_email = trim($_POST['customer_email']);
-    $customer_phone = trim($_POST['customer_phone']);    
+    $customer_phone = trim($_POST['customer_phone']);
+    $bank_name = trim($_POST['bank_name']);
+    $account_name = trim($_POST['account_name']);
+    $account_number = trim($_POST['account_number']);
+    $mpesa = trim($_POST['mpesa']);
+    $mpesa_name = trim($_POST['mpesa_name']);
+    $notes = trim($_POST['notes']);    
     $status = trim($_POST['status']);    
     
     if (isset($_POST['due_date'])) $due_date = $_POST['due_date'];
     if (isset($_POST['customer_name'])) $customer_name = $_POST['customer_name'];
     if (isset($_POST['customer_address'])) $customer_address= $_POST['customer_address'];    
     if (isset($_POST['customer_email'])) $customer_email = $_POST['customer_email'];
-    if (isset($_POST['customer_phone'])) $customer_phone = $_POST['customer_phone'];    
-    if (isset($_POST['status'])) $status = $_POST['status'];
+    if (isset($_POST['customer_phone'])) $customer_phone = $_POST['customer_phone'];
+    if (isset($_POST['bank_name'])) $bank_name = $_POST['bank_name'];
+    if (isset($_POST['account_name'])) $account_name = $_POST['account_name'];
+    if (isset($_POST['account_number'])) $account_number = $_POST['account_number'];
+    if (isset($_POST['mpesa'])) $mpesa = $_POST['mpesa'];
+    if (isset($_POST['mpesa_name'])) $mpesa_name = $_POST['mpesa_name'];
+    if (isset($_POST['notes'])) $notes = $_POST['notes'];
+    if (isset($_POST['status'])) $status = $_POST['status'];    
+    
     
     $error = array();    
     if (empty($_POST["due_date"])) {
@@ -52,6 +69,24 @@
     }
     if (empty($_POST["customer_phone"])) {
         $error[] = 'Please enter the customer phone';
+    }
+    if (empty($_POST["bank_name"])) {
+        $error[] = 'Please enter the bank name';
+    }
+    if (empty($_POST["account_name"])) {
+        $error[] = 'Please enter the bank account name';
+    }
+    if (empty($_POST["account_number"])) {
+        $error[] = 'Please enter the bank account number';
+    }
+    if (empty($_POST["mpesa"])) {
+        $error[] = 'Please enter the mpesa no., till no. or paybill no.';
+    }
+    if (empty($_POST["mpesa_name"])) {
+        $error[] = 'Please enter the mpesa name or account number';
+    }
+    if (empty($_POST["notes"])) {
+        $error[] = 'Please enter the notes for the quote';
     }    
     if (empty($_POST["status"])) {
         $error[] = 'Please select the status';
@@ -132,7 +167,31 @@
                                                         <input name="customer_address" type="text" class="form-control form-control-icon" id="customer_address" placeholder="Enter the customer address">
                                                         <i class="ri-map-pin-line"></i>
                                                     </div>
-                                            </div> 
+                                            </div>
+                                            
+                                            <div class="mt-3">
+                                                <label class="form-label">Bank Name</label>
+                                                <div class="form-icon">
+                                                        <input name="bank_name" type="text" class="form-control form-control-icon" id="bank_name" placeholder="Enter the bank name">
+                                                        <i class="ri-bank-line"></i>
+                                                    </div>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <label class="form-label">Bank Account Name</label>
+                                                <div class="form-icon">
+                                                        <input name="account_name" type="text" class="form-control form-control-icon" id="account_name" placeholder="Enter the bank account name">
+                                                        <i class="ri-bank-line"></i>
+                                                    </div>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <label class="form-label">Bank Account Number</label>
+                                                <div class="form-icon">
+                                                        <input name="account_number" type="text" class="form-control form-control-icon" id="account_number" placeholder="Enter the bank account number">
+                                                        <i class="ri-bank-line"></i>
+                                                    </div>
+                                            </div>
                                            
                                         </div>
 
@@ -166,6 +225,29 @@
                                                     <option value="Refunded">Refunded</option>
                                                     <option value="Cancelled">Cancelled</option>                                                         
                                                 </select>                                                        
+                                                    </div>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <label class="form-label">MPESA</label>
+                                                <div class="form-icon">
+                                                        <input name="mpesa" type="text" class="form-control form-control-icon" id="mpesa" placeholder="Enter the mpesa number, till number or paybill number">
+                                                        <i class="ri-cellphone-line"></i>
+                                                    </div>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <label class="form-label">MPESA ACCOUNT</label>
+                                                <div class="form-icon">
+                                                        <input name="mpesa_name" type="text" class="form-control form-control-icon" id="mpesa_name" placeholder="Enter the mpesa name or account number">
+                                                        <i class="ri-cellphone-line"></i>
+                                                    </div>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <label class="form-label">Notes</label>
+                                                <div class="form-icon">
+                                                        <textarea name="notes" class="form-control form-control-icon" id="notes"></textarea>                                                        
                                                     </div>
                                             </div>
 
@@ -214,7 +296,7 @@
 										<strong>Error Imminent! </strong>' . @implode('</li><li>', $error) . ' 
 									</div>';
                                                         } else {                                                            
-                                                                $insertQuery = "INSERT INTO `invoice` (`invoice_id`, `invoice_number`, `due_date`, `customer_name`, `customer_address`, `customer_email`, `customer_phone`, `status`, `total_amount`, `user_id`, `updated_at`) VALUES (NULL, '".$newInvoiceNumber."', '".$due_date."', '".$customer_name."', '".$customer_address."', '".$customer_email."', '".$customer_phone."', '".$status."', '0.00', '".$user_id."', CURRENT_TIMESTAMP);";
+                                                                $insertQuery = "INSERT INTO `invoice` (`invoice_id`, `invoice_number`, `due_date`, `customer_name`, `customer_address`, `customer_email`, `customer_phone`, `bank_name`, `account_name`, `account_number`, `mpesa`, `mpesa_name`, `notes`, `status`, `tax`, `total_amount`, `grand_total`, `user_id`, `updated_at`) VALUES (NULL, '".$newInvoiceNumber."', '".$due_date."', '".$customer_name."', '".$customer_address."', '".$customer_email."', '".$customer_phone."', '".$bank_name."', '".$account_name."', '".$account_number."', '".$mpesa."', '".$mpesa_name."', '".$notes."', '".$status."', '0.00', '0.00', '0.00', '".$user_id."', CURRENT_TIMESTAMP);";
                                                                 $db->insert($insertQuery);
                                                                 echo '<div class="alert alert-info">										
 										<strong>Success! </strong>Invoice has been added, proceed to add invoice items below
@@ -251,9 +333,17 @@
                                                 <th data-ordering="false">Customer Name</th>
                                                 <th data-ordering="false">Customer Address</th>
                                                 <th>Customer Email</th>
-                                                <th>Customer Phone</th>                                                
+                                                <th>Customer Phone</th>
+                                                <th>Bank Name</th>
+                                                <th>Bank Account Name</th>
+                                                <th>Bank Account Number</th>
+                                                <th>Mpesa(No.,Till,Paybill)</th>
+                                                <th>Mpesa Account(Name,Account No.)</th>
+                                                <th>Notes</th>
                                                 <th>Status</th>
+                                                <th>Tax</th>
                                                 <th>Total Amount</th>
+                                                <th>Grand Total</th>
                                                 <th>Staff</th>
                                                 <th>Updated_At</th>
                                                 <th>Action</th>
@@ -277,7 +367,13 @@
                                                 <td><?php echo $row['customer_name'];?></td>
                                                 <td><?php echo $row['customer_address'];?></td>
                                                 <td><?php echo $row['customer_email'];?></td>
-                                                <td><?php echo $row['customer_phone'];?></td>                                                    
+                                                <td><?php echo $row['customer_phone'];?></td>
+                                                <td><?php echo $row['bank_name'];?></td>
+                                                <td><?php echo $row['account_name'];?></td>
+                                                <td><?php echo $row['account_number'];?></td>
+                                                <td><?php echo $row['mpesa'];?></td>
+                                                <td><?php echo $row['mpesa_name'];?></td>
+                                                <td><?php echo $row['notes'];?></td>                                                    
                                                 <?php
                                   if($row['status']=='Unpaid')
                                   {
@@ -295,7 +391,10 @@
                                   }
                                   ?>
 
+                                  <td><?php echo $row['tax'];?></td>
+
                                   <td><?php echo $row['total_amount'];?></td>
+                                  <td><?php echo $row['grand_total'];?></td>
                                                                 
                                   <?php
                                   //select staff from ID
@@ -314,7 +413,7 @@
                                                     <div class="dropdown d-inline-block">
                                                     <form method="post" action="add_invoice_item.php"><input type="hidden" name="myInvoiceId"  value="<?php echo $row['invoice_id'];?>">
                                                         <button name="add_items" id="add_items" class="btn btn-info" type="submit">
-                                                            Add Items
+                                                        <i class="ri-sticky-note-add-line align-bottom me-1"></i>Add Items
                                                         </button>
                                                     </form>                                                        
                                                     </div>
