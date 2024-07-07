@@ -390,7 +390,7 @@
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
-                                <a class="dropdown-item" href="#"><i class="bx bx-user fs-15 align-middle me-1"></i> <span key="t-profile">Profile</span></a>                                
+                                <a class="dropdown-item" href="profile.php"><i class="bx bx-user fs-15 align-middle me-1"></i> <span key="t-profile">Profile</span></a>                                
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item text-danger" href="../logout.php"><i class="bx bx-power-off fs-15 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
                             </div>
@@ -556,7 +556,22 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>                       
+                        </li>
+                        
+                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Settings</span></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#profile" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInvoiceManagement">
+                                <i class="las la-cog"></i> <span data-key="t-invoices">Manage Profile</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="profile">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="profile.php" class="nav-link" data-key="t-invoice"> Profile</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>  
                         
                     </ul>
                 </div>
