@@ -466,24 +466,7 @@ else{
                             </a>
                         </li>
 
-                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Incidents</span></li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#all_incidents" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarUI">
-                                <i class="las la-exclamation-triangle"></i> <span data-key="t-bootstrap-ui">All Incidents</span>
-                            </a>
-                            <div class="collapse menu-dropdown mega-dropdown-menu" id="all_incidents">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <ul class="nav nav-sm flex-column">                                            
-                                            <li class="nav-item">
-                                                <a href="view_incident.php" class="nav-link" data-key="t-badges">View Incidents</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                        
 
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Requests</span></li>
 
@@ -497,6 +480,25 @@ else{
                                         <ul class="nav nav-sm flex-column">                                            
                                             <li class="nav-item">
                                                 <a href="view_request.php" class="nav-link" data-key="t-badges">View Requests</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Incidents</span></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#all_incidents" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarUI">
+                                <i class="las la-exclamation-triangle"></i> <span data-key="t-bootstrap-ui">All Incidents</span>
+                            </a>
+                            <div class="collapse menu-dropdown mega-dropdown-menu" id="all_incidents">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <ul class="nav nav-sm flex-column">                                            
+                                            <li class="nav-item">
+                                                <a href="view_incident.php" class="nav-link" data-key="t-badges">View Incidents</a>
                                             </li>
                                         </ul>
                                     </div>
