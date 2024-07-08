@@ -23,7 +23,7 @@
  include "header.php";
 
   //select from the office equipment table
-  $selectQuery="SELECT * FROM Office_Equipment";
+  $selectQuery="SELECT * FROM office_equipment";
   $dbSelect=$db->select($selectQuery);
 
 ?>

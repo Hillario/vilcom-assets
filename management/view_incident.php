@@ -23,7 +23,7 @@
  include "header.php";
 
  //select from the office equipment table
- $selectQuery="SELECT * from equipment_incident as I, office_equipment as E WHERE i.equipment_id=E.equipment_id";
+ $selectQuery="SELECT * from equipment_incident as I, office_equipment as E WHERE I.equipment_id=E.equipment_id";
  $dbSelect=$db->select($selectQuery);
 
 ?>

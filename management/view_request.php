@@ -23,7 +23,7 @@
  include "header.php";
 
  //select from the office equipment table
- $selectQuery="SELECT * FROM request";
+ $selectQuery="SELECT * FROM request WHERE priority='High'";
  $dbSelect=$db->select($selectQuery);
 
 ?>
