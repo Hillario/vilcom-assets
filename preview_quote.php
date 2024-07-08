@@ -115,8 +115,8 @@
                                         <div class="col-lg-3">
                                             <div class="mt-sm-0 mt-3">
                                                 <div class="mb-4">
-                                                    <img src="../assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark" height="17">
-                                                    <img src="../assets/images/logo-light.png" class="card-logo card-logo-light" alt="logo light" height="17">
+                                                    <img src="assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark" height="17">
+                                                    <img src="assets/images/logo-light.png" class="card-logo card-logo-light" alt="logo light" height="17">
                                                 </div>
                                                 <h6 class="text-muted text-uppercase fw-semibold">Address</h6>
                                                 <p class="text-muted mb-1" id="address-details">Ramco Court, Block B, Mombasa Road</p>

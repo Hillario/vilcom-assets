@@ -171,10 +171,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                             <button class="btn btn-info w-100" type="submit">Log In</button>
                                                         </div>
 
-
-                                                        <div class="mt-4 text-center">
-                                                            <p class="mb-0">Don't have an account ? <a href="signup.php" class="fw-medium text-info text-decoration-underline"> Signup now </a> </p>
-                                                        </div>
                                                     </form>
                                                     <?php
                                                     if (($message != "")) {
@@ -207,7 +203,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                                     <div class="testi-contain text-center">
                                                                         <h5 class="fs-20 text-white mb-0">“ Unlock the Power of Organized Assets”
                                                                         </h5>
-                                                                        <p class="fs-15 text-white-50 mt-2 mb-0">Dive into a world of streamlined efficiency with the VILCOM STAFF PORTAL. Seamlessly track, manage, and optimize your organization's assets with precision and ease. Experience the next level of asset management today.</p>
+                                                                        <p class="fs-15 text-white-50 mt-2 mb-0">Dive into a world of streamlined efficiency with VILCOM STAFF PORTAL. Seamlessly track, manage, and optimize Vilcom's assets with precision and ease. Experience the next level of asset management today.</p>
                                                                     </div>
                                                                 </div>
 
@@ -215,7 +211,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                                     <div class="testi-contain text-center">
                                                                         <h5 class="fs-20 text-white mb-0">“Elevate Your Workflow”</h5>
                                                                         <p class="fs-15 text-white-50 mt-2 mb-0">
-                                                                            Integrate your assets seamlessly into your workflow with the VILCOM STAFF PORTAL. Say goodbye to tedious manual processes and hello to increased productivity and efficiency. Empower your team to achieve more with intuitive asset management solutions.
+                                                                            Integrate your assets seamlessly into your workflow with VILCOM STAFF PORTAL. Say goodbye to tedious manual processes and hello to increased productivity and efficiency. Empower your team to achieve more with intuitive asset management solutions.
                                                                         </p>
                                                                     </div>
                                                                 </div>
@@ -224,7 +220,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                                     <div class="testi-contain text-center">
                                                                         <h5 class="fs-20 text-white mb-0">“Insight-driven Decision Making”</h5>
                                                                         <p class="fs-15 text-white-50 mt-2 mb-0">
-                                                                            Secure the future of your organization with intelligent insights from the VILCOM STAFF PORTAL. Harness the power of data-driven decisions and strategic planning to propel your business forward. Unlock unparalleled visibility and control over your assets today.
+                                                                            Secure the future with intelligent insights from VILCOM STAFF PORTAL. Harness the power of data-driven decisions and strategic planning to propel Vilcom forward. Unlock unparalleled visibility and control over assets today.
                                                                         </p>
                                                                     </div>
                                                                 </div>

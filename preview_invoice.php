@@ -13,27 +13,27 @@
  */
 
 /**
- * preview_quote.php
+ * preview_invoice.php
  *
- * This file enables the staff to preview and download the quote.
+ * This file enables the staff to preview and download the invoice.
  * 
  * @author Hillary Chesaro
  */
 
  include "header.php";
 
- //Retrieve Quote ID
+ //Retrieve Invoice ID
 
 
- $quoteid=($_SESSION['quoteid']);
+ $invoiceid=($_SESSION['invoiceid']);
 
  //select data for the invoice header
- $queryInvoice="SELECT * FROM quote WHERE quote_id=$quoteid";
+ $queryInvoice="SELECT * FROM invoice WHERE invoice_id=$invoiceid";
  $selectInvoice=$db->select($queryInvoice);
  foreach($selectInvoice as $row)
  {
-    $quoteNumber=$row['quote_number'];
-    $quoteDate=$row['quote_date'];
+    $invoiceNumber=$row['invoice_number'];
+    $dueDate=$row['due_date'];
     $customerName=$row['customer_name'];
     $customerAddress=$row['customer_address'];
     $customerEmail=$row['customer_email'];
@@ -68,12 +68,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">GENERATE QUOTE</h4>
+                                <h4 class="mb-sm-0">GENERATE INVOICE</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                                        <li class="breadcrumb-item active">Preview Quote</li>
+                                        <li class="breadcrumb-item active">Preview Invoice</li>
                                     </ol>
                                 </div>
 
@@ -88,11 +88,11 @@
                                    <div class="card-body">
                                     <div class="row p-4">
                                         <div class="col-lg-9">
-                                            <h3 class="fw-bold mb-4">Vilcom Networks Ltd. Quote </h3>
+                                            <h3 class="fw-bold mb-4">Vilcom Networks Ltd. Invoice </h3>
                                             <div class="row g-4">
                                                 <div class="col-lg-6 col-6">
-                                                    <p class="text-muted mb-1 text-uppercase fw-medium fs-14">Quote No</p>
-                                                    <h5 class="fs-16 mb-0">#<?php echo $quoteNumber;?></span></h5>
+                                                    <p class="text-muted mb-1 text-uppercase fw-medium fs-14">Invoice No</p>
+                                                    <h5 class="fs-16 mb-0">#<?php echo $invoiceNumber;?></span></h5>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-lg-6 col-6">
@@ -101,7 +101,7 @@
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-lg-6 col-6">
-                                                    <p class="text-muted mb-1 text-uppercase fw-medium fs-14">Approval Status</p>
+                                                    <p class="text-muted mb-1 text-uppercase fw-medium fs-14">Payment Status</p>
                                                     <span class="badge bg-success-subtle text-success fs-11" id="payment-status"><?php echo $status;?></span>
                                                 </div>
                                                 <!--end col-->
@@ -115,8 +115,8 @@
                                         <div class="col-lg-3">
                                             <div class="mt-sm-0 mt-3">
                                                 <div class="mb-4">
-                                                    <img src="../assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark" height="17">
-                                                    <img src="../assets/images/logo-light.png" class="card-logo card-logo-light" alt="logo light" height="17">
+                                                    <img src="assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark" height="17">
+                                                    <img src="assets/images/logo-light.png" class="card-logo card-logo-light" alt="logo light" height="17">
                                                 </div>
                                                 <h6 class="text-muted text-uppercase fw-semibold">Address</h6>
                                                 <p class="text-muted mb-1" id="address-details">Ramco Court, Block B, Mombasa Road</p>
@@ -145,14 +145,14 @@
                                         <div class="col-lg-3">
                                                 <h6 class="text-muted text-uppercase fw-semibold mb-3">Total Amount(Ksh)</h6>
                                                 <h3 class="fw-bold mb-2"><?php echo $grandTotal;?></h3>
-                                                <span class="badge bg-success-subtle text-success fs-12">Quote Date: <?php echo $quoteDate?></span>
+                                                <span class="badge bg-success-subtle text-success fs-12">Due Date: <?php echo $dueDate?></span>
                                         </div>
 
                                     </div>
 
                                     <?php
-                                    //select all quote items in respect to invoice id
-                                    $queryInvoiceItem="SELECT * FROM quote_item WHERE quote_id=$quoteid ORDER BY quote_item_id ASC";
+                                    //select all invoice items in respect to invoice id
+                                    $queryInvoiceItem="SELECT * FROM invoice_item WHERE invoice_id=$invoiceid ORDER BY invoice_item_id ASC";
                                     $selectInvoiceItem=$db->select($queryInvoiceItem);
                                     ?>
 

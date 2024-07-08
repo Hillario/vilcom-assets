@@ -392,7 +392,7 @@ else{
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
-                                <a class="dropdown-item" href="#"><i class="bx bx-user fs-15 align-middle me-1"></i> <span key="t-profile">Profile</span></a>                                
+                                <a class="dropdown-item" href="profile.php"><i class="bx bx-user fs-15 align-middle me-1"></i> <span key="t-profile">Profile</span></a>                                
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item text-danger" href="logout.php"><i class="bx bx-power-off fs-15 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
                             </div>
@@ -680,6 +680,21 @@ else{
                                 </div>
                             </div>
                         </li>
+
+                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Quotes</span></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#quotes" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInvoiceManagement">
+                                <i class="las la-edit"></i> <span data-key="t-invoices">Generate Quotes</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="quotes">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="add_quote.php" class="nav-link" data-key="t-invoice"> Generate Quote </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                         
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Invoices</span></li>
 
@@ -690,15 +705,12 @@ else{
                             <div class="collapse menu-dropdown" id="invoices">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="add_invoice.php" class="nav-link" data-key="t-invoice"> Add Invoice </a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="view_invoice.php" class="nav-link" data-key="t-add-invoice"> View Invoice </a>
+                                        <a href="add_invoice.php" class="nav-link" data-key="t-invoice"> Generate Invoice </a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
+                        
 
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Staff</span></li>
 
@@ -762,6 +774,21 @@ else{
                                 </div>
                             </div>
                         </li>
+
+                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Settings</span></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#profile" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInvoiceManagement">
+                                <i class="las la-cog"></i> <span data-key="t-invoices">Manage Profile</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="profile">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="profile.php" class="nav-link" data-key="t-invoice"> Profile</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li> 
                       
                     </ul>
                 </div>

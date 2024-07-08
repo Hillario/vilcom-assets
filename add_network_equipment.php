@@ -24,6 +24,7 @@
 
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $system_name = trim($_POST['system_name']);
+    $designation = trim($_POST['designation']);
     $system_manufacturer = trim($_POST['system_manufacturer']);
     $system_model = trim($_POST['system_model']);
     $system_sku = trim($_POST['system_sku']);
@@ -40,6 +41,7 @@
     $category = trim($_POST['category']);
     
     if (isset($_POST['system_name'])) $system_name = $_POST['system_name'];
+    if (isset($_POST['designation'])) $designation = $_POST['designation'];
     if (isset($_POST['system_manufacturer'])) $system_manufacturer = $_POST['system_manufacturer'];
     if (isset($_POST['system_model'])) $system_model = $_POST['system_model'];
     if (isset($_POST['system_sku'])) $system_sku= $_POST['system_sku'];
@@ -57,6 +59,9 @@
     $error = array();
     if (empty($_POST["system_name"])) {
         $error[] = 'Please enter the system name';
+    }
+    if (empty($_POST["designation"])) {
+        $error[] = 'Please enter the designation';
     }
     if (empty($_POST["system_manufacturer"])) {
         $error[] = 'Please enter the system manufacturer';
@@ -149,14 +154,15 @@
                                 <div class="card-body">
                                     <div class="row g-3">
                                         <div class="col-lg-6">
-                                        
-                                            <div class="mt-3">
-                                                <label class="form-label">System Name</label>
+
+                                        <div class="mt-3">
+                                                <label class="form-label">Designation</label>
                                                 <div class="form-icon">
-                                                        <input name="system_name" type="text" class="form-control form-control-icon" id="system_name" placeholder="Enter System Name">
+                                                        <input name="designation" type="text" class="form-control form-control-icon" id="designation" placeholder="Enter Designation">
                                                         <i class="ri-menu-unfold-3-fill"></i>
                                                     </div>
-                                            </div>
+                                            </div>                                        
+                                            
 
                                             <div class="mt-3">
                                                 <label class="form-label">System Manufacturer</label>
@@ -224,6 +230,16 @@
                                         </div>
 
                                         <div class="col-lg-6">
+
+                                        <div class="mt-3">
+                                                <label class="form-label">System Name</label>
+                                                <div class="form-icon">
+                                                        <input name="system_name" type="text" class="form-control form-control-icon" id="system_name" placeholder="Enter System Name">
+                                                        <i class="ri-menu-unfold-3-fill"></i>
+                                                    </div>
+                                            </div>
+
+                                        
                                         <div class="mt-3">
                                                 <label class="form-label">Origin</label>
                                                 <div class="form-icon">
@@ -308,7 +324,7 @@
                                                         } else {
                                                                 $depreciation_rate=0.25;
                                                                 $current_value=calculateDepreciatedValue($purchase_cost,$date_of_purchase,$depreciation_rate);                                                            
-                                                                $insertQuery = "INSERT INTO `network_equipment` (`network_id`, `system_name`, `system_manufacturer`, `system_model`, `system_sku`, `processor`, `baseboard_product`, `installed_ram`, `storage_medium`, `serial_number`, `charger`, `date_issued`, `date_of_purchase`, `depreciation_rate`, `current_value`, `purchase_cost`, `origin`, `category_id`, `updated_at`) VALUES (NULL, '".$system_name."', '".$system_manufacturer."', '".$system_model."', '".$system_sku."', '".$processor."', '".$baseboard_product."', '".$installed_ram."', '".$storage_medium."', '".$serial_number."', '".$charger."', '".$date_issued."', '".$date_of_purchase."', '".$depreciation_rate."', '".$current_value."', '".$purchase_cost."', '".$origin."', '".$category."', current_timestamp());";
+                                                                $insertQuery = "INSERT INTO `network_equipment` (`network_id`, `designation`, `system_name`, `system_manufacturer`, `system_model`, `system_sku`, `processor`, `baseboard_product`, `installed_ram`, `storage_medium`, `serial_number`, `charger`, `date_issued`, `date_of_purchase`, `depreciation_rate`, `current_value`, `purchase_cost`, `origin`, `category_id`, `updated_at`) VALUES (NULL, '".$designation."', '".$system_name."', '".$system_manufacturer."', '".$system_model."', '".$system_sku."', '".$processor."', '".$baseboard_product."', '".$installed_ram."', '".$storage_medium."', '".$serial_number."', '".$charger."', '".$date_issued."', '".$date_of_purchase."', '".$depreciation_rate."', '".$current_value."', '".$purchase_cost."', '".$origin."', '".$category."', current_timestamp());";
                                                                 $db->insert($insertQuery);
                                                                 echo '<div class="alert alert-info">										
 										<strong>Success! </strong>Network equipment has been added

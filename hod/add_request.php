@@ -13,9 +13,9 @@
  */
 
 /**
- * add_department.php --> Admin Part
+ * add_request.php --> Staff Part
  *
- * This file enables admin to add department
+ * This file enables staff to request for equipment
  * 
  * @author Hillary Chesaro
  */
@@ -33,10 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $error = array();
     if (empty($_POST["item_name"])) {
-        $error[] = 'Please enter the name of department';
+        $error[] = 'Please enter the equipment name';
     }
     if (empty($_POST["description"])) {
-        $error[] = 'Please enter description of the department';
+        $error[] = 'Please enter description of the equipment';
     }
 }
 
@@ -57,12 +57,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">ADD DEPARTMENT</h4>
+                        <h4 class="mb-sm-0">ADD REQUEST</h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                                <li class="breadcrumb-item active">Add Department</li>
+                                <li class="breadcrumb-item active">Add Request</li>
                             </ol>
                         </div>
 
@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- end page title -->
 
             <div class="alert alert-info" role="alert">
-                <strong>Seamlessly</strong> add departments
+                <strong>Seamlessly</strong> request for equipment
             </div>
 
             <!-- Add office equipment warranty form-->
@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title mb-0">Add department form</h4>
+                            <h4 class="card-title mb-0">Add request form</h4>
                         </div>
                         <form action="" method="POST" class="auth-input" enctype="multipart/form-data">
                             <div class="card-body">
@@ -89,15 +89,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="col-lg-6">
 
                                         <div class="mt-3">
-                                            <label class="form-label">Department Name</label>
+                                            <label class="form-label">Equipment Name</label>
                                             <div class="form-icon">
-                                                <input type="text" name="item_name" class="form-control form-control-icon" id="item_name" placeholder="Enter department name">
+                                                <input type="text" name="item_name" class="form-control form-control-icon" id="item_name" placeholder="Enter equipment name">
                                                 <i class="ri-drag-drop-line"></i>
                                             </div>
                                         </div>
 
                                         <div class="mt-3">
-                                                <label class="form-label">Description</label>
+                                                <label class="form-label">Equipment description and Justification</label>
                                                 <div class="form-icon">
                                                         <textarea name="description" class="form-control form-control-icon" id="description"></textarea>                                                        
                                                     </div>
@@ -122,10 +122,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <strong>Error Imminent! </strong>' . @implode('</li><li>', $error) . ' 
     </div>';
                             } else {                                
-                                $insertQuery = "INSERT INTO `department` (`department_id`, `name`, `description`, `updated_at`) VALUES (NULL, '".$item_name."', '".$description."', CURRENT_TIMESTAMP);";
+                                $insertQuery = "INSERT INTO `request` (`request_id`, `item_name`, `description`, `status`, `priority`, `user_id`, `updated_at`) VALUES (NULL, '".$item_name."', '".$description."', 'Pending', 'Medium', '".$user_id."', CURRENT_TIMESTAMP);";
                                 $db->insert($insertQuery);
                                 echo '<div class="alert alert-info">										
-        <strong>Success! </strong>Department has been added
+        <strong>Success! </strong>Request has been sent, go to view request to track
     </div>';
                             }
                         }

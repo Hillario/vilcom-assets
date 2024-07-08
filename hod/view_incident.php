@@ -13,9 +13,9 @@
  */
 
 /**
- * view_network_equipment.php
+ * view_incident.php --> Staff part
  *
- * This file enables the admin to view all network equipments.
+ * This file enables staff to view and track incidents reported.
  * 
  * @author Hillary Chesaro
  */
@@ -23,7 +23,7 @@
  include "header.php";
 
  //select from the office equipment table
- $selectQuery="SELECT * FROM network_equipment";
+ $selectQuery="SELECT * from equipment_incident as I, office_equipment as E WHERE i.equipment_id=E.equipment_id AND E.user_id=$user_id;";
  $dbSelect=$db->select($selectQuery);
 
 ?>
@@ -43,12 +43,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">VIEW NETWORK EQUIPMENTS</h4>
+                                <h4 class="mb-sm-0">VIEW YOUR INCIDENTS</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                                        <li class="breadcrumb-item active">View Network Equipments</li>
+                                        <li class="breadcrumb-item active">View Incidents</li>
                                     </ol>
                                 </div>
 
@@ -58,14 +58,14 @@
                     <!-- end page title -->
                     
                     <div class="alert alert-info" role="alert">
-                        <strong>View</strong> and <b>Update</b> network equipments
+                        <strong>View</strong> and <b>Track</b> incidents
                     </div>
 
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title mb-0">Network Equipments</h5>
+                                    <h5 class="card-title mb-0">Your Incidents</h5>
                                 </div>
                                 <div class="card-body">
                                     <table id="example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
@@ -77,23 +77,17 @@
                                                     </div>
                                                 </th>
                                                 <th data-ordering="false">ID</th>
-                                                <th data-ordering="false">Designation</th>
-                                                <th data-ordering="false">System Name</th>
-                                                <th data-ordering="false">System Manufacturer</th>
-                                                <th data-ordering="false">System Model</th>
-                                                <th>System SKU</th>
-                                                <th>Processor</th>
-                                                <th>BaseBoard Product</th>
-                                                <th>Installed RAM</th>
-                                                <th>Storage Medium</th>
-                                                <th>Serial Number</th>
-                                                <th>Charger</th>                                                
-                                                <th>Date Issued</th>
-                                                <th>Date Of Purchase</th>
-                                                <th>Depreciation Rate</th>
-                                                <th>Current Value</th>
-                                                <th>Purchase Cost</th>
-                                                <th>Origin</th>                                                
+                                                <th data-ordering="false">Incident Date</th>
+                                                <th data-ordering="false">Type Of Incident</th>
+                                                <th data-ordering="false">Source</th>
+                                                <th data-ordering="false">Process</th>
+                                                <th>Priority</th>
+                                                <th>Status</th>                                                
+                                                <th>Description</th>
+                                                <th>Root Cause</th>
+                                                <th>Action Plan</th>
+                                                <th>Date Action Completed</th>
+                                                <th>Equipment</th>
                                                 <th>Updated_At</th>
                                                 <th>Action</th>
                                             </tr>
@@ -110,24 +104,58 @@
                                                         <input class="form-check-input fs-15" type="checkbox" name="checkAll" value="option1">
                                                     </div>
                                                 </th>
-                                                <td><?php echo $row['network_id'];?></td>
-                                                <td><?php echo $row['designation'];?></td>
-                                                <td><?php echo $row['system_name'];?></td>
-                                                <td><?php echo $row['system_manufacturer'];?></td>
-                                                <td><?php echo $row['system_model'];?></td>
-                                                <td><?php echo $row['system_sku'];?></td>
-                                                <td><?php echo $row['processor'];?></td>
-                                                <td><?php echo $row['baseboard_product'];?></td>
-                                                <td><?php echo $row['installed_ram'];?></td>
-                                                <td><?php echo $row['storage_medium'];?></td>
-                                                <td><?php echo $row['serial_number'];?></td>
-                                                <td><?php echo $row['charger'];?></td>                                                
-                                  <td><?php echo $row['date_issued'];?></td>
-                                  <td><?php echo $row['date_of_purchase'];?></td>
-                                  <td><?php echo $row['depreciation_rate'];?></td>
-                                  <td><?php echo $row['current_value'];?></td>
-                                  <td><?php echo $row['purchase_cost'];?></td>
-                                  <td><?php echo $row['origin'];?></td>                                  
+                                                <td><?php echo $row['equipment_incident_id'];?></td>
+                                                <td><?php echo $row['incident_date'];?></td>
+                                                <td><?php echo $row['type_of_incident'];?></td>
+                                                <td><?php echo $row['source'];?></td>
+                                                <td><?php echo $row['process'];?></td>                                                
+                                                
+                                  <?php
+                                  if($row['priority']=='Low')
+                                  {
+                                    echo '<td><span class="badge bg-primary">'.$row['priority'].'</span></td>';                                    
+                                  }else if($row['priority']=='Medium')
+                                  {
+                                    echo '<td><span class="badge bg-info">'.$row['priority'].'</span></td>';
+                                  }else if($row['priority']=='High')
+                                  {
+                                    echo '<td><span class="badge bg-warning">'.$row['priority'].'</span></td>';
+                                  }
+                                  else
+                                  {
+                                    echo '<td><span class="badge bg-danger">'.$row['priority'].'</span></td>';
+                                  }
+                                  ?>
+                                  <?php
+                                  if($row['status']=='Pending')
+                                  {
+                                    echo '<td><span class="badge bg-warning-subtle text-warning ">'.$row['status'].'</span></td>';                                    
+                                  }else if($row['status']=='Approved')
+                                  {
+                                    echo '<td><span class="badge bg-primary-subtle text-primary ">'.$row['status'].'</span></td>';
+                                  }else if($row['status']=='Rejected')
+                                  {
+                                    echo '<td><span class="badge bg-danger-subtle text-danger ">'.$row['status'].'</span></td>';
+                                  }
+                                  else
+                                  {
+                                    echo '<td><span class="badge bg-info-subtle text-info ">'.$row['status'].'</span></td>';
+                                  }
+                                  ?>
+                                  <td><?php echo $row['description'];?></td>
+                                  <td><?php echo $row['root_cause'];?></td>
+                                  <td><?php echo $row['action_plan'];?></td>
+                                  <td><?php echo $row['date_action_completed'];?></td>                                  
+                                  <?php
+                                  //select equipment from ID                                 
+                                  $userQuery="SELECT system_name from office_equipment where user_id=$user_id";
+                                  $userSelect=$db->select($userQuery);
+
+                                  foreach($userSelect as $row1)
+                                  {
+                                    echo '<td>'.$row1['system_name'].'</td>';
+                                  }
+                                  ?>
                                   <td><?php echo $row['updated_at'];?></td>                                                                    
                                                 
                                                 <td>
@@ -137,12 +165,7 @@
                                                         </button>
                                                         <ul class="dropdown-menu dropdown-menu-end">
                                                             <li><a href="#!" class="dropdown-item"><i class="ri-eye-fill align-bottom me-2 text-muted"></i> View</a></li>
-                                                            <li><a class="dropdown-item edit-item-btn"><i class="ri-pencil-fill align-bottom me-2 text-muted"></i> Edit</a></li>
-                                                            <li>
-                                                                <a class="dropdown-item remove-item-btn">
-                                                                    <i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i> Delete
-                                                                </a>
-                                                            </li>
+                                                            <li><a class="dropdown-item edit-item-btn"><i class="ri-pencil-fill align-bottom me-2 text-muted"></i> Edit</a></li>                                                            
                                                         </ul>
                                                     </div>
                                                 </td>
