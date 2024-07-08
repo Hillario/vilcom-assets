@@ -22,6 +22,86 @@
 
  include "header.php";
 
+ if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $system_name = trim($_POST['system_name']);
+    $system_manufacturer = trim($_POST['system_manufacturer']);
+    $system_model = trim($_POST['system_model']);
+    $system_sku = trim($_POST['system_sku']);
+    $processor = trim($_POST['processor']);
+    $baseboard_product = trim($_POST['baseboard_product']);
+    $installed_ram = trim($_POST['installed_ram']);
+    $storage_medium = trim($_POST['storage_medium']);
+    $serial_number = trim($_POST['serial_number']);
+    $charger = trim($_POST['charger']);    
+    $date_issued = trim($_POST['date_issued']);
+    $purchase_cost = trim($_POST['purchase_cost']);
+    $origin = trim($_POST['origin']);    
+    $date_of_purchase = trim($_POST['date_of_purchase']);
+    $category = trim($_POST['category']);
+    
+    if (isset($_POST['system_name'])) $system_name = $_POST['system_name'];
+    if (isset($_POST['system_manufacturer'])) $system_manufacturer = $_POST['system_manufacturer'];
+    if (isset($_POST['system_model'])) $system_model = $_POST['system_model'];
+    if (isset($_POST['system_sku'])) $system_sku= $_POST['system_sku'];
+    if (isset($_POST['processor'])) $processor = $_POST['processor'];
+    if (isset($_POST['baseboard_product'])) $baseboard_product = $_POST['baseboard_product'];
+    if (isset($_POST['installed_ram'])) $installed_ram = $_POST['installed_ram'];
+    if (isset($_POST['storage_medium'])) $storage_medium = $_POST['storage_medium'];
+    if (isset($_POST['serial_number'])) $serial_number = $_POST['serial_number'];
+    if (isset($_POST['charger'])) $charger = $_POST['charger'];    
+    if (isset($_POST['date_issued'])) $date_issued = $_POST['date_issued'];
+    if (isset($_POST['purchase_cost'])) $purchase_cost = $_POST['purchase_cost'];
+    if (isset($_POST['origin'])) $origin = $_POST['origin'];    
+    if (isset($_POST['date_of_purchase'])) $date_of_purchase = $_POST['date_of_purchase'];
+    if (isset($_POST['category'])) $category = $_POST['category'];
+    $error = array();
+    if (empty($_POST["system_name"])) {
+        $error[] = 'Please enter the system name';
+    }
+    if (empty($_POST["system_manufacturer"])) {
+        $error[] = 'Please enter the system manufacturer';
+    }
+    if (empty($_POST["system_model"])) {
+        $error[] = 'Please enter the system model';
+    }
+    if (empty($_POST["system_sku"])) {
+        $error[] = 'Please enter the system sku';
+    }
+    if (empty($_POST["processor"])) {
+        $error[] = 'Please enter the processor';
+    }
+    if (empty($_POST["baseboard_product"])) {
+        $error[] = 'Please enter the baseboard product';
+    }
+    if (empty($_POST["installed_ram"])) {
+        $error[] = 'Please enter the installed RAM';
+    }
+    if (empty($_POST["storage_medium"])) {
+        $error[] = 'Please enter the storage medium';
+    }
+    if (empty($_POST["serial_number"])) {
+        $error[] = 'Please enter the serial number';
+    }
+    if (empty($_POST["charger"])) {
+        $error[] = 'Please enter the charger details';
+    }    
+    if (empty($_POST["date_issued"])) {
+        $error[] = 'Please choose the date of issue';
+    }
+    if (empty($_POST["purchase_cost"])) {
+        $error[] = 'Please enter the purchase cost';
+    }
+    if (empty($_POST["origin"])) {
+        $error[] = 'Please choose the origin of equipment';
+    }    
+    if (empty($_POST["date_of_purchase"])) {
+        $error[] = 'Please choose the date of purchase';
+    }
+    if (empty($_POST["category"])) {
+        $error[] = 'Please choose category';
+    }
+}
+
 ?>
 
         <!-- Vertical Overlay-->
@@ -65,13 +145,15 @@
                                 <div class="card-header">
                                     <h4 class="card-title mb-0">Add network equipment form</h4>
                                 </div>
+                                <form action="" method="POST" class="auth-input" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <div class="row g-3">
                                         <div class="col-lg-6">
-                                            <div>
+                                        
+                                            <div class="mt-3">
                                                 <label class="form-label">System Name</label>
                                                 <div class="form-icon">
-                                                        <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="Enter System Name">
+                                                        <input name="system_name" type="text" class="form-control form-control-icon" id="system_name" placeholder="Enter System Name">
                                                         <i class="ri-menu-unfold-3-fill"></i>
                                                     </div>
                                             </div>
@@ -79,7 +161,7 @@
                                             <div class="mt-3">
                                                 <label class="form-label">System Manufacturer</label>
                                                 <div class="form-icon">
-                                                        <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="Enter System Manufacturer">
+                                                        <input name="system_manufacturer" type="text" class="form-control form-control-icon" id="system_manufacturer" placeholder="Enter System Manufacturer">
                                                         <i class="ri-align-item-bottom-fill"></i>
                                                     </div>
                                             </div>
@@ -87,7 +169,7 @@
                                             <div class="mt-3">
                                                 <label class="form-label">System Model</label>
                                                 <div class="form-icon">
-                                                        <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="Enter System Model">
+                                                        <input name="system_model" type="text" class="form-control form-control-icon" id="system_model" placeholder="Enter System Model">
                                                         <i class="ri-shapes-fill"></i>
                                                     </div>
                                             </div>
@@ -95,7 +177,7 @@
                                             <div class="mt-3">
                                                 <label class="form-label">Installed RAM</label>
                                                 <div class="form-icon">
-                                                        <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="Enter Installed RAM">
+                                                        <input name="installed_ram" type="text" class="form-control form-control-icon" id="installed_ram" placeholder="Enter Installed RAM">
                                                         <i class="ri-ram-fill"></i>
                                                     </div>
                                             </div>
@@ -103,7 +185,7 @@
                                             <div class="mt-3">
                                                 <label class="form-label">Serial Number</label>
                                                 <div class="form-icon">
-                                                        <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="Enter Serial Number">
+                                                        <input name="serial_number" type="text" class="form-control form-control-icon" id="serial_number" placeholder="Enter Serial Number">
                                                         <i class="ri-hashtag"></i>
                                                     </div>
                                             </div>                                            
@@ -111,29 +193,50 @@
                                             <div class="mt-3">
                                                 <label class="form-label">Purchase Cost</label>
                                                 <div class="form-icon">
-                                                        <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="Enter Purchase Cost">
+                                                        <input name="purchase_cost" type="number" class="form-control form-control-icon" id="purchase_cost" placeholder="Enter Purchase Cost">
                                                         <i class="ri-wallet-3-fill"></i>
                                                     </div>
                                             </div>
 
                                             <div class="mt-3">
-                                                <label class="form-label">Origin</label>
-                                                <div class="form-icon">
-                                                <select class="form-select mb-3" aria-label="Default select example">
-                                                    <option selected>Vilcom</option>
-                                                    <option value="1">Geonet</option>                                                    
-                                                </select>                                                        
-                                                    </div>
+                                                            <label class="form-label">Choose Category</label>
+                                                            <div class="form-icon">
+                                                                <select name="category" id="category" class="form-select mb-3" aria-label="Default select example">
+                                                                    <?php
+                                                                    $squery = "SELECT * FROM category";
+                                                                    $ssquery = $db->select($squery);
+                                                                    foreach ($ssquery as $row) {
+                                                                        echo '<option value="' . $row['category_id'] . '">' . $row['name'] . '</option>';
+                                                                    }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="mt-3">
+                                                <label class="form-label">Date Of Purchase</label>
+                                                <div>                                                    
+                                                    <input name="date_of_purchase" type="date" class="form-control" id="date_of_purchase">
+                                                </div>
                                             </div>
 
                                            
                                         </div>
 
                                         <div class="col-lg-6">
+                                        <div class="mt-3">
+                                                <label class="form-label">Origin</label>
+                                                <div class="form-icon">
+                                                <select name="origin" id="origin" class="form-select mb-3" aria-label="Default select example">
+                                                    <option value="Vilcom" selected>Vilcom</option>
+                                                    <option value="Geonet">Geonet</option>                                                    
+                                                </select>                                                        
+                                                    </div>
+                                            </div>
                                             <div>
                                                 <label class="form-label">System SKU</label>
                                                 <div class="form-icon">
-                                                        <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="Enter System SKU">
+                                                        <input name="system_sku" type="text" class="form-control form-control-icon" id="system_sku" placeholder="Enter System SKU">
                                                         <i class="ri-scroll-to-bottom-line"></i>
                                                     </div>
                                             </div>
@@ -141,7 +244,7 @@
                                             <div class="mt-3">
                                                 <label class="form-label">Processor</label>
                                                 <div class="form-icon">
-                                                        <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="Enter Processor">
+                                                        <input name="processor" type="text" class="form-control form-control-icon" id="processor" placeholder="Enter Processor">
                                                         <i class="ri-cpu-fill"></i>
                                                     </div>
                                             </div>
@@ -149,7 +252,7 @@
                                             <div class="mt-3">
                                                 <label class="form-label">BaseBoard Product</label>
                                                 <div class="form-icon">
-                                                        <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="Enter BaseBoard Product">
+                                                        <input name="baseboard_product" type="text" class="form-control form-control-icon" id="baseboard_product" placeholder="Enter BaseBoard Product">
                                                         <i class="ri-artboard-2-line"></i>
                                                     </div>
                                             </div>
@@ -157,7 +260,7 @@
                                             <div class="mt-3">
                                                 <label class="form-label">Storage Medium</label>
                                                 <div class="form-icon">
-                                                        <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="Enter Storage Medium">
+                                                        <input name="storage_medium" type="text" class="form-control form-control-icon" id="storage_medium" placeholder="Enter Storage Medium">
                                                         <i class="ri-hard-drive-3-fill"></i>
                                                     </div>
                                             </div>
@@ -165,7 +268,7 @@
                                             <div class="mt-3">
                                                 <label class="form-label">Charger</label>
                                                 <div class="form-icon">
-                                                        <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="Enter Charger">
+                                                        <input name="charger" type="text" class="form-control form-control-icon" id="charger" placeholder="Enter Charger">
                                                         <i class="ri-battery-charge-fill"></i>
                                                     </div>
                                             </div>
@@ -173,17 +276,47 @@
                                             <div class="mt-3">
                                                 <label class="form-label">Date Issued</label>
                                                 <div>                                                    
-                                                    <input type="date" class="form-control" id="exampleInputdate">
+                                                    <input name="date_issued" type="date" class="form-control" id="date_issued">
                                                 </div>
                                             </div>                                            
+                                           
                                         </div>
 
-                                        <div class="text-end">
+                                        <div class="text-left">
                                                         <button type="submit" class="btn btn-info">Submit</button>
                                                     </div>
                                     </div>
                                 </div>
+                                </form>
                                 <!-- end card body -->
+                                <?php
+
+                                //Function to calculate current value from depreciation rate
+                                function calculateDepreciatedValue($purchaseCost, $purchaseDate, $depreciationRate) {
+                                    $years = (date('Y') - date('Y', strtotime($purchaseDate))) + ((date('m') - date('m', strtotime($purchaseDate))) / 12);
+                                    $currentValue = $purchaseCost * pow((1 - $depreciationRate), $years);
+                                    return round($currentValue, 2);
+                                }
+                                
+                                                    //  form operations
+                                                    if (isset($error)) {
+                                                        if (!empty($error)) {
+                                                            echo '<div class="alert alert-danger">
+                                                            <i class="ri-megaphone-line"></i>
+										<strong>Error Imminent! </strong>' . @implode('</li><li>', $error) . ' 
+									</div>';
+                                                        } else {
+                                                                $depreciation_rate=0.25;
+                                                                $current_value=calculateDepreciatedValue($purchase_cost,$date_of_purchase,$depreciation_rate);                                                            
+                                                                $insertQuery = "INSERT INTO `network_equipment` (`network_id`, `system_name`, `system_manufacturer`, `system_model`, `system_sku`, `processor`, `baseboard_product`, `installed_ram`, `storage_medium`, `serial_number`, `charger`, `date_issued`, `date_of_purchase`, `depreciation_rate`, `current_value`, `purchase_cost`, `origin`, `category_id`, `updated_at`) VALUES (NULL, '".$system_name."', '".$system_manufacturer."', '".$system_model."', '".$system_sku."', '".$processor."', '".$baseboard_product."', '".$installed_ram."', '".$storage_medium."', '".$serial_number."', '".$charger."', '".$date_issued."', '".$date_of_purchase."', '".$depreciation_rate."', '".$current_value."', '".$purchase_cost."', '".$origin."', '".$category."', current_timestamp());";
+                                                                $db->insert($insertQuery);
+                                                                echo '<div class="alert alert-info">										
+										<strong>Success! </strong>Network equipment has been added
+									</div>';
+                                                            } 
+                                                        }                                                    
+
+                                                    ?>
                             </div>
                             <!-- end card -->
                         </div>

@@ -13,9 +13,9 @@
  */
 
 /**
- * view_incident.php
+ * view_equipment.php
  *
- * This file enables the admin to view all incidents.
+ * This file enables the admin to view all office equipments.
  * 
  * @author Hillary Chesaro
  */
@@ -23,7 +23,7 @@
  include "header.php";
 
  //select from the office equipment table
- $selectQuery="SELECT * FROM Office_Equipment";
+ $selectQuery="SELECT * FROM office_equipment";
  $dbSelect=$db->select($selectQuery);
 
 ?>
@@ -89,6 +89,9 @@
                                                 <th>Charger</th>
                                                 <th>Mouse Assigned</th>
                                                 <th>Date Issued</th>
+                                                <th>Date Of Purchase</th>
+                                                <th>Depreciation Rate</th>
+                                                <th>Current Value</th>
                                                 <th>Purchase Cost</th>
                                                 <th>Origin</th>
                                                 <th>Staff</th>
@@ -129,6 +132,9 @@
                                   }
                                   ?>
                                   <td><?php echo $row['date_issued'];?></td>
+                                  <td><?php echo $row['date_of_purchase'];?></td>
+                                  <td><?php echo $row['depreciation_rate'];?></td>
+                                  <td><?php echo $row['current_value'];?></td>
                                   <td><?php echo $row['purchase_cost'];?></td>
                                   <td><?php echo $row['origin'];?></td>
                                   <?php
