@@ -160,7 +160,7 @@
                                   ?>                                  
                                   <?php
                                   //select equipment from ID                                 
-                                  $userQuery="SELECT system_name from office_equipment where user_id=$user_id";
+                                  $userQuery="SELECT system_name from office_equipment where user_id=$office_user_id";
                                   $userSelect=$db->select($userQuery);
 
                                   foreach($userSelect as $row1)

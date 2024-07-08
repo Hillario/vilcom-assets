@@ -148,9 +148,9 @@
                                                 
                                                 <td>
                                                     <div class="dropdown d-inline-block">
-                                                    <form method="post" action="send_request.php"><input type="hidden" name="myRequestId"  value="<?php echo $row['request_id'];?>">
+                                                    <form method="post" action="approve_request.php"><input type="hidden" name="myRequestId"  value="<?php echo $row['request_id'];?>">
                                                         <button name="add_items" id="add_items" class="btn btn-info" type="submit">
-                                                        <i class="ri-send-plane-fill align-bottom me-1"></i>Send for approval
+                                                        <i class="ri-thumb-up-line align-bottom me-1"></i>Approve
                                                         </button>
                                                     </form>
                                                     </div>

@@ -468,16 +468,12 @@
 
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="#all_requests" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarUI">
-                                <i class="las la-bullhorn"></i> <span data-key="t-bootstrap-ui">Make Request</span>
+                                <i class="las la-bullhorn"></i> <span data-key="t-bootstrap-ui">All Requests</span>
                             </a>
                             <div class="collapse menu-dropdown mega-dropdown-menu" id="all_requests">
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <ul class="nav nav-sm flex-column">                                            
-                                            <li class="nav-item">
-                                                <a href="add_request.php" class="nav-link" data-key="t-badges">Add Request</a>
-                                            </li>
-
+                                        <ul class="nav nav-sm flex-column">
                                             <li class="nav-item">
                                                 <a href="view_request.php" class="nav-link" data-key="t-badges">View Request</a>
                                             </li>
@@ -487,46 +483,66 @@
                             </div>
                         </li>
 
-                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Repairs</span></li>
-
-<li class="nav-item">
-    <a class="nav-link menu-link" href="#all_repairs" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarUI">
-        <i class="las la-hammer"></i> <span data-key="t-bootstrap-ui">Your Repairs</span>
-    </a>
-    <div class="collapse menu-dropdown mega-dropdown-menu" id="all_repairs">
-        <div class="row">
-            <div class="col-lg-4">
-                <ul class="nav nav-sm flex-column">
-                    <li class="nav-item">
-                        <a href="view_repair.php" class="nav-link" data-key="t-badges">View Repairs </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</li>
-
-<li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Incidents</span></li>
+                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Incidents</span></li>
 
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="#all_incidents" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarUI">
-                                <i class="las la-exclamation-triangle"></i> <span data-key="t-bootstrap-ui">Report Incident</span>
+                                <i class="las la-exclamation-triangle"></i> <span data-key="t-bootstrap-ui">All Incidents</span>
                             </a>
                             <div class="collapse menu-dropdown mega-dropdown-menu" id="all_incidents">
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <ul class="nav nav-sm flex-column">                                            
                                             <li class="nav-item">
-                                                <a href="add_incident.php" class="nav-link" data-key="t-badges">Add Incident</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="view_incident.php" class="nav-link" data-key="t-badges">View Incident</a>
+                                                <a href="view_incident.php" class="nav-link" data-key="t-badges">View Incidents</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </li>
+
+                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Assets</span></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#office_equipment" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInvoiceManagement">
+                                <i class="las la-briefcase"></i> <span data-key="t-invoices">Office Equipment</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="office_equipment">
+                                <ul class="nav nav-sm flex-column"> 
+                                    <li class="nav-item">
+                                        <a href="view_equipment.php" class="nav-link" data-key="t-add-invoice"> View Equipment </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#network_equipment" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuthentication">
+                                <i class="las la-wifi"></i> <span data-key="t-authentication">Network Equipment</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="network_equipment">
+                                <ul class="nav nav-sm flex-column">                                    
+                                    <li class="nav-item">
+                                        <a href="view_network_equipment.php" class="nav-link" data-key="t-signup">View Equipment</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#server_equipment" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuthentication">
+                                <i class="las la-server"></i> <span data-key="t-authentication">Server Equipment</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="server_equipment">
+                                <ul class="nav nav-sm flex-column">                                    
+                                    <li class="nav-item">
+                                        <a href="view_server_equipment.php" class="nav-link" data-key="t-signup">View Equipment</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
 
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Quotes</span></li>
 
@@ -555,6 +571,63 @@
                                         <a href="add_invoice.php" class="nav-link" data-key="t-invoice"> Generate Invoice </a>
                                     </li>
                                 </ul>
+                            </div>
+                        </li>
+
+                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Staff</span></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#all_staff" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarUI">
+                                <i class="las la-users"></i> <span data-key="t-bootstrap-ui">All Staff</span>
+                            </a>
+                            <div class="collapse menu-dropdown mega-dropdown-menu" id="all_staff">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <ul class="nav nav-sm flex-column">                                            
+                                            <li class="nav-item">
+                                                <a href="view_staff.php" class="nav-link" data-key="t-badges">View Staff</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Departments</span></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#all_departments" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarUI">
+                                <i class="las la-cubes"></i> <span data-key="t-bootstrap-ui">All Departments</span>
+                            </a>
+                            <div class="collapse menu-dropdown mega-dropdown-menu" id="all_departments">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <ul class="nav nav-sm flex-column">                                            
+                                            <li class="nav-item">
+                                                <a href="view_department.php" class="nav-link" data-key="t-badges">View Department</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Roles</span></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#all_roles" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarUI">
+                                <i class="las la-user-secret"></i> <span data-key="t-bootstrap-ui">All Roles</span>
+                            </a>
+                            <div class="collapse menu-dropdown mega-dropdown-menu" id="all_roles">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <ul class="nav nav-sm flex-column">                                            
+                                            <li class="nav-item">
+                                                <a href="view_role.php" class="nav-link" data-key="t-badges">View Role</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         
