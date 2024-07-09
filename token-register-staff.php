@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
 
     <meta charset="utf-8" />
-    <title>Vilcom Networks | Assets IMS</title>
+    <title>Vilcom Networks | Staff Portal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="VILCOM STAFF PORTAL" name="description" />
     <meta content="Vilcom Networks" name="Hillary Chesaro" />
