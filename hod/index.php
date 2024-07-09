@@ -22,8 +22,16 @@
 
  include "header.php";
 
+ //select department from user
+ $departmentQuery="SELECT department_id FROM user WHERE user_id=$user_id";
+ $selectDepartment=$db->select($departmentQuery);
+ foreach($selectDepartment as $row)
+ {
+    $departmentid=$row['department_id'];
+ }
+
   //select from the office equipment table
-  $selectQuery="SELECT * FROM office_equipment WHERE user_id=$user_id";
+  $selectQuery="SELECT * FROM office_equipment as E, user as U,department as D WHERE E.user_id=U.user_id AND D.department_id=U.department_id AND D.department_id=$departmentid;";
   $dbSelect=$db->select($selectQuery);
 
 ?>
@@ -72,15 +80,32 @@
                                         <div class="flex-grow-1">
                                             <?php
                                             //office count query
-                                            $officeCountQuery="SELECT COUNT(*) AS office_count FROM office_equipment WHERE user_id=$user_id;";
+                                            $officeCountQuery="SELECT COUNT(*) AS office_count FROM office_equipment;";
                                             $selectOfficeCount=$db->select($officeCountQuery);
                                             foreach($selectOfficeCount as $office_row)
                                             {
                                                 $office_equipments=$office_row['office_count'];
-                                            }                                          
+                                            }
                                             
+                                            //server count query
+                                            $serverCountQuery="SELECT COUNT(*) AS server_count FROM server;";
+                                            $selectServerCount=$db->select($serverCountQuery);
+                                            foreach($selectServerCount as $server_row)
+                                            {
+                                                $server_equipments=$server_row['server_count'];
+                                            }
+
+                                            //network count query
+                                            $networkCountQuery="SELECT COUNT(*) AS network_count FROM network_equipment;";
+                                            $selectNetworkCount=$db->select($networkCountQuery);
+                                            foreach($selectNetworkCount as $network_row)
+                                            {
+                                                $network_equipments=$network_row['network_count'];
+                                            }
+
+                                            $totalAssets=$office_equipments+$server_equipments+$network_equipments;
                                             ?>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2"><span class="counter-value" data-target="<?php echo $office_equipments;?>"></span></h4>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2"><span class="counter-value" data-target="<?php echo $totalAssets;?>"></span></h4>
                                             <p class="text-uppercase fw-medium fs-14 text-muted mb-0">Total Assets
                                                 
                                             </p>
@@ -93,7 +118,7 @@
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <span class="badge bg-info me-1"><?php echo $office_equipments;?></span> <span class="text-muted">Total Assets</span>
+                                            <span class="badge bg-info me-1"><?php echo $totalAssets;?></span> <span class="text-muted">Total Assets</span>
                                         </div>
                                     </div>
                                 </div><!-- end card body -->
@@ -107,14 +132,32 @@
                                         <div class="flex-grow-1">
                                             <?php
                                             //office repair count query
-                                            $officeRepairCountQuery="SELECT COUNT(*) AS office_repair_count FROM equipment_repair AS R,office_equipment AS E WHERE R.equipment_id=E.equipment_id AND E.user_id=$user_id;";
+                                            $officeRepairCountQuery="SELECT COUNT(*) AS office_repair_count FROM equipment_repair;";
                                             $selectOfficeRepairCount=$db->select($officeRepairCountQuery);
                                             foreach($selectOfficeRepairCount as $office_repair_row)
                                             {
                                                 $office_equipments_repair=$office_repair_row['office_repair_count'];
                                             }
+                                            
+                                            //server repair count query
+                                            $serverRepairCountQuery="SELECT COUNT(*) AS server_repair_count FROM server_repair;";
+                                            $selectServerRepairCount=$db->select($serverRepairCountQuery);
+                                            foreach($selectServerRepairCount as $server_repair_row)
+                                            {
+                                                $server_equipments_repair=$server_repair_row['server_repair_count'];
+                                            }
+
+                                            //network repair count query
+                                            $networkRepairCountQuery="SELECT COUNT(*) AS network_repair_count FROM network_repair;";
+                                            $selectNetworkRepairCount=$db->select($networkRepairCountQuery);
+                                            foreach($selectNetworkRepairCount as $network_repair_row)
+                                            {
+                                                $network_equipments_repair=$network_repair_row['network_repair_count'];
+                                            }
+
+                                            $totalRepairs=$office_equipments_repair+$server_equipments_repair+$network_equipments_repair;
                                             ?>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2"><span class="counter-value" data-target="<?php echo $office_equipments_repair;?>"></span></h4>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-2"><span class="counter-value" data-target="<?php echo $totalRepairs;?>"></span></h4>
                                             <p class="text-uppercase fw-medium fs-14 text-muted mb-0">Total Repairs
                                                 
                                             </p>
@@ -127,7 +170,7 @@
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <span class="badge bg-danger me-1"><?php echo $office_equipments_repair;?></span> <span class="text-muted">Total Repairs</span>
+                                            <span class="badge bg-danger me-1"><?php echo $totalRepairs;?></span> <span class="text-muted">Total Repairs</span>
                                         </div>
                                     </div>
                                 </div><!-- end card body -->
@@ -141,7 +184,7 @@
                                         <div class="flex-grow-1">
                                             <?php
                                             //requests query
-                                            $requestCountQuery="SELECT COUNT(*) AS requests FROM request WHERE user_id=$user_id;";
+                                            $requestCountQuery="SELECT COUNT(*) AS requests FROM request;";
                                             $selectRequestCount=$db->select($requestCountQuery);
                                             foreach($selectRequestCount as $request_row)
                                             {
@@ -176,7 +219,7 @@
                                         <div class="flex-grow-1">
                                             <?php
                                             //incidents query
-                                            $incidentCountQuery="SELECT COUNT(*) AS incidents FROM equipment_incident AS I,office_equipment AS E WHERE I.equipment_id=E.equipment_id AND E.user_id=$user_id;";
+                                            $incidentCountQuery="SELECT COUNT(*) AS incidents FROM equipment_incident;";
                                             $selectIncidentCount=$db->select($incidentCountQuery);
                                             foreach($selectIncidentCount as $incident_row)
                                             {
