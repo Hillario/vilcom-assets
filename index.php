@@ -256,9 +256,10 @@
                                                 </th>
                                                 <th data-ordering="false">ID</th>
                                                 <th data-ordering="false">System Name</th>
+                                                <th data-ordering="false">Staff</th>
                                                 <th data-ordering="false">System Manufacturer</th>
                                                 <th data-ordering="false">System Model</th>
-                                                <th data-ordering="false">System SKU</th>
+                                                <th>System SKU</th>
                                                 <th>Processor</th>
                                                 <th>BaseBoard Product</th>
                                                 <th>Installed RAM</th>
@@ -271,8 +272,7 @@
                                                 <th>Depreciation Rate</th>
                                                 <th>Current Value</th>
                                                 <th>Purchase Cost</th>
-                                                <th>Origin</th>
-                                                <th>Staff</th>
+                                                <th>Origin</th>                                                
                                                 <th>Category</th>
                                                 <th>Updated_At</th>
                                                 <th>Action</th>
@@ -292,6 +292,18 @@
                                                 </th>
                                                 <td><?php echo $row['equipment_id'];?></td>
                                                 <td><?php echo $row['system_name'];?></td>
+                                                <?php
+                                  //select staff from ID
+                                  $office_user_id=$row['user_id'];
+                                  $userQuery="SELECT first_name, last_name from user where user_id=$office_user_id";
+                                  $userSelect=$db->select($userQuery);
+
+                                  foreach($userSelect as $row1)
+                                  {
+                                    echo '<td>'.$row1['first_name'].' '.$row1['last_name'].'</td>';
+                                  }
+                                  ?>
+
                                                 <td><?php echo $row['system_manufacturer'];?></td>
                                                 <td><?php echo $row['system_model'];?></td>
                                                 <td><?php echo $row['system_sku'];?></td>
@@ -316,18 +328,7 @@
                                   <td><?php echo $row['current_value'];?></td>
                                   <td><?php echo $row['purchase_cost'];?></td>
                                   <td><?php echo $row['origin'];?></td>
-                                  <?php
-                                  //select staff from ID
-                                  $office_user_id=$row['user_id'];
-                                  $userQuery="SELECT first_name, last_name from user where user_id=$office_user_id";
-                                  $userSelect=$db->select($userQuery);
-
-                                  foreach($userSelect as $row1)
-                                  {
-                                    echo '<td>'.$row1['first_name'].' '.$row1['last_name'].'</td>';
-                                  }
-                                  ?>
-
+                                  
                                 <?php
                                   //select category from ID
                                   $category_id=$row['category_id'];
