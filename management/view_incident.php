@@ -23,7 +23,7 @@
  include "header.php";
 
  //select from the office equipment table
- $selectQuery="SELECT * from equipment_incident as I, office_equipment as E WHERE I.equipment_id=E.equipment_id";
+ $selectQuery="SELECT * from equipment_incident as I, office_equipment as E WHERE I.equipment_id=E.equipment_id AND priority='High'";
  $dbSelect=$db->select($selectQuery);
 
 ?>
@@ -171,14 +171,12 @@
                                   <td><?php echo $row['updated_at'];?></td>                                                                    
                                                 
                                                 <td>
-                                                    <div class="dropdown d-inline-block">
-                                                        <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            <i class="ri-more-fill align-middle"></i>
+                                                <div class="dropdown d-inline-block">
+                                                    <form method="post" action="approve_incident.php"><input type="hidden" name="myIncidentId"  value="<?php echo $row['equipment_incident_id'];?>">
+                                                        <button name="add_items" id="add_items" class="btn btn-info" type="submit">
+                                                        <i class="ri-thumb-up-line align-bottom me-1"></i>Approve for repair
                                                         </button>
-                                                        <ul class="dropdown-menu dropdown-menu-end">
-                                                            <li><a href="#!" class="dropdown-item"><i class="ri-eye-fill align-bottom me-2 text-muted"></i> View</a></li>
-                                                            <li><a class="dropdown-item edit-item-btn"><i class="ri-pencil-fill align-bottom me-2 text-muted"></i> Update</a></li>                                                            
-                                                        </ul>
+                                                    </form>
                                                     </div>
                                                 </td>
                                             </tr>
