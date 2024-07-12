@@ -502,6 +502,25 @@
                             </div>
                         </li>
 
+                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Repairs</span></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#all_repairs" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarUI">
+                                <i class="las la-hammer"></i> <span data-key="t-bootstrap-ui">All Repairs</span>
+                            </a>
+                            <div class="collapse menu-dropdown mega-dropdown-menu" id="all_repairs">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <ul class="nav nav-sm flex-column">                                            
+                                            <li class="nav-item">
+                                                <a href="view_equipment_repair.php" class="nav-link" data-key="t-badges">View Repairs</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Assets</span></li>
 
                         <li class="nav-item">

@@ -82,8 +82,8 @@
                                                 <th data-ordering="false">Status</th>
                                                 <th data-ordering="false">Priority</th>
                                                 <th>Due Date</th>
-                                                <th>Updated At</th>                                                
-                                                <th>Action</th>
+                                                <th>Updated At</th>                                               
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -144,16 +144,7 @@
                                                                   
                                  
                                   <td><?php echo $row['updated_at'];?></td>                                                                    
-                                                
-                                                <td>
-                                                    <div class="dropdown d-inline-block">
-                                                    <form method="post" action="update_repair.php"><input type="hidden" name="myRepairId"  value="<?php echo $row['equipment_repair_id'];?>">
-                                                        <button name="add_items" id="add_items" class="btn btn-info" type="submit">
-                                                        <i class="ri-refresh-fill align-bottom me-1"></i>Update
-                                                        </button>
-                                                    </form>
-                                                    </div>
-                                                </td>
+                                   
                                             </tr>
                                             <?php
                           }
