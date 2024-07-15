@@ -87,8 +87,7 @@
                                                 <th>Root Cause</th>
                                                 <th>Action Plan</th>
                                                 <th>Date Action Completed</th>
-                                                <th>Equipment</th>
-                                                <th>Incident Equipment</th>
+                                                <th>Equipment</th>                                                
                                                 <th>Updated_At</th>
                                                 <th>Action</th>
                                             </tr>
@@ -149,7 +148,7 @@
                                   <td><?php echo $row['date_action_completed'];?></td>                                  
                                   <?php
                                   //select equipment from ID                                 
-                                  $userQuery="SELECT E.system_name FROM office_equipment as E, equipment_incident as I WHERE E.equipment_id=I.equipment_id AND E.user_id=$user_id;";
+                                  $userQuery="SELECT DISTINCT E.system_name FROM office_equipment AS E INNER JOIN equipment_incident AS I ON E.equipment_id = I.equipment_id WHERE E.user_id = $user_id;";
                                   $userSelect=$db->select($userQuery);
 
                                   foreach($userSelect as $row1)
