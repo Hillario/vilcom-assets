@@ -44,11 +44,13 @@ foreach($selectQuery as $row)
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {    
     $item_name = @trim($_POST['item_name']);
-    $description = @trim($_POST['description']);         
+    $description = @trim($_POST['description']);
+    $priority = @trim($_POST['priority']);          
         
     
     if (isset($_POST['item_name'])) $item_name = $_POST['item_name'];
-    if (isset($_POST['description'])) $description = $_POST['description'];         
+    if (isset($_POST['description'])) $description = $_POST['description'];
+    if (isset($_POST['priority'])) $priority = $_POST['priority'];          
     
     
     $error = array();    
@@ -57,7 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if (empty($_POST["description"])) {
         $error[] = 'Please check description';
-    }   
+    }
+    if (empty($_POST["priority"])) {
+        $error[] = 'Please check priority';
+    }    
        
 }
 
@@ -117,6 +122,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </div>
 
                                         <div class="mt-3">
+                                                <label class="form-label">Priority</label>
+                                                <div class="form-icon">
+                                                <select name="priority" class="form-select mb-3" aria-label="Default select example">
+                                                    <option value="Low" selected>Low</option>
+                                                    <option value="Medium">Medium</option>
+                                                    <option value="High">High</option>
+                                                    <option value="Critical">Critical</option>
+                                                    <option value="Urgent">Urgent</option>                                                                                                        
+                                                </select>                                                        
+                                                    </div>
+                                            </div> 
+
+                                        <div class="mt-3">
                                                 <label class="form-label">Equipment description and Justification</label>
                                                 <div class="form-icon">
                                                 <textarea name="description" class="form-control bg-light border-0" id="description" placeholder="<?php echo $desc;?>" readonly="readonly"><?php echo $desc;?></textarea>                                                       
@@ -142,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <strong>Take Note! </strong>' . @implode('</li><li>', $error) . ' 
     </div>';
                             } else {                                
-                                $insertQuery = "UPDATE `request` SET `priority` = 'High' WHERE `request`.`request_id` = '".$requestid."';";
+                                $insertQuery = "UPDATE `request` SET `priority` = '".$priority."' WHERE `request`.`request_id` = '".$requestid."';";
                                 $db->insert($insertQuery);
                                 echo '<div class="alert alert-info">										
         <strong>Success! </strong>Request has been sent for approval, monitor status for confirmation

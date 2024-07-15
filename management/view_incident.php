@@ -174,7 +174,7 @@
                                                 <div class="dropdown d-inline-block">
                                                     <form method="post" action="approve_incident.php"><input type="hidden" name="myIncidentId"  value="<?php echo $row['equipment_incident_id'];?>">
                                                         <button name="add_items" id="add_items" class="btn btn-info" type="submit">
-                                                        <i class="ri-thumb-up-line align-bottom me-1"></i>Approve for repair
+                                                        <i class="ri-thumb-up-line align-bottom me-1"></i>Approve
                                                         </button>
                                                     </form>
                                                     </div>

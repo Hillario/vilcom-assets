@@ -52,12 +52,14 @@ foreach($selectQuery as $row)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {    
     $proot_cause = @trim($_POST['proot_cause']);
     $paction_plan = @trim($_POST['paction_plan']);   
-    $pdate_action_completed = @trim($_POST['pdate_action_completed']);      
+    $pdate_action_completed = @trim($_POST['pdate_action_completed']);
+    $ppriority = @trim($_POST['ppriority']);      
         
     
     if (isset($_POST['proot_cause'])) $proot_cause = $_POST['proot_cause'];
     if (isset($_POST['paction_plan'])) $paction_plan = $_POST['paction_plan'];
-    if (isset($_POST['pdate_action_completed'])) $pdate_action_completed = $_POST['pdate_action_completed'];          
+    if (isset($_POST['pdate_action_completed'])) $pdate_action_completed = $_POST['pdate_action_completed'];
+    if (isset($_POST['ppriority'])) $ppriority = $_POST['ppriority'];          
     
     
     $error = array();    
@@ -69,7 +71,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if (empty($_POST["pdate_action_completed"])) {
         $error[] = 'Please check the date of action completed';
-    }   
+    }
+    if (empty($_POST["ppriority"])) {
+        $error[] = 'Please check the ppriority';
+    }    
        
 }
 
@@ -143,11 +148,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </div>
 
                                         <div class="mt-3">
-                                            <label class="form-label">Priority</label>
-                                            <div class="form-icon">
-                                            <input name="" type="text" class="form-control bg-light border-0" id="" placeholder="<?php echo $priority;?>" readonly="readonly">                                                
+                                                <label class="form-label">Priority</label>
+                                                <div class="form-icon">
+                                                <select name="ppriority" class="form-select mb-3" aria-label="Default select example">
+                                                    <option value="Low" selected>Low</option>
+                                                    <option value="Medium">Medium</option>
+                                                    <option value="High">High</option>
+                                                    <option value="Critical">Critical</option>
+                                                    <option value="Urgent">Urgent</option>                                                                                                        
+                                                </select>                                                        
+                                                    </div>
                                             </div>
-                                        </div>
 
                                         <div class="mt-3">
                                             <label class="form-label">Status</label>
@@ -205,7 +216,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <strong>Take Note! </strong>' . @implode('</li><li>', $error) . ' 
     </div>';
                             } else {                                
-                                $insertQuery = "UPDATE `equipment_incident` SET `priority` = 'High', `root_cause` = '".$proot_cause."', `action_plan` = '".$paction_plan."', `date_action_completed` = '".$pdate_action_completed."' WHERE `equipment_incident`.`equipment_incident_id` = '".$incidentid."';";
+                                $insertQuery = "UPDATE `equipment_incident` SET `priority` = '".$ppriority."', `root_cause` = '".$proot_cause."', `action_plan` = '".$paction_plan."', `date_action_completed` = '".$pdate_action_completed."' WHERE `equipment_incident`.`equipment_incident_id` = '".$incidentid."';";
                                 $db->insert($insertQuery);
                                 echo '<div class="alert alert-info">										
         <strong>Success! </strong>Incident has been sent for repair approval, monitor status for confirmation
