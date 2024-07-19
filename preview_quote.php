@@ -45,6 +45,7 @@
     $mpesaName=$row['mpesa_name'];
     $notes=$row['notes'];
     $status=$row['status'];
+    $discount=$row['discount'];
     $tax=$row['tax'];
     $totalAmount=$row['total_amount'];
     $grandTotal=$row['grand_total'];
@@ -115,8 +116,8 @@
                                         <div class="col-lg-3">
                                             <div class="mt-sm-0 mt-3">
                                                 <div class="mb-4">
-                                                    <img src="assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark" height="17">
-                                                    <img src="assets/images/logo-light.png" class="card-logo card-logo-light" alt="logo light" height="17">
+                                                    <img src="../assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark" height="17">
+                                                    <img src="../assets/images/logo-light.png" class="card-logo card-logo-light" alt="logo light" height="17">
                                                 </div>
                                                 <h6 class="text-muted text-uppercase fw-semibold">Address</h6>
                                                 <p class="text-muted mb-1" id="address-details">Ramco Court, Block B, Mombasa Road</p>
@@ -165,8 +166,9 @@
                                                             <tr class="table-active">
                                                                 <th scope="col" style="width: 50px;">#</th>
                                                                 <th scope="col">Product Details</th>
-                                                                <th scope="col">Rate</th>
+                                                                <th scope="col">Rate</th>                                                                
                                                                 <th scope="col">Quantity</th>
+                                                                <th scope="col">Discount</th>
                                                                 <th scope="col" class="text-end">Amount</th>
                                                             </tr>
                                                         </thead>
@@ -182,8 +184,9 @@
                                                                     <span class="fw-medium"><?php echo $row1['item_name'];?></span>
                                                                     <p class="text-muted mb-0"><?php echo $row1['description'];?></p>
                                                                 </td>
-                                                                <td>Ksh<?php echo $row1['unit_price'];?></td>
+                                                                <td>Ksh<?php echo $row1['unit_price'];?></td>                                                                
                                                                 <td><?php echo $row1['quantity'];?></td>
+                                                                <td>Ksh<?php echo $row1['discount'];?></td>
                                                                 <td class="text-end">Ksh<?php echo $row1['amount'];?></td>
                                                             </tr> 
                                             <?php
@@ -201,14 +204,18 @@
                                                 <div class="border-top border-top-dashed mt-2">
                                                     <table class="table table-borderless table-nowrap align-middle mb-0 ms-auto" style="width:250px">
                                                         <tbody>
+                                                        <tr>
+                                                                <td>Discount</td>
+                                                                <td class="text-end">Ksh<?php echo $discount;?></td>
+                                                            </tr>
                                                             <tr>
                                                                 <td>Sub Total</td>
                                                                 <td class="text-end">Ksh<?php echo $totalAmount;?></td>
-                                                            </tr>
+                                                            </tr>                                                            
                                                             <tr>
                                                                 <td>VAT (16.0%)</td>
                                                                 <td class="text-end">Ksh<?php echo $tax;?></td>
-                                                            </tr>
+                                                            </tr>                                                            
                                                             <tr class="border-top border-top-dashed fs-15">
                                                                 <th scope="row">Total Amount</th>
                                                                 <th class="text-end">Ksh<?php echo $grandTotal;?></th>

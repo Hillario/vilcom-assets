@@ -31,7 +31,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
-                               VILCOM STAFF PORTAL.
+                               VILCOM STAFF PORTAL Version 1.1.0.1
                             </div>
                         </div>
                     </div>

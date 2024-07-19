@@ -45,6 +45,7 @@
     $mpesaName=$row['mpesa_name'];
     $notes=$row['notes'];
     $status=$row['status'];
+    $discount=$row['discount'];
     $tax=$row['tax'];
     $totalAmount=$row['total_amount'];
     $grandTotal=$row['grand_total'];
@@ -167,6 +168,7 @@
                                                                 <th scope="col">Product Details</th>
                                                                 <th scope="col">Rate</th>
                                                                 <th scope="col">Quantity</th>
+                                                                <th scope="col">Discount</th>
                                                                 <th scope="col" class="text-end">Amount</th>
                                                             </tr>
                                                         </thead>
@@ -184,6 +186,7 @@
                                                                 </td>
                                                                 <td>Ksh<?php echo $row1['unit_price'];?></td>
                                                                 <td><?php echo $row1['quantity'];?></td>
+                                                                <td><?php echo $row1['discount'];?></td>
                                                                 <td class="text-end">Ksh<?php echo $row1['amount'];?></td>
                                                             </tr> 
                                             <?php
@@ -201,6 +204,10 @@
                                                 <div class="border-top border-top-dashed mt-2">
                                                     <table class="table table-borderless table-nowrap align-middle mb-0 ms-auto" style="width:250px">
                                                         <tbody>
+                                                        <tr>
+                                                                <td>Discount</td>
+                                                                <td class="text-end">Ksh<?php echo $discount;?></td>
+                                                            </tr>
                                                             <tr>
                                                                 <td>Sub Total</td>
                                                                 <td class="text-end">Ksh<?php echo $totalAmount;?></td>

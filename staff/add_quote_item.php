@@ -39,13 +39,15 @@
     $item_name = @trim($_POST['item_name']);
     $description = @trim($_POST['description']);
     $quantity = @trim($_POST['quantity']);    
-    $unit_price = @trim($_POST['unit_price']);     
+    $unit_price = @trim($_POST['unit_price']);
+    $discount = @trim($_POST['discount']);     
         
     
     if (isset($_POST['item_name'])) $item_name = $_POST['item_name'];
     if (isset($_POST['description'])) $description = $_POST['description'];
     if (isset($_POST['quantity'])) $quantity= $_POST['quantity'];    
-    if (isset($_POST['unit_price'])) $unit_price = $_POST['unit_price'];     
+    if (isset($_POST['unit_price'])) $unit_price = $_POST['unit_price'];
+    if (isset($_POST['discount'])) $discount = $_POST['discount'];     
     
     
     $error = array();    
@@ -60,7 +62,10 @@
     }    
     if (empty($_POST["unit_price"])) {
         $error[] = 'Please enter the unit price';
-    }      
+    }
+    if (empty($_POST["discount"])) {
+        $error[] = 'Please enter the discount';
+    }       
        
 }
 
@@ -98,13 +103,14 @@
                     <?php
                     //select quote number
                     
-                    $queryInvoiceNumber="SELECT quote_number,total_amount,tax from quote WHERE quote_id=$quoteid";
+                    $queryInvoiceNumber="SELECT quote_number,discount,total_amount,tax from quote WHERE quote_id=$quoteid";
                     $selectInvoiceNumber=$db->select($queryInvoiceNumber);
                     foreach($selectInvoiceNumber as $row)
                     {
                         $globalInvoiceNumber=$row['quote_number'];
                         $globalTotalAmount=$row['total_amount'];
                         $globalTax=$row['tax'];
+                        $globalDiscount=$row['discount'];
                     }
                     ?>
                     
@@ -141,6 +147,14 @@
                                                 <div class="form-icon">
                                                         <input name="description" type="text" class="form-control form-control-icon" id="description" placeholder="Enter the item description">
                                                         <i class="ri-file-edit-line"></i>
+                                                    </div>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <label class="form-label">Discount(If 0 input 0.00)</label>
+                                                <div class="form-icon">
+                                                        <input name="discount" type="number" class="form-control form-control-icon" id="discount" placeholder="Enter the discount in Ksh">
+                                                        <i class="ri-price-tag-3-line"></i>
                                                     </div>
                                             </div>
                                             
@@ -212,16 +226,18 @@
                                                             <i class="ri-megaphone-line"></i>
 										<strong>Take Note! </strong>' . @implode('</li><li>', $error) . ' 
 									</div>';
-                                                        } else {    
-                                                                $localTotalAmount=$quantity*$unit_price;                                                        
-                                                                $insertQuery = "INSERT INTO `quote_item` (`quote_item_id`, `item_number`, `item_name`, `description`, `quantity`, `unit_price`, `amount`, `quote_id`, `updated_at`) VALUES (NULL, '".$newItemNumber."', '".$item_name."', '".$description."', '".$quantity."', '".$unit_price."', '".$localTotalAmount."', '".$quoteid."', CURRENT_TIMESTAMP);";
+                                                        } else {
+                                                                $localTotalDiscount=$discount*$quantity;    
+                                                                $localTotalAmount=($quantity*$unit_price)-$localTotalDiscount;                                                        
+                                                                $insertQuery = "INSERT INTO `quote_item` (`quote_item_id`, `item_number`, `item_name`, `description`, `quantity`, `unit_price`, `discount`, `amount`, `quote_id`, `updated_at`) VALUES (NULL, '".$newItemNumber."', '".$item_name."', '".$description."', '".$quantity."', '".$unit_price."', '".$localTotalDiscount."', '".$localTotalAmount."', '".$quoteid."', CURRENT_TIMESTAMP);";
                                                                 $db->insert($insertQuery);
-                                                                //update total_amount field in the invoice table                                                                
+                                                                //update total_amount field in the invoice table
+                                                                $finalDiscount=$globalDiscount+$localTotalDiscount;                                                                
                                                                 $finalTotalAmount=$globalTotalAmount+$localTotalAmount;
                                                                 $taxAmount=0.16*$finalTotalAmount;
                                                                 $grandTotal=$finalTotalAmount+$taxAmount;                                                                
                                                                 //update invoice table
-                                                                $updateQuery="UPDATE `quote` SET `total_amount` = '".$finalTotalAmount."', `tax` = '".$taxAmount."', `grand_total` = '".$grandTotal."' WHERE `quote`.`quote_id` = '".$quoteid."';";
+                                                                $updateQuery="UPDATE `quote` SET `discount` = '".$finalDiscount."', `total_amount` = '".$finalTotalAmount."', `tax` = '".$taxAmount."', `grand_total` = '".$grandTotal."' WHERE `quote`.`quote_id` = '".$quoteid."';";
                                                                 $db->insert($updateQuery);
                                                                 echo '<div class="alert alert-info">										
 										<strong>Success! </strong>Quote item has been added, please add another item or proceed to download quote
@@ -258,6 +274,7 @@
                                                 <th data-ordering="false">Description</th>
                                                 <th data-ordering="false">Quantity</th>
                                                 <th>Unit Price</th>
+                                                <th>Discount</th>
                                                 <th>Amount</th>                                               
                                                 <th>Updated_At</th>                                                
                                             </tr>
@@ -274,12 +291,13 @@
                                                         <input class="form-check-input fs-15" type="checkbox" name="checkAll" value="option1">
                                                     </div>
                                                 </th>
-                                                <td><?php echo $row['invoice_item_id'];?></td>
+                                                <td><?php echo $row['quote_item_id'];?></td>
                                                 <td><?php echo $row['item_number'];?></td>
                                                 <td><?php echo $row['item_name'];?></td>
                                                 <td><?php echo $row['description'];?></td>
                                                 <td><?php echo $row['quantity'];?></td>
                                                 <td><?php echo $row['unit_price'];?></td>
+                                                <td><?php echo $row['discount'];?></td>
                                                 <td><?php echo $row['amount'];?></td>
                                   <td><?php echo $row['updated_at'];?></td>
                                             </tr>

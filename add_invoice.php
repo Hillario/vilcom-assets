@@ -201,7 +201,7 @@
                                         <div class="mt-3">
                                                 <label class="form-label">Customer Email</label>
                                                 <div class="form-icon">
-                                                        <input name="customer_email" type="text" class="form-control form-control-icon" id="customer_email" placeholder="Enter the customer email">
+                                                        <input name="customer_email" type="email" class="form-control form-control-icon" id="customer_email" placeholder="Enter the customer email">
                                                         <i class="ri-mail-add-line"></i>
                                                     </div>
                                             </div>
@@ -296,7 +296,7 @@
 										<strong>Error Imminent! </strong>' . @implode('</li><li>', $error) . ' 
 									</div>';
                                                         } else {                                                            
-                                                                $insertQuery = "INSERT INTO `invoice` (`invoice_id`, `invoice_number`, `due_date`, `customer_name`, `customer_address`, `customer_email`, `customer_phone`, `bank_name`, `account_name`, `account_number`, `mpesa`, `mpesa_name`, `notes`, `status`, `tax`, `total_amount`, `grand_total`, `user_id`, `updated_at`) VALUES (NULL, '".$newInvoiceNumber."', '".$due_date."', '".$customer_name."', '".$customer_address."', '".$customer_email."', '".$customer_phone."', '".$bank_name."', '".$account_name."', '".$account_number."', '".$mpesa."', '".$mpesa_name."', '".$notes."', '".$status."', '0.00', '0.00', '0.00', '".$user_id."', CURRENT_TIMESTAMP);";
+                                                                $insertQuery = "INSERT INTO `invoice` (`invoice_id`, `invoice_number`, `due_date`, `customer_name`, `customer_address`, `customer_email`, `customer_phone`, `bank_name`, `account_name`, `account_number`, `mpesa`, `mpesa_name`, `notes`, `status`, `discount`, `tax`, `total_amount`, `grand_total`, `user_id`, `updated_at`) VALUES (NULL, '".$newInvoiceNumber."', '".$due_date."', '".$customer_name."', '".$customer_address."', '".$customer_email."', '".$customer_phone."', '".$bank_name."', '".$account_name."', '".$account_number."', '".$mpesa."', '".$mpesa_name."', '".$notes."', '".$status."', '0.00', '0.00', '0.00', '0.00', '".$user_id."', CURRENT_TIMESTAMP);";
                                                                 $db->insert($insertQuery);
                                                                 echo '<div class="alert alert-info">										
 										<strong>Success! </strong>Invoice has been added, proceed to add invoice items below
@@ -341,6 +341,7 @@
                                                 <th>Mpesa Account(Name,Account No.)</th>
                                                 <th>Notes</th>
                                                 <th>Status</th>
+                                                <th>Discount</th>
                                                 <th>Tax</th>
                                                 <th>Total Amount</th>
                                                 <th>Grand Total</th>
@@ -391,6 +392,7 @@
                                   }
                                   ?>
 
+                                  <td><?php echo $row['discount'];?></td>
                                   <td><?php echo $row['tax'];?></td>
 
                                   <td><?php echo $row['total_amount'];?></td>
