@@ -152,19 +152,12 @@
                                   <td><?php echo $row['updated_at'];?></td>                                                                    
                                                 
                                                 <td>
-                                                    <div class="dropdown d-inline-block">
-                                                        <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            <i class="ri-more-fill align-middle"></i>
+                                                <div class="dropdown d-inline-block">
+                                                    <form method="post" action="update_equipment.php"><input type="hidden" name="myEquipmentId"  value="<?php echo $row['equipment_id'];?>">
+                                                        <button name="add_items" id="add_items" class="btn btn-info" type="submit">
+                                                        <i class="ri-refresh-fill align-bottom me-1"></i>Update
                                                         </button>
-                                                        <ul class="dropdown-menu dropdown-menu-end">
-                                                            <li><a href="#!" class="dropdown-item"><i class="ri-eye-fill align-bottom me-2 text-muted"></i> View</a></li>
-                                                            <li><a class="dropdown-item edit-item-btn"><i class="ri-pencil-fill align-bottom me-2 text-muted"></i> Edit</a></li>
-                                                            <li>
-                                                                <a class="dropdown-item remove-item-btn">
-                                                                    <i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i> Delete
-                                                                </a>
-                                                            </li>
-                                                        </ul>
+                                                    </form>
                                                     </div>
                                                 </td>
                                             </tr>
