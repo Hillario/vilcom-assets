@@ -81,12 +81,12 @@
                                                 <th data-ordering="false">Staff</th>
                                                 <th data-ordering="false">System Manufacturer</th>
                                                 <th data-ordering="false">System Model</th>
-                                                <th>System SKU</th>
+                                                <th>Serial Number</th>
                                                 <th>Processor</th>
                                                 <th>BaseBoard Product</th>
                                                 <th>Installed RAM</th>
                                                 <th>Storage Medium</th>
-                                                <th>Serial Number</th>
+                                                <th>System SKU</th>
                                                 <th>Charger</th>
                                                 <th>Mouse Assigned</th>
                                                 <th>Date Issued</th>
@@ -126,12 +126,12 @@
                                   ?>
                                                 <td><?php echo $row['system_manufacturer'];?></td>
                                                 <td><?php echo $row['system_model'];?></td>
-                                                <td><?php echo $row['system_sku'];?></td>
+                                                <td><?php echo $row['serial_number'];?></td>
                                                 <td><?php echo $row['processor'];?></td>
                                                 <td><?php echo $row['baseboard_product'];?></td>
                                                 <td><?php echo $row['installed_ram'];?></td>
                                                 <td><?php echo $row['storage_medium'];?></td>
-                                                <td><?php echo $row['serial_number'];?></td>
+                                                <td><?php echo $row['system_sku'];?></td>
                                                 <td><?php echo $row['charger'];?></td>
                                                 <?php
                                   if($row['mouse_assigned']=='Yes')

@@ -99,12 +99,7 @@
                                                 <div class="col-lg-6 col-6">
                                                     <p class="text-muted mb-1 text-uppercase fw-medium fs-14">Date</p>
                                                     <h5 class="fs-16 mb-0"><span id="invoice-date"><?php echo $invoiceDate;?></span></h5>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-lg-6 col-6">
-                                                    <p class="text-muted mb-1 text-uppercase fw-medium fs-14">Payment Status</p>
-                                                    <span class="badge bg-success-subtle text-success fs-11" id="payment-status"><?php echo $status;?></span>
-                                                </div>
+                                                </div>                                               
                                                 <!--end col-->
                                                 <div class="col-lg-6 col-6">
                                                     <p class="text-muted mb-1 text-uppercase fw-medium fs-14">Total Amount</p>
