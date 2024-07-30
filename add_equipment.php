@@ -342,6 +342,7 @@
                                                                 $current_value=calculateDepreciatedValue($purchase_cost,$date_of_purchase,$depreciation_rate);                                                            
                                                                 $insertQuery = "INSERT INTO `office_equipment` (`equipment_id`, `system_name`, `system_manufacturer`, `system_model`, `system_sku`, `processor`, `baseboard_product`, `installed_ram`, `storage_medium`, `serial_number`, `charger`, `mouse_assigned`, `date_issued`, `date_of_purchase`, `depreciation_rate`, `current_value`, `purchase_cost`, `origin`, `user_id`, `category_id`, `updated_at`) VALUES (NULL, '".$system_name."', '".$system_manufacturer."', '".$system_model."', '".$system_sku."', '".$processor."', '".$baseboard_product."', '".$installed_ram."', '".$storage_medium."', '".$serial_number."', '".$charger."', '".$mouse_assigned."', '".$date_issued."', '".$date_of_purchase."', '".$depreciation_rate."', '".$current_value."', '".$purchase_cost."', '".$origin."', '".$staff."', '".$category."', current_timestamp());";
                                                                 $db->insert($insertQuery);
+                                                                header('Location:view_equipment.php');
                                                                 echo '<div class="alert alert-info">										
 										<strong>Success! </strong>Office equipment has been added
 									</div>';
