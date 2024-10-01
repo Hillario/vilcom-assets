@@ -49,6 +49,8 @@
       $sserial_number=$row['serial_number'];
       $scharger=$row['charger'];
       $spurchase_cost=$row['purchase_cost'];
+      $sdateissued=$row['date_issued'];
+      $sdatepurchased=$row['date_of_purchase'];
   }
 
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -331,14 +333,14 @@
                                             <div class="mt-3">
                                                 <label class="form-label">Date Issued</label>
                                                 <div>                                                    
-                                                    <input name="date_issued" type="date" class="form-control" id="date_issued">
+                                                    <input name="date_issued" type="date" class="form-control" id="date_issued" value="<?php echo $sdateissued;?>">
                                                 </div>
                                             </div>
                                             
                                             <div class="mt-3">
                                                 <label class="form-label">Date Of Purchase</label>
                                                 <div>                                                    
-                                                    <input name="date_of_purchase" type="date" class="form-control" id="date_of_purchase">
+                                                    <input name="date_of_purchase" type="date" class="form-control" id="date_of_purchase" value="<?php echo $sdatepurchased;?>">
                                                 </div>
                                             </div>
                                         </div>

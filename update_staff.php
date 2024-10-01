@@ -203,6 +203,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             } else {                                
                                 $insertQuery = "UPDATE `user` SET `first_name` = '".$pfirst_name."', `last_name` = '".$plast_name."', `email` = '".$pemail."', `password` = '".$hashedPassword."', `status` = 'Pending', `department_id` = '".$pdepartmentid."', `role_id` = '".$proleid."' WHERE `user`.`user_id` = '".$userid."';";
                                 $db->insert($insertQuery);
+                                header('Location:view_staff.php');
                                 echo '<div class="alert alert-info">										
         <strong>Success! </strong>Staff has been updated and password reset
     </div>';
