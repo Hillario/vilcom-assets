@@ -26,42 +26,35 @@ include "header.php";
  error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 
 //Retrieve User ID
-if(isset($_POST['myRepairId']))
+if(isset($_POST['myDepartmentId']))
 {
-    $_SESSION['repairid']=$_POST['myRepairId'];
-
+    $_SESSION['departmentid']=$_POST['myDepartmentId'];
 }
 
-$repairid=($_SESSION['repairid']);
+$departmentid=($_SESSION['departmentid']);
 
-$requestQuery="SELECT * FROM equipment_repair WHERE equipment_repair_id=$repairid";
-$selectQuery=$db->select($requestQuery);
+$departmentQuery="SELECT * FROM department WHERE department_id=$departmentid";
+$selectQuery=$db->select($departmentQuery);
 foreach($selectQuery as $row)
 {
-    $status=$row['status'];
-    $priority=$row['priority'];
-    $due_date=$row['due_date'];        
+    $name=$row['name'];
+    $description=$row['description'];            
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {    
-    $pstatus = @trim($_POST['pstatus']);
-    $ppriority = @trim($_POST['ppriority']);
-    $pdue_date = @trim($_POST['pdue_date']);         
+    $pname = @trim($_POST['pname']);
+    $pdescription = @trim($_POST['pdescription']);             
     
-    if (isset($_POST['pstatus'])) $pstatus = $_POST['pstatus'];
-    if (isset($_POST['ppriority'])) $ppriority = $_POST['ppriority'];
-    if (isset($_POST['pdue_date'])) $pdue_date = $_POST['pdue_date'];   
+    if (isset($_POST['pname'])) $pname = $_POST['pname'];
+    if (isset($_POST['pdescription'])) $pdescription = $_POST['pdescription'];       
     
     $error = array();    
-    if (empty($_POST["pstatus"])) {
-        $error[] = 'Please check the status of the repair';
+    if (empty($_POST["pname"])) {
+        $error[] = 'Please enter the name of the department';
     }
-    if (empty($_POST["ppriority"])) {
-        $error[] = 'Please check the priority of the repair';
-    }
-    if (empty($_POST["pdue_date"])) {
-        $error[] = 'Please check the due date of the repair';
-    }        
+    if (empty($_POST["pdescription"])) {
+        $error[] = 'Please enter the description of the department';
+    }         
        
 }
 
@@ -82,12 +75,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">UPDATE REPAIR</h4>
+                        <h4 class="mb-sm-0">UPDATE DEPARTMENT</h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                                <li class="breadcrumb-item active">Update Repair</li>
+                                <li class="breadcrumb-item active">Update <?php echo $name;?></li>
                             </ol>
                         </div>
 
@@ -97,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- end page title -->
 
             <div class="alert alert-info" role="alert">
-                <strong>Update</strong> details for equipment repair
+                <strong>Update</strong> <?php echo $name;?>
             </div>
 
             <!-- Add office equipment warranty form-->
@@ -106,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title mb-0">Update repair form</h4>
+                            <h4 class="card-title mb-0">Update department form</h4>
                         </div>
                         <form action="" method="POST" class="auth-input" enctype="multipart/form-data">
                             <div class="card-body">
@@ -114,50 +107,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="col-lg-6">
 
                                     <div class="mt-3">
-                                                <label class="form-label">Status</label>
+                                                <label class="form-label">Department Name</label>
                                                 <div class="form-icon">
-                                                <select name="pstatus" class="form-select mb-3" aria-label="Default select example">
-                                                    <option value="Pending Assessment" selected>Pending Assessment</option>
-                                                    <option value="Under Inspection">Under Inspection</option>
-                                                    <option value="Awaiting parts">Awaiting parts</option>
-                                                    <option value="In Repair">In Repair</option>
-                                                    <option value="Repaired">Repaired</option>
-                                                    <option value="Testing">Testing</option>
-                                                    <option value="Ready for Pickup">Ready for Pickup</option>
-                                                    <option value="Completed">Completed</option>
-                                                    <option value="Not Repairable">Not Repairable</option>
-                                                    <option value="Replacement Recommended">Replacement Recommended</option>
-                                                    <option value="On Hold">On Hold</option>
-                                                    <option value="Canceled">Canceled</option>                                                    
-                                                </select>                                                        
-                                                    </div>
-                                            </div>
-                                    
-
-                                            <div class="mt-3">
-                                                <label class="form-label">Priority</label>
-                                                <div class="form-icon">
-                                                <select name="ppriority" class="form-select mb-3" aria-label="Default select example">
-                                                    <option value="Low" selected>Low</option>
-                                                    <option value="Medium">Medium</option>
-                                                    <option value="High">High</option>
-                                                    <option value="Critical">Critical</option>
-                                                    <option value="Urgent">Urgent</option>                                                                                                        
-                                                </select>                                                        
+                                                        <input name="pname" type="text" class="form-control form-control-icon" id="pname" placeholder="<?php echo $name;?>" value="<?php echo $name;?>">
+                                                        <i class="ri-align-item-bottom-fill"></i>
                                                     </div>
                                             </div>
 
                                             <div class="mt-3">
-                                                <label class="form-label">Due Date</label>
-                                                <div>                                                    
-                                                    <input name="pdue_date" type="date" class="form-control" id="exampleInputdate">
-                                                </div>
+                                                <label class="form-label">Department Description</label>
+                                                <div class="form-icon">
+                                                        <textarea name="pdescription" class="form-control form-control-icon" id="pdescription"></textarea>                                                        
+                                                    </div>
                                             </div>
 
                                     </div>
 
                                     <div class="text-left">
-                                        <button type="submit" class="btn btn-info">Update Repair</button>
+                                        <button type="submit" class="btn btn-info">Update Department</button>
                                     </div>
                                 </div>
                             </div>
@@ -172,10 +139,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <strong>Take Note! </strong>' . @implode('</li><li>', $error) . ' 
     </div>';
                             } else {                                
-                                $insertQuery = "UPDATE `equipment_repair` SET `status` = '".$pstatus."', `priority` = '".$ppriority."', `due_date` = '".$pdue_date."' WHERE `equipment_repair`.`equipment_repair_id` = '".$repairid."';";
+                                $insertQuery = "UPDATE `department` SET `name` = '".$pname."', `description` = '".$pdescription."' WHERE `department`.`department_id` = '".$departmentid."';";
                                 $db->insert($insertQuery);
+                                header('Location:view_department.php');
                                 echo '<div class="alert alert-info">										
-        <strong>Success! </strong>Equipment repair has been updated
+        <strong>Success! </strong>Department has been updated
     </div>';
                             }
                         }
