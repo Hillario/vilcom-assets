@@ -64,7 +64,7 @@
                                     <h5 class="card-title mb-0">Server Equipment Warranties</h5>
                                 </div>
                                 <div class="card-body">
-                                    <table id="example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
+                                    <table id="buttons-datatables" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th scope="col" style="width: 10px;">
