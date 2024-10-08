@@ -390,7 +390,61 @@
                             <a class="nav-link menu-link" href="index.php">
                                 <i class="las la-house-damage"></i> <span data-key="t-dashboard">Dashboard</span>
                             </a>
-                        </li>                        
+                        </li>
+                        
+                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Assets</span></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#office_equipment" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInvoiceManagement">
+                                <i class="las la-briefcase"></i> <span data-key="t-invoices">Office Equipment</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="office_equipment">
+                                <ul class="nav nav-sm flex-column"> 
+                                    <li class="nav-item">
+                                        <a href="view_equipment.php" class="nav-link" data-key="t-add-invoice"> View Equipment </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#network_equipment" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuthentication">
+                                <i class="las la-wifi"></i> <span data-key="t-authentication">Network Equipment</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="network_equipment">
+                                <ul class="nav nav-sm flex-column">                                    
+                                    <li class="nav-item">
+                                        <a href="view_network_equipment.php" class="nav-link" data-key="t-signup">View Equipment</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#support_machines" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuthentication">
+                                <i class="las la-cogs"></i> <span data-key="t-authentication">Support Machines</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="support_machines">
+                                <ul class="nav nav-sm flex-column">                                    
+                                    <li class="nav-item">
+                                        <a href="view_support_machine.php" class="nav-link" data-key="t-signup">View Machine</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#logistics" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuthentication">
+                                <i class="las la-car-side"></i> <span data-key="t-authentication">Logistics</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="logistics">
+                                <ul class="nav nav-sm flex-column">                                    
+                                    <li class="nav-item">
+                                        <a href="view_logistics.php" class="nav-link" data-key="t-signup">View Asset</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
 
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Requests</span></li>
 
@@ -447,48 +501,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
-
-                        <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Assets</span></li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#office_equipment" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInvoiceManagement">
-                                <i class="las la-briefcase"></i> <span data-key="t-invoices">Office Equipment</span>
-                            </a>
-                            <div class="collapse menu-dropdown" id="office_equipment">
-                                <ul class="nav nav-sm flex-column"> 
-                                    <li class="nav-item">
-                                        <a href="view_equipment.php" class="nav-link" data-key="t-add-invoice"> View Equipment </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#network_equipment" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuthentication">
-                                <i class="las la-wifi"></i> <span data-key="t-authentication">Network Equipment</span>
-                            </a>
-                            <div class="collapse menu-dropdown" id="network_equipment">
-                                <ul class="nav nav-sm flex-column">                                    
-                                    <li class="nav-item">
-                                        <a href="view_network_equipment.php" class="nav-link" data-key="t-signup">View Equipment</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#server_equipment" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuthentication">
-                                <i class="las la-server"></i> <span data-key="t-authentication">Server Equipment</span>
-                            </a>
-                            <div class="collapse menu-dropdown" id="server_equipment">
-                                <ul class="nav nav-sm flex-column">                                    
-                                    <li class="nav-item">
-                                        <a href="view_server_equipment.php" class="nav-link" data-key="t-signup">View Equipment</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+                        </li>                       
 
 
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Quotes</span></li>

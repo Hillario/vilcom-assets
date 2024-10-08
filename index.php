@@ -96,7 +96,26 @@
                                                 $network_equipments=$network_row['network_count'];
                                             }
 
-                                            $totalAssets=$office_equipments+$server_equipments+$network_equipments;
+                                            //support machines count query
+                                            $machineCountQuery="SELECT COUNT(*) AS machine_count FROM support_machines;";
+                                            $selectMachineCount=$db->select($machineCountQuery);
+                                            foreach($selectMachineCount as $machine_row)
+                                            {
+                                                $machine_equipments=$machine_row['machine_count'];
+                                            }
+
+                                            //logistics count query
+                                            $logisticsCountQuery="SELECT COUNT(*) AS logistics_count FROM logistics;";
+                                            $selectLogisticsCount=$db->select($logisticsCountQuery);
+                                            foreach($selectLogisticsCount as $logistics_row)
+                                            {
+                                                $logistics_equipments=$logistics_row['logistics_count'];
+                                            }
+
+
+
+                                            $totalAssets=$office_equipments+$server_equipments+$network_equipments+$machine_equipments+$logistics_equipments;
+                                            
                                             ?>
                                             <h4 class="fs-22 fw-semibold ff-secondary mb-2"><span class="counter-value" data-target="<?php echo $totalAssets;?>"></span></h4>
                                             <p class="text-uppercase fw-medium fs-14 text-muted mb-0">Total Assets
