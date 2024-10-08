@@ -454,10 +454,10 @@ else{
                             <div class="collapse menu-dropdown" id="logistics">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="add_logistics.php" class="nav-link" data-key="t-signin">Add Asset</a>
+                                        <a href="add_logistics.php" class="nav-link" data-key="t-signin">Add Vehicle</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="view_logistics.php" class="nav-link" data-key="t-signup">View Asset</a>
+                                        <a href="view_logistics.php" class="nav-link" data-key="t-signup">View Vehicle</a>
                                     </li>
                                 </ul>
                             </div>

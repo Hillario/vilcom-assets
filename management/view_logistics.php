@@ -86,7 +86,7 @@
                                                 <th>Released Date</th>
                                                 <th>Location</th>
                                                 <th>Status</th>
-                                                <th>Serial Number</th>
+                                                <th>Plate Number</th>
                                                 <th>Insurance Info</th>
                                                 <th>Type</th>
                                                 <th>Insurance Expiry</th>

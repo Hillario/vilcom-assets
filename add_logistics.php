@@ -238,9 +238,9 @@
                                             </div>
 
                                             <div>
-                                                <label class="form-label">Serial Number</label>
+                                                <label class="form-label">Plate Number</label>
                                                 <div class="form-icon">
-                                                        <input name="serial_no" type="text" class="form-control form-control-icon" id="serial_no" placeholder="Enter the serial number">
+                                                        <input name="serial_no" type="text" class="form-control form-control-icon" id="serial_no" placeholder="Enter the plate number">
                                                         <i class="ri-scroll-to-bottom-line"></i>
                                                     </div>
                                             </div>
