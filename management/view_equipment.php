@@ -77,11 +77,12 @@
                                                     </div>
                                                 </th>
                                                 <th data-ordering="false">ID</th>
-                                                <th data-ordering="false">System Name</th>
-                                                <th data-ordering="false">Staff</th>
-                                                <th data-ordering="false">System Manufacturer</th>
+                                                <th data-ordering="false">Staff</th>                                                
+                                                <th data-ordering="false">Department</th>                                                
                                                 <th data-ordering="false">System Model</th>
-                                                <th>System SKU</th>
+                                                <th data-ordering="false">System SKU</th>
+                                                <th>System Manufacturer</th>
+                                                <th>System Name</th>
                                                 <th>Processor</th>
                                                 <th>BaseBoard Product</th>
                                                 <th>Installed RAM</th>
@@ -112,7 +113,6 @@
                                                     </div>
                                                 </th>
                                                 <td><?php echo $row['equipment_id'];?></td>
-                                                <td><?php echo $row['system_name'];?></td>
                                                 <?php
                                   //select staff from ID
                                   $office_user_id=$row['user_id'];
@@ -124,9 +124,24 @@
                                     echo '<td>'.$row1['first_name'].' '.$row1['last_name'].'</td>';
                                   }
                                   ?>
-                                                <td><?php echo $row['system_manufacturer'];?></td>
-                                                <td><?php echo $row['system_model'];?></td>
-                                                <td><?php echo $row['system_sku'];?></td>
+
+<?php
+                                  //select department from ID
+                                  $office_user_id=$row['user_id'];
+                                  $userQuery="SELECT D.name FROM department D, user U WHERE D.department_id=U.department_id AND U.user_id=$office_user_id";
+                                  $userSelect=$db->select($userQuery);
+
+                                  foreach($userSelect as $row1)
+                                  {
+                                    echo '<td>'.$row1['name'].'</td>';
+                                  }
+                                  ?>
+                                   
+
+                                   <td><?php echo $row['system_model'];?></td>
+                                   <td><?php echo $row['system_sku'];?></td>
+                                                <td><?php echo $row['system_manufacturer'];?></td>                                                
+                                                <td><?php echo $row['system_name'];?></td>
                                                 <td><?php echo $row['processor'];?></td>
                                                 <td><?php echo $row['baseboard_product'];?></td>
                                                 <td><?php echo $row['installed_ram'];?></td>
