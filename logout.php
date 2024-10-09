@@ -7,7 +7,7 @@
  * @category    Frontend + Backend
  * @package     vilcom-assets
  * @author      Hillary Chesaro
- * @license     Vilcom Networks
+ * @license     Saro  Labs
  * @link        https://github.com/Hillario/vilcom-assets.git
  */
 
