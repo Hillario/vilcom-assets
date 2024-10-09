@@ -41,7 +41,9 @@ foreach($selectQuery as $row)
     $description=$row['description'];            
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {    
+if ($_SERVER["REQUEST_METHOD"] == "POST") {  
+    
+    if (isset($_POST['update'])) {
     $pname = @trim($_POST['pname']);
     $pdescription = @trim($_POST['pdescription']);             
     
@@ -56,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error[] = 'Please enter the description of the department';
     }         
        
+}
 }
 
 ?>
@@ -123,15 +126,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                     </div>
 
-                                    <div class="text-left">
-                                        <button type="submit" class="btn btn-info">Update Department</button>
-                                    </div>
+                                    <!-- Update button -->
+            <div class="text-left">
+                <button type="submit" name="update" class="btn btn-info">Update Department</button>
+            </div>
+
+            <!-- Delete button -->
+            <div class="text-left mt-2">
+                <button type="submit" name="delete" class="btn btn-danger">Delete Department</button>
+            </div>
                                 </div>
                             </div>
                         </form>
                         <?php                       
                         
                         //  form operations
+                        if (isset($_POST['update'])) {
                         if (isset($error)) {
                             if (!empty($error)) {
                                 echo '<div class="alert alert-info">
@@ -147,6 +157,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>';
                             }
                         }
+                    }
+
+                    if (isset($_POST['delete'])) {
+                        // Delete department from the database
+                        $deleteQuery = "DELETE FROM `department` WHERE `department_id` = '$departmentid'";
+                        $db->insert($deleteQuery);
+                        header('Location:view_department.php');
+                        echo '<div class="alert alert-danger"><strong>Success!</strong> Department has been deleted.</div>';
+                    }
 
                         ?>
                         <!-- end card body -->
