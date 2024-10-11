@@ -76,11 +76,11 @@
                                                         <input class="form-check-input fs-15" type="checkbox" id="checkAll" value="option">
                                                     </div>
                                                 </th>
-                                                <th data-ordering="false">ID</th>
-                                                <th data-ordering="false">First Name</th>
-                                                <th data-ordering="false">Last Name</th>
-                                                <th data-ordering="false">Email</th>
-                                                <th data-ordering="false">Status</th>
+                                                <th>ID</th>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Email</th>
+                                                <th>Status</th>
                                                 <th>Department</th>
                                                 <th>Role</th>
                                                 <th>Updated_At</th>                                                
@@ -125,10 +125,16 @@
                                   $userQuery="SELECT name from department where department_id=$office_user_id";
                                   $userSelect=$db->select($userQuery);
 
-                                  foreach($userSelect as $row1)
+                                  if ($userSelect) {
+                                    foreach($userSelect as $row1)
                                   {
                                     echo '<td>'.$row1['name'].'</td>';
                                   }
+                                  }else{
+                                    echo '<td>Unknown</td>';
+                                  }
+
+                                  
                                   ?>
                                    <?php
                                   //select role from ID
@@ -136,10 +142,16 @@
                                   $userQuery="SELECT name from role where role_id=$office_user_id";
                                   $userSelect=$db->select($userQuery);
 
-                                  foreach($userSelect as $row1)
+                                  if ($userSelect) {
+                                    foreach($userSelect as $row1)
                                   {
                                     echo '<td>'.$row1['name'].'</td>';
                                   }
+                                  }else{
+                                    echo '<td>Unknown</td>';
+                                  }
+
+                                  
                                   ?>
                                   <td><?php echo $row['updated_at'];?></td>                                                                    
                                                 
@@ -158,7 +170,7 @@
                       }
                       else
                       {
-                          echo "Oops :( No Data Found";
+                          echo "<tr><td colspan='23' class='text-center'>Oops :( No Data Found</td></tr>";
                       }
                       ?>                                            
                                         </tbody>

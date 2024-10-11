@@ -76,11 +76,11 @@
                                                         <input class="form-check-input fs-15" type="checkbox" id="checkAll" value="option">
                                                     </div>
                                                 </th>
-                                                <th data-ordering="false">ID</th>
-                                                <th data-ordering="false">System Name</th>
-                                                <th data-ordering="false">Staff</th>
-                                                <th data-ordering="false">Department</th>
-                                                <th data-ordering="false">System Model</th>
+                                                <th>ID</th>
+                                                <th>System Name</th>
+                                                <th>Staff</th>
+                                                <th>Department</th>
+                                                <th>System Model</th>
                                                 <th>Serial Number</th>                                                
                                                 <th>Processor</th>
                                                 <th>System Manufacturer</th>
@@ -120,10 +120,16 @@
                                   $userQuery="SELECT first_name, last_name from user where user_id=$office_user_id";
                                   $userSelect=$db->select($userQuery);
 
-                                  foreach($userSelect as $row1)
+                                  if ($userSelect) {
+                                    foreach($userSelect as $row1)
                                   {
                                     echo '<td>'.$row1['first_name'].' '.$row1['last_name'].'</td>';
                                   }
+
+                                  }else{
+                                    echo '<td>Unknown</td>';
+                                  }
+                                  
                                   ?>
 
 <?php
@@ -132,10 +138,15 @@
                                   $userQuery="SELECT D.name FROM department D, user U WHERE D.department_id=U.department_id AND U.user_id=$office_user_id";
                                   $userSelect=$db->select($userQuery);
 
-                                  foreach($userSelect as $row1)
+                                  if ($userSelect) {
+                                    foreach($userSelect as $row1)
                                   {
                                     echo '<td>'.$row1['name'].'</td>';
                                   }
+                                  }else{
+                                    echo '<td>Unknown</td>';
+                                  }
+                                  
                                   ?>
                                                 
                                                 <td><?php echo $row['system_model'];?></td>
@@ -180,7 +191,7 @@
                       }
                       else
                       {
-                          echo "Oops :( No Data Found";
+                          echo "<tr><td colspan='23' class='text-center'>Oops :( No Data Found</td></tr>";
                       }
                       ?>                                            
                                         </tbody>

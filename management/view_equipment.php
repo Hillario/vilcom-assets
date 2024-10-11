@@ -76,18 +76,18 @@
                                                         <input class="form-check-input fs-15" type="checkbox" id="checkAll" value="option">
                                                     </div>
                                                 </th>
-                                                <th data-ordering="false">ID</th>
-                                                <th data-ordering="false">Staff</th>                                                
-                                                <th data-ordering="false">Department</th>                                                
-                                                <th data-ordering="false">System Model</th>
-                                                <th data-ordering="false">System SKU</th>
-                                                <th>System Manufacturer</th>
+                                                <th>ID</th>
                                                 <th>System Name</th>
+                                                <th>Staff</th>
+                                                <th>Department</th>
+                                                <th>System Model</th>
+                                                <th>Serial Number</th>                                                
                                                 <th>Processor</th>
+                                                <th>System Manufacturer</th>
                                                 <th>BaseBoard Product</th>
                                                 <th>Installed RAM</th>
                                                 <th>Storage Medium</th>
-                                                <th>Serial Number</th>
+                                                <th>System SKU</th>
                                                 <th>Charger</th>
                                                 <th>Mouse Assigned</th>
                                                 <th>Date Issued</th>
@@ -113,16 +113,23 @@
                                                     </div>
                                                 </th>
                                                 <td><?php echo $row['equipment_id'];?></td>
+                                                <td><?php echo $row['system_name'];?></td>
                                                 <?php
                                   //select staff from ID
                                   $office_user_id=$row['user_id'];
                                   $userQuery="SELECT first_name, last_name from user where user_id=$office_user_id";
                                   $userSelect=$db->select($userQuery);
 
-                                  foreach($userSelect as $row1)
+                                  if ($userSelect) {
+                                    foreach($userSelect as $row1)
                                   {
                                     echo '<td>'.$row1['first_name'].' '.$row1['last_name'].'</td>';
                                   }
+
+                                  }else{
+                                    echo '<td>Unknown</td>';
+                                  }
+                                  
                                   ?>
 
 <?php
@@ -131,22 +138,25 @@
                                   $userQuery="SELECT D.name FROM department D, user U WHERE D.department_id=U.department_id AND U.user_id=$office_user_id";
                                   $userSelect=$db->select($userQuery);
 
-                                  foreach($userSelect as $row1)
+                                  if ($userSelect) {
+                                    foreach($userSelect as $row1)
                                   {
                                     echo '<td>'.$row1['name'].'</td>';
                                   }
+                                  }else{
+                                    echo '<td>Unknown</td>';
+                                  }
+                                  
                                   ?>
-                                   
-
-                                   <td><?php echo $row['system_model'];?></td>
-                                   <td><?php echo $row['system_sku'];?></td>
-                                                <td><?php echo $row['system_manufacturer'];?></td>                                                
-                                                <td><?php echo $row['system_name'];?></td>
+                                                
+                                                <td><?php echo $row['system_model'];?></td>
+                                                <td><?php echo $row['serial_number'];?></td>
                                                 <td><?php echo $row['processor'];?></td>
+                                                <td><?php echo $row['system_manufacturer'];?></td>
                                                 <td><?php echo $row['baseboard_product'];?></td>
                                                 <td><?php echo $row['installed_ram'];?></td>
                                                 <td><?php echo $row['storage_medium'];?></td>
-                                                <td><?php echo $row['serial_number'];?></td>
+                                                <td><?php echo $row['system_sku'];?></td>
                                                 <td><?php echo $row['charger'];?></td>
                                                 <?php
                                   if($row['mouse_assigned']=='Yes')
@@ -162,23 +172,17 @@
                                   <td><?php echo $row['depreciation_rate'];?></td>
                                   <td><?php echo $row['current_value'];?></td>
                                   <td><?php echo $row['purchase_cost'];?></td>
-                                  <td><?php echo $row['origin'];?></td>                                  
+                                  <td><?php echo $row['origin'];?></td>
+                                  
                                   <td><?php echo $row['updated_at'];?></td>                                                                    
                                                 
                                                 <td>
-                                                    <div class="dropdown d-inline-block">
-                                                        <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            <i class="ri-more-fill align-middle"></i>
+                                                <div class="dropdown d-inline-block">
+                                                    <form method="post" action="update_equipment.php"><input type="hidden" name="myEquipmentId"  value="<?php echo $row['equipment_id'];?>">
+                                                        <button name="add_items" id="add_items" class="btn btn-info" type="submit">
+                                                        <i class="ri-refresh-fill align-bottom me-1"></i>Update
                                                         </button>
-                                                        <ul class="dropdown-menu dropdown-menu-end">
-                                                            <li><a href="#!" class="dropdown-item"><i class="ri-eye-fill align-bottom me-2 text-muted"></i> View</a></li>
-                                                            <li><a class="dropdown-item edit-item-btn"><i class="ri-pencil-fill align-bottom me-2 text-muted"></i> Edit</a></li>
-                                                            <li>
-                                                                <a class="dropdown-item remove-item-btn">
-                                                                    <i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i> Delete
-                                                                </a>
-                                                            </li>
-                                                        </ul>
+                                                    </form>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -187,7 +191,7 @@
                       }
                       else
                       {
-                          echo "Oops :( No Data Found";
+                          echo "<tr><td colspan='23' class='text-center'>Oops :( No Data Found</td></tr>";
                       }
                       ?>                                            
                                         </tbody>

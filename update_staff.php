@@ -45,7 +45,8 @@ foreach($selectQuery as $row)
     $roleid=$row['role_id'];
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {    
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+    if (isset($_POST['update'])) {   
     $pfirst_name = @trim($_POST['first_name']);
     $plast_name = @trim($_POST['last_name']);
     $pemail = @trim($_POST['email']);         
@@ -75,6 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error[] = 'Please check role';
     }      
        
+}
 }
 
 ?>
@@ -180,14 +182,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                     </div>
 
-                                    <div class="text-left">
-                                        <button type="submit" class="btn btn-info">Update & Reset</button>
-                                    </div>
+                                    <!-- Update button -->
+            <div class="text-left">
+                <button type="submit" name="update" class="btn btn-info">Update & Reset</button>
+            </div>
+
+            <!-- Delete button -->
+            <div class="text-left mt-2">
+                <button type="submit" name="delete" class="btn btn-danger">Delete Staff</button>
+            </div>
                                 </div>
                             </div>
                         </form>
                         <?php
-                        
+                        if (isset($_POST['update'])) {
                         $password=$pfirst_name.".".$plast_name;
                         
                         //hash password
@@ -209,6 +217,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>';
                             }
                         }
+                    }
+
+                    if (isset($_POST['delete'])) {
+                        // Delete staff from the database
+                        $deleteQuery = "DELETE FROM `user` WHERE `user_id` = '$userid'";
+                        $db->insert($deleteQuery);
+                        header('Location:view_staff.php');
+                        echo '<div class="alert alert-danger"><strong>Success!</strong> Staff has been deleted.</div>';
+                    }
+
 
                         ?>
                         <!-- end card body -->

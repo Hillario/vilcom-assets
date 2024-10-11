@@ -76,11 +76,11 @@
                                                         <input class="form-check-input fs-15" type="checkbox" id="checkAll" value="option">
                                                     </div>
                                                 </th>
-                                                <th data-ordering="false">ID</th>
-                                                <th data-ordering="false">Asset Description</th>
-                                                <th data-ordering="false">Staff</th>
-                                                <th data-ordering="false">Department</th>
-                                                <th data-ordering="false">Cost</th>
+                                                <th>ID</th>
+                                                <th>Asset Description</th>
+                                                <th>Staff</th>
+                                                <th>Department</th>
+                                                <th>Cost</th>
                                                 <th>Model</th>                                                
                                                 <th>Acquisition Date</th>
                                                 <th>Released Date</th>
@@ -93,7 +93,8 @@
                                                 <th>Comments</th>                                                
                                                 <th>Depreciation Rate</th>
                                                 <th>Current Value</th>                         
-                                                <th>Updated_At</th>                                                
+                                                <th>Updated_At</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -116,10 +117,16 @@
                                   $userQuery="SELECT first_name, last_name from user where user_id=$office_user_id";
                                   $userSelect=$db->select($userQuery);
 
-                                  foreach($userSelect as $row1)
+                                  if ($userSelect) {
+                                    foreach($userSelect as $row1)
                                   {
                                     echo '<td>'.$row1['first_name'].' '.$row1['last_name'].'</td>';
                                   }
+                                  }else{
+                                    echo '<td>Unknown</td>';
+                                  }
+
+                                  
                                   ?>
 
 <?php
@@ -128,10 +135,16 @@
                                   $userQuery="SELECT name FROM department WHERE department_id=$office_user_id";
                                   $userSelect=$db->select($userQuery);
 
-                                  foreach($userSelect as $row1)
+                                  if ($userSelect) {
+                                    foreach($userSelect as $row1)
                                   {
                                     echo '<td>'.$row1['name'].'</td>';
                                   }
+                                  }else{
+                                    echo '<td>Unknown</td>';
+                                  }
+
+                                  
                                   ?>
                                                 
                                                 <td><?php echo $row['cost'];?></td>
@@ -148,15 +161,24 @@
                                   
                                   <td><?php echo $row['depreciation_rate'];?></td>
                                   <td><?php echo $row['current_value'];?></td>
-                                  <td><?php echo $row['updated_at'];?></td> 
+                                  <td><?php echo $row['updated_at'];?></td>                                                                    
                                                 
+                                                <td>
+                                                <div class="dropdown d-inline-block">
+                                                    <form method="post" action="update_logistics.php"><input type="hidden" name="myLogisticsId"  value="<?php echo $row['logistics_id'];?>">
+                                                        <button name="add_items" id="add_items" class="btn btn-info" type="submit">
+                                                        <i class="ri-refresh-fill align-bottom me-1"></i>Update
+                                                        </button>
+                                                    </form>
+                                                    </div>
+                                                </td>
                                             </tr>
                                             <?php
                           }
                       }
                       else
                       {
-                          echo "Oops :( No Data Found";
+                          echo "<tr><td colspan='23' class='text-center'>Oops :( No Data Found</td></tr>";
                       }
                       ?>                                            
                                         </tbody>

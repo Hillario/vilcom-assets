@@ -76,11 +76,11 @@
                                                         <input class="form-check-input fs-15" type="checkbox" id="checkAll" value="option">
                                                     </div>
                                                 </th>
-                                                <th data-ordering="false">ID</th>
-                                                <th data-ordering="false">Name</th>
-                                                <th data-ordering="false">Description</th>
-                                                <th data-ordering="false">Updated_At</th>
-                                                <th data-ordering="false">Action</th>                                                
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Updated_At</th>
+                                                <th>Action</th>                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -114,7 +114,7 @@
                       }
                       else
                       {
-                          echo "Oops :( No Data Found";
+                          echo "<tr><td colspan='23' class='text-center'>Oops :( No Data Found</td></tr>";
                       }
                       ?>                                            
                                         </tbody>

@@ -76,11 +76,11 @@
                                                         <input class="form-check-input fs-15" type="checkbox" id="checkAll" value="option">
                                                     </div>
                                                 </th>
-                                                <th data-ordering="false">ID</th>
-                                                <th data-ordering="false">Designation</th>
-                                                <th data-ordering="false">System Name</th>
-                                                <th data-ordering="false">System Manufacturer</th>
-                                                <th data-ordering="false">System Model</th>
+                                                <th>ID</th>
+                                                <th>Designation</th>
+                                                <th>System Name</th>
+                                                <th>System Manufacturer</th>
+                                                <th>System Model</th>
                                                 <th>System SKU</th>
                                                 <th>Processor</th>
                                                 <th>BaseBoard Product</th>
@@ -130,20 +130,13 @@
                                   <td><?php echo $row['origin'];?></td>                                  
                                   <td><?php echo $row['updated_at'];?></td>                                                                    
                                                 
-                                                <td>
-                                                    <div class="dropdown d-inline-block">
-                                                        <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            <i class="ri-more-fill align-middle"></i>
+                                  <td>
+                                                <div class="dropdown d-inline-block">
+                                                    <form method="post" action="update_network_equipment.php"><input type="hidden" name="myNetworkId"  value="<?php echo $row['network_id'];?>">
+                                                        <button name="add_items" id="add_items" class="btn btn-info" type="submit">
+                                                        <i class="ri-refresh-fill align-bottom me-1"></i>Update
                                                         </button>
-                                                        <ul class="dropdown-menu dropdown-menu-end">
-                                                            <li><a href="#!" class="dropdown-item"><i class="ri-eye-fill align-bottom me-2 text-muted"></i> View</a></li>
-                                                            <li><a class="dropdown-item edit-item-btn"><i class="ri-pencil-fill align-bottom me-2 text-muted"></i> Edit</a></li>
-                                                            <li>
-                                                                <a class="dropdown-item remove-item-btn">
-                                                                    <i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i> Delete
-                                                                </a>
-                                                            </li>
-                                                        </ul>
+                                                    </form>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -152,7 +145,7 @@
                       }
                       else
                       {
-                          echo "Oops :( No Data Found";
+                          echo "<tr><td colspan='23' class='text-center'>Oops :( No Data Found</td></tr>";
                       }
                       ?>                                            
                                         </tbody>
