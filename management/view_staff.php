@@ -83,8 +83,8 @@
                                                 <th>Status</th>
                                                 <th>Department</th>
                                                 <th>Role</th>
-                                                <th>Updated_At</th>                                                
-                                                <th>Action</th>
+                                                <th>Updated_At</th>                                               
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -153,17 +153,9 @@
 
                                   
                                   ?>
-                                  <td><?php echo $row['updated_at'];?></td>                                                                    
+                                  <td><?php echo $row['updated_at'];?></td>                                                                   
                                                 
-                                                <td>
-                                                <div class="dropdown d-inline-block">
-                                                    <form method="post" action="update_staff.php"><input type="hidden" name="myUserId"  value="<?php echo $row['user_id'];?>">
-                                                        <button name="add_items" id="add_items" class="btn btn-info" type="submit">
-                                                        <i class="ri-refresh-fill align-bottom me-1"></i>Update
-                                                        </button>
-                                                    </form>
-                                                    </div>
-                                                </td>
+                                                
                                             </tr>
                                             <?php
                           }

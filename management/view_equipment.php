@@ -96,8 +96,7 @@
                                                 <th>Current Value</th>
                                                 <th>Purchase Cost</th>
                                                 <th>Origin</th>                                                
-                                                <th>Updated_At</th>
-                                                <th>Action</th>
+                                                <th>Updated_At</th>                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -174,17 +173,9 @@
                                   <td><?php echo $row['purchase_cost'];?></td>
                                   <td><?php echo $row['origin'];?></td>
                                   
-                                  <td><?php echo $row['updated_at'];?></td>                                                                    
+                                  <td><?php echo $row['updated_at'];?></td>                                                                   
                                                 
-                                                <td>
-                                                <div class="dropdown d-inline-block">
-                                                    <form method="post" action="update_equipment.php"><input type="hidden" name="myEquipmentId"  value="<?php echo $row['equipment_id'];?>">
-                                                        <button name="add_items" id="add_items" class="btn btn-info" type="submit">
-                                                        <i class="ri-refresh-fill align-bottom me-1"></i>Update
-                                                        </button>
-                                                    </form>
-                                                    </div>
-                                                </td>
+                                                
                                             </tr>
                                             <?php
                           }
