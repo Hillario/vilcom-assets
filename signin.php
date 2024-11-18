@@ -75,6 +75,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }elseif($role_id==1)
                     {
                         header('Location:index.php');
+                    }elseif($role_id==5)
+                    {
+                        header('Location:audit/index.php');
                     }
                     
                 } else {
