@@ -22,8 +22,20 @@
 
  include "header.php";
 
+ //temporarily suppress warnings
+ error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
+
  //select from the support machines table
- $selectQuery="SELECT * FROM support_machines";
+ $selectQuery="
+ SELECT *
+FROM support_machines
+ORDER BY 
+    CASE 
+        WHEN calibration_status = 'Active' THEN 1
+        ELSE 2
+    END, 
+    support_machine_id ASC;
+ ";
  $dbSelect=$db->select($selectQuery);
 
 ?>
@@ -86,7 +98,12 @@
                                                 <th>Department</th>                                                                                                                                                
                                                 <th>Acquisition Date</th>
                                                 <th>Released Date</th>                                                
-                                                <th>Status</th>                                                
+                                                <th>Status</th>
+                                                <th>Calibration Status</th>
+                                                <th>Calibration Certification No.</th>
+                                                <th>Asset ID</th>
+                                                <th>Repair Details</th>
+                                                <th>Repaired By</th>                                                
                                                 <th>Serial Number</th>
                                                 <th>Insurance Info</th>
                                                 <th>Type</th>
@@ -153,9 +170,13 @@
                                                 
                                                 
                                                 <td><?php echo $row['acquisition_date'];?></td>
-                                                <td><?php echo $row['released_date'];?></td>
-                                                
+                                                <td><?php echo $row['released_date'];?></td>                                                
                                                 <td><?php echo $row['status'];?></td>
+                                                <td><?php echo $row['calibration_status'];?></td>
+                                                <td><?php echo $row['calibration_certno'];?></td>
+                                                <td><?php echo $row['asset_id'];?></td>
+                                                <td><?php echo $row['repair_details'];?></td>
+                                                <td><?php echo $row['repaired_by'];?></td>
                                                 <td><?php echo $row['serial_no'];?></td>
                                                 <td><?php echo $row['insurance_info'];?></td>
                                                 <td><?php echo $row['type'];?></td>
@@ -164,9 +185,7 @@
                                   
                                   <td><?php echo $row['depreciation_rate'];?></td>
                                   <td><?php echo $row['current_value'];?></td>
-                                  <td><?php echo $row['updated_at'];?></td>                                                                   
-                                                
-                                                
+                                  <td><?php echo $row['updated_at'];?></td>  
                                             </tr>
                                             <?php
                           }
