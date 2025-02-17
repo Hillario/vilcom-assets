@@ -31,7 +31,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
-                               VILCOM IMS Version 1.1.0.1
+                               VILCOM IMS Version 2.1.0.1 Powered by SARO Framework
                             </div>
                         </div>
                     </div>
