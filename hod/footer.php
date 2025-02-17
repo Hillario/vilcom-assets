@@ -1,7 +1,7 @@
 <?php
 
 /**
- * vilcom networks Vilcom Staff Portal
+ * vilcom networks Vilcom IMS
  *
  * PHP version 8.2.12
  *
@@ -15,7 +15,7 @@
 /**
  * footer.php
  *
- * This is the footer of the VILCOM STAFF PORTAL
+ * This is the footer of the VILCOM IMS
  * 
  * @author Hillary Chesaro
  */
@@ -31,7 +31,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
-                               VILCOM STAFF PORTAL Version 1.1.0.1
+                               VILCOM IMS Version 1.1.0.1
                             </div>
                         </div>
                     </div>

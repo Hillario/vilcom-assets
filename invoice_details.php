@@ -1,6 +1,6 @@
 <?php
 /**
- * Vilcom Staff Portal
+ * Vilcom IMS
  *
  * PHP version 8.2.12
  *
