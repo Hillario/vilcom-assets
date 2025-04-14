@@ -1,0 +1,18 @@
+{
+    "name": "vilcom/ims",
+    "description": "This is an inventory management system",
+    "autoload": {
+        "psr-4": {
+            "Vilcom\\Ims\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hillary Chesaro",
+            "email": "hillches@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    }
+}
