@@ -30,8 +30,10 @@
 
     try {
         // SMTP Configuration
+        $mail->SMTPDebug = 2; // or 3 for even more detail
+        $mail->Debugoutput = 'html';
         $mail->isSMTP();
-        $mail->Host       = 'mail.vilcom.ke';  // SMTP server
+        $mail->Host       = 'admin.vilcom-net.co.ke';  // SMTP server
         $mail->SMTPAuth   = true;
         $mail->Username   = 'noreply@vilcom.ke'; // SMTP username
         $mail->Password   = 'Z5mqEEZtnjgrpkQJCMxY'; // SMTP password
@@ -39,7 +41,7 @@
         $mail->Port       = 587;
 
         // Email Headers
-        $mail->setFrom('noreply@vilcom.ke', 'Vilcom Networks Limited');
+        $mail->setFrom('noreply@hosting.vilcom-net.co.ke', 'Vilcom IMS');
         $mail->addAddress($recipientEmail);
 
         // Email Content

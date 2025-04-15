@@ -25,6 +25,7 @@
  //include the session manager API
  include "api/session_manager.php";
 
+
  //instantiate the database
  $db=new MySql();
 
