@@ -24,6 +24,8 @@
  include "../api/MySql.php";
  //include the session manager API
  include "../api/session_manager.php";
+ //include the Send Email Module
+ include "../api/send_email.php";
 
  //instantiate the database
  $db=new MySql();

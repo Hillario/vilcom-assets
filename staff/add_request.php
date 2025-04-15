@@ -124,6 +124,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             } else {                                
                                 $insertQuery = "INSERT INTO `request` (`request_id`, `item_name`, `description`, `status`, `priority`, `user_id`, `updated_at`) VALUES (NULL, '".$item_name."', '".$description."', 'Pending', 'Medium', '".$user_id."', CURRENT_TIMESTAMP);";
                                 $db->insert($insertQuery);
+                                //send email
+                                sendEmail('hillary.chesaro@vilcom.co.ke','A new request has been created','This is a test that a new request has been created!');
                                 echo '<div class="alert alert-info">										
         <strong>Success! </strong>Request has been sent, go to view request to track
     </div>';

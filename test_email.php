@@ -1,0 +1,104 @@
+<?php
+
+/**
+ * Vilcom IMS
+ *
+ * PHP version 8.2.12
+ *
+ * @category    Frontend + Backend
+ * @package     vilcom-assets
+ * @author      Hillary Chesaro
+ * @license     Saro  Labs
+ * @link        https://github.com/Hillario/vilcom-assets.git
+ */
+
+/**
+ * send_email.php --> Function to send emails
+ *
+ * This file enables admin to add a role
+ * 
+ * @author Hillary Chesaro
+ */
+
+ require 'vendor/autoload.php';
+
+ use PHPMailer\PHPMailer\PHPMailer;
+ use PHPMailer\PHPMailer\Exception;
+
+
+
+ function sendEmail($recipientEmail, $subject, $message) {
+    $mail = new PHPMailer(true);
+
+    try {
+        // SMTP Configuration
+        $mail->SMTPDebug = 2; // or 3 for even more detail
+        $mail->Debugoutput = 'html';
+        $mail->isSMTP();
+        $mail->Host       = 'admin.vilcom-net.co.ke';  // SMTP server
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'noreply@vilcom.ke'; // SMTP username
+        $mail->Password   = 'Z5mqEEZtnjgrpkQJCMxY'; // SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+
+        // Email Headers
+        $mail->setFrom('noreply@hosting.vilcom-net.co.ke', 'Vilcom IMS');
+        $mail->addAddress($recipientEmail);
+
+        //Add CC
+        $mail->addCC('joy.jerobon@vilcom.co.ke');
+
+        // Email Content
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body    = $message;
+
+        // Send Email
+        $mail->send();
+        return true;
+    } catch (Exception $e) {
+        return "Email sending failed: {$mail->ErrorInfo}";
+    }
+}
+
+$recipient="hillary.chesaro@vilcom.co.ke";
+$subject="A new request has been submitted";
+$message='
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Request Notification</title>
+  </head>
+  <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: auto; background-color: #ffffff; padding: 30px; border-radius: 10px;">
+      <tr>
+        <td>
+          <h2 style="color: #333;">Dear [FirstName] [LastName],</h2>
+          <p style="font-size: 16px; color: #555;">
+            A request for <strong>[Description of Device]</strong> has been successfully <strong>submitted</strong>.
+            You will receive another notification once it is approved.
+          </p>
+          <br />
+          <div style="text-align: center;">
+            <p>
+              <a href="https://vilcom.co.ke/" style="display: inline-block; margin: 5px; text-decoration: none; color: #007BFF;">Visit our website</a><br />
+              <a href="https://portal.vilcom.ke/signin.php" style="display: inline-block; margin: 5px; text-decoration: none; color: #007BFF;">Log in to your account</a><br />
+              <a href="mailto:hillary.chesaro@vilcom.co.ke" style="display: inline-block; margin: 5px; text-decoration: none; color: #007BFF;">Get support</a>
+            </p>
+          </div>
+          <hr style="margin: 30px 0;" />
+          <p style="text-align: center; font-size: 13px; color: #999;">
+           © Vilcom Networks Limited, All rights reserved.
+          </p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+';
+
+sendEmail($recipient,$subject,$message);
+
+?>
