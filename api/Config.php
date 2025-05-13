@@ -9,7 +9,7 @@
  */
 /*Using define method to elaborate on the constants so as to help in the definition of project scope(Global)*/
 /*Database Name*/
-define('DB_NAME','vilcom-assets');
+define('DB_NAME','vilcom-ims');
 
 /*Database User*/
 define('DB_USER','root');
