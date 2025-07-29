@@ -47,7 +47,7 @@
         $mail->addAddress($recipientEmail);
 
         //Add CC
-        $mail->addCC('joy.jerobon@vilcom.co.ke');
+        //$mail->addCC('joy.jerobon@vilcom.co.ke');
         $mail->addCC('kelvin.nderitu@vilcom.co.ke');
 
         // Email Content
