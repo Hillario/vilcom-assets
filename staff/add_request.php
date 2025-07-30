@@ -148,6 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->addAddress($recipientEmail);
 
         //Add CC
+        $mail->addCC('rodgers.momanyi@vilcom.co.ke');
         $mail->addCC('hillary.chesaro@vilcom.co.ke');
         $mail->addCC('kelvin.nderitu@vilcom.co.ke');
 
