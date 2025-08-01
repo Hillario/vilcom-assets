@@ -22,6 +22,11 @@
 
 include "header.php";
 
+require 'vendor/autoload.php';
+
+ use PHPMailer\PHPMailer\PHPMailer;
+ use PHPMailer\PHPMailer\Exception;
+
  //temporarily suppress warnings
  error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 
@@ -34,7 +39,7 @@ if(isset($_POST['myIncidentId']))
 
 $incidentid=($_SESSION['incidentid']);
 
-$requestQuery="SELECT * FROM equipment_incident WHERE equipment_incident_id=$incidentid";
+$requestQuery="SELECT * from equipment_incident as I, office_equipment as E WHERE I.equipment_id=E.equipment_id AND I.equipment_incident_id=$incidentid";
 $selectQuery=$db->select($requestQuery);
 foreach($selectQuery as $row)
 {
@@ -47,6 +52,23 @@ foreach($selectQuery as $row)
     $root_cause=$row['root_cause'];
     $action_plan=$row['action_plan'];
     $date_action_completed=$row['date_action_completed'];
+    $uid=$row['user_id'];
+    $equipmentid=$row['equipment_id'];
+}
+
+//select staff
+$staffQuery= "SELECT first_name, last_name FROM user WHERE user_id=$uid";
+$selectStaff=$db->select($staffQuery);
+foreach($selectStaff as $rowstaff){
+    $fname=$rowstaff['first_name'];
+    $lname=$rowstaff['last_name'];
+}
+
+//select equipment
+$equipmentQuery= "SELECT system_name FROM office_equipment WHERE equipment_id=$equipmentid;";
+$selectEquipment=$db->select($equipmentQuery);
+foreach($selectEquipment as $rowequipment){
+    $equipmentname=$rowequipment['system_name'];    
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {    
@@ -215,7 +237,101 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <i class="ri-megaphone-line"></i>
         <strong>Take Note! </strong>' . @implode('</li><li>', $error) . ' 
     </div>';
-                            } else {                                
+                            } else {
+                                //send email notification to management
+
+                                function send_Email_Management_Incident($recipientEmail, $subject, $message) {
+    $mail = new PHPMailer(true);
+
+    try {
+        // SMTP Configuration
+        $mail->SMTPDebug = 0; // or 3 for even more detail 0 to disable 2 for default
+        $mail->Debugoutput = 'html';
+        $mail->isSMTP();
+        $mail->Host       = 'admin.vilcom-net.co.ke';  // SMTP server
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'noreply@vilcom.ke'; // SMTP username
+        $mail->Password   = 'Z5mqEEZtnjgrpkQJCMxY'; // SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+
+        // Email Headers
+        $mail->setFrom('noreply@hosting.vilcom-net.co.ke', 'Vilcom IMS');
+        $mail->addAddress($recipientEmail);
+
+        //Add CC
+        $mail->addCC('rodgers.momanyi@vilcom.co.ke');
+        $mail->addCC('hillary.chesaro@vilcom.co.ke');
+        $mail->addCC('kelvin.nderitu@vilcom.co.ke');
+
+        // Email Content
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body    = $message;
+
+        // Send Email
+        $mail->send();
+        return true;
+    } catch (Exception $e) {
+        return "Email sending failed: {$mail->ErrorInfo}";
+    }
+}
+                                //set email variables
+                                $recipient='peter.kipkoech@vilcom.co.ke';//email address for management peter.kipkoech@vilcom.co.ke
+$subject="Approve new incident reported";
+$message='
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Incident Notification</title>
+    <style>
+      @media only screen and (max-width: 600px) {
+        .container {
+          width: 100% !important;
+          padding: 15px !important;
+        }
+      }
+    </style>
+  </head>
+  <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; margin: 0;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f4f4f4;">
+      <tr>
+        <td align="center">
+          <table class="container" width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; max-width: 90%; background-color: #ffffff; padding: 30px; border-radius: 10px;">
+            <tr>
+              <td>
+                <h2 style="color: #333;">Dear Peter Kipkoech,</h2>
+                <p style="font-size: 16px; color: #555;">
+                  A new incident for equipment with name <strong>'.$equipmentname.'</strong> and type of incident <strong>'.$type_of_incident.'</strong> has been reported by <strong>'.$fname.' '.$lname.'</strong>.
+                  Kindly assist in approving the incident report.
+                </p>
+                <br />
+                <div style="text-align: center;">
+                  <p>
+                    <a href="https://vilcom.co.ke/" style="display: inline-block; margin: 5px; text-decoration: none; color: #007BFF;">Visit our website</a><br />
+                    <a href="https://portal.vilcom.ke/signin.php" style="display: inline-block; margin: 5px; text-decoration: none; color: #007BFF;">Log in to your account</a><br />
+                    <a href="mailto:kelvin.nderitu@vilcom.co.ke" style="display: inline-block; margin: 5px; text-decoration: none; color: #007BFF;">Get support</a>
+                  </p>
+                </div>
+                <p style="text-align: center; font-size: 13px; color: #666;">
+                  This notification was automatically generated by the Vilcom Inventory Management System (IMS).
+                </p>
+                <hr style="margin: 30px 0;" />
+                <p style="text-align: center; font-size: 13px; color: #999;">
+                  &copy; ' . date('Y') . ' Vilcom Networks Limited, All Rights Reserved.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+';                                
+                                //send email
+                                send_Email_Management_Incident($recipient,$subject,$message);                                 
                                 $insertQuery = "UPDATE `equipment_incident` SET `priority` = '".$ppriority."', `root_cause` = '".$proot_cause."', `action_plan` = '".$paction_plan."', `date_action_completed` = '".$pdate_action_completed."' WHERE `equipment_incident`.`equipment_incident_id` = '".$incidentid."';";
                                 $db->insert($insertQuery);
                                 echo '<div class="alert alert-info">										

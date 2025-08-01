@@ -77,8 +77,8 @@
                                                     </div>
                                                 </th>
                                                 <th data-ordering="false">ID</th>
-                                                <th data-ordering="false">Incident Date</th>
-                                                <th data-ordering="false">Type Of Incident</th>
+                                                <th data-ordering="false">Staff</th>
+                                                <th data-ordering="false">Equipment</th>
                                                 <th data-ordering="false">Source</th>
                                                 <th data-ordering="false">Process</th>
                                                 <th>Priority</th>
@@ -87,8 +87,8 @@
                                                 <th>Root Cause</th>
                                                 <th>Action Plan</th>
                                                 <th>Date Action Completed</th>
-                                                <th>Staff</th>
-                                                <th>Equipment</th>                                                
+                                                <th>Incident Date</th>
+                                                <th>Type Of Incident</th>                                                
                                                 <th>Updated_At</th>
                                                 <th>Action</th>
                                             </tr>
@@ -106,8 +106,30 @@
                                                     </div>
                                                 </th>
                                                 <td><?php echo $row['equipment_incident_id'];?></td>
-                                                <td><?php echo $row['incident_date'];?></td>
-                                                <td><?php echo $row['type_of_incident'];?></td>
+                                                <?php
+                                  //select staff from ID
+                                  $office_user_id=$row['user_id'];
+                                  $userQuery="SELECT first_name, last_name from user where user_id=$office_user_id";
+                                  $userSelect=$db->select($userQuery);
+
+                                  foreach($userSelect as $row1)
+                                  {
+                                    echo '<td>'.$row1['first_name'].' '.$row1['last_name'].'</td>';
+                                  }
+                                  ?>
+                                  <?php
+                                  //select equipment from ID
+                                  $equipmentid=$row['equipment_id'];                                 
+                                  $userQuery="SELECT system_name FROM office_equipment WHERE equipment_id=$equipmentid;";
+                                  $userSelect=$db->select($userQuery);
+
+                                  foreach($userSelect as $row1)
+                                  {
+                                    echo '<td>'.$row1['system_name'].'</td>';
+                                  }
+                                  ?> 
+                                               
+                                                
                                                 <td><?php echo $row['source'];?></td>
                                                 <td><?php echo $row['process'];?></td>                                                
                                                 
@@ -147,27 +169,8 @@
                                   <td><?php echo $row['root_cause'];?></td>
                                   <td><?php echo $row['action_plan'];?></td>
                                   <td><?php echo $row['date_action_completed'];?></td>
-                                  <?php
-                                  //select staff from ID
-                                  $office_user_id=$row['user_id'];
-                                  $userQuery="SELECT first_name, last_name from user where user_id=$office_user_id";
-                                  $userSelect=$db->select($userQuery);
-
-                                  foreach($userSelect as $row1)
-                                  {
-                                    echo '<td>'.$row1['first_name'].' '.$row1['last_name'].'</td>';
-                                  }
-                                  ?>                                  
-                                  <?php
-                                  //select equipment from ID                                 
-                                  $userQuery="SELECT DISTINCT E.system_name FROM office_equipment AS E INNER JOIN equipment_incident AS I ON E.equipment_id = I.equipment_id WHERE E.user_id = $office_user_id;";
-                                  $userSelect=$db->select($userQuery);
-
-                                  foreach($userSelect as $row1)
-                                  {
-                                    echo '<td>'.$row1['system_name'].'</td>';
-                                  }
-                                  ?>
+                                   <td><?php echo $row['incident_date'];?></td>                                                                
+                                  <td><?php echo $row['type_of_incident'];?></td>
                                   <td><?php echo $row['updated_at'];?></td>                                                                    
                                                 
                                                 <td>
