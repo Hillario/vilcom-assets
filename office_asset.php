@@ -134,6 +134,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     </div>
                                             </div>
 
+                                            <div class="mt-3">
+                                                            <label class="form-label">Choose Department</label>
+                                                            <div class="form-icon">
+                                                                <select name="department" id="department" class="form-select mb-3" aria-label="Default select example">
+                                                                    <?php
+                                                                    $squery = "SELECT * FROM department";
+                                                                    $ssquery = $db->select($squery);
+                                                                    foreach ($ssquery as $row) {
+                                                                        echo '<option value="' . $row['department_id'] . '">' . $row['name']. '</option>';
+                                                                    }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
 
                                     </div>
 
@@ -153,10 +168,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <strong>Error Imminent! </strong>' . @implode('</li><li>', $error) . ' 
     </div>';
                             } else {                                
-                                $insertQuery = "INSERT INTO `department` (`department_id`, `name`, `description`, `updated_at`) VALUES (NULL, '".$item_name."', '".$description."', CURRENT_TIMESTAMP);";
+                                $insertQuery = "INSERT INTO `office_asset` (`asset_id`, `item_name`, `description`, `placement`, `quantity`, `user_id`, `department_id`, `updated_at`) VALUES (NULL, '".$item_name."', '".$description."', '".$placement."', '".$quantity."', '".$user_id."', '".$department."', CURRENT_TIMESTAMP);";
                                 $db->insert($insertQuery);
+                                header('Location:office_asset_view.php');
                                 echo '<div class="alert alert-info">										
-        <strong>Success! </strong>Department has been added
+        <strong>Success! </strong>Office Asset has been added
     </div>';
                             }
                         }

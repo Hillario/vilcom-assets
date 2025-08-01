@@ -427,7 +427,7 @@ else{
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link" data-key="t-add-invoice"> View Asset </a>
+                                        <a href="office_asset_view.php" class="nav-link" data-key="t-add-invoice"> View Asset </a>
                                     </li>
                                 </ul>
                             </div>
