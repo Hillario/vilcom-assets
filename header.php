@@ -417,6 +417,23 @@ else{
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link menu-link" href="#office_asset" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInvoiceManagement">
+                                <i class="las la-blender"></i> <span data-key="t-invoices">Office Asset</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="office_asset">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="office_asset.php" class="nav-link" data-key="t-invoice"> Add Asset </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-key="t-add-invoice"> View Asset </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link menu-link" href="#network_equipment" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuthentication">
                                 <i class="las la-wifi"></i> <span data-key="t-authentication">Network Equipment</span>
                             </a>
