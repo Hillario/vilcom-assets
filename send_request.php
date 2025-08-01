@@ -213,7 +213,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
                                 //set email variables
-                                $recipient='orpp@vilcom.co.ke';//email address for management peter.kipkoech@vilcom.co.ke
+                                $recipient='peter.kipkoech@vilcom.co.ke';//email address for management peter.kipkoech@vilcom.co.ke
 $subject="Approve new equipment request";
 $message='
 <!DOCTYPE html>
