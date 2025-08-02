@@ -164,7 +164,7 @@
                                                             <div class="form-icon">
                                                                 <select name="staff" id="staff" class="form-select mb-3" aria-label="Default select example">
                                                                     <?php
-                                                                    $squery = "SELECT * FROM user";
+                                                                    $squery = "SELECT * FROM user ORDER BY first_name ASC, last_name ASC";
                                                                     $ssquery = $db->select($squery);
                                                                     foreach ($ssquery as $row) {
                                                                         echo '<option value="' . $row['user_id'] . '">' . $row['first_name']." ".$row['last_name'] . '</option>';

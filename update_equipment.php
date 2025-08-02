@@ -51,7 +51,16 @@
       $spurchase_cost=$row['purchase_cost'];
       $sdateissued=$row['date_issued'];
       $sdatepurchased=$row['date_of_purchase'];
+      $uid=$row['user_id'];
   }
+
+  //select staff
+$staffQuery= "SELECT first_name, last_name FROM user WHERE user_id=$uid";
+$selectStaff=$db->select($staffQuery);
+foreach($selectStaff as $rowstaff){
+    $fname=$rowstaff['first_name'];
+    $lname=$rowstaff['last_name'];
+}
 
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['update'])) {
@@ -186,7 +195,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title mb-0">update <?php echo $ssystem_name;?></h4>
+                                    <h4 class="card-title mb-0">update <?php echo $ssystem_name;?> for <?php echo $fname;?> <?php echo $lname;?></h4>
                                 </div>
                                 <form action="" method="POST" class="auth-input" enctype="multipart/form-data">
                                 <div class="card-body">
@@ -197,7 +206,7 @@
                                                             <div class="form-icon">
                                                                 <select name="staff" id="staff" class="form-select mb-3" aria-label="Default select example">
                                                                     <?php
-                                                                    $squery = "SELECT * FROM user";
+                                                                    $squery = "SELECT * FROM user WHERE user_id=$uid";
                                                                     $ssquery = $db->select($squery);
                                                                     foreach ($ssquery as $row) {
                                                                         echo '<option value="' . $row['user_id'] . '">' . $row['first_name']." ".$row['last_name'] . '</option>';
