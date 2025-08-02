@@ -23,7 +23,7 @@
  include "header.php";
 
  //select from the office equipment table
- $selectQuery="SELECT * FROM request WHERE priority='High'";
+ $selectQuery="SELECT * FROM request WHERE priority='High' ORDER BY updated_at DESC";
  $dbSelect=$db->select($selectQuery);
 
 ?>
@@ -77,11 +77,11 @@
                                                     </div>
                                                 </th>
                                                 <th data-ordering="false">ID</th>
-                                                <th data-ordering="false">Equipment Name</th>
+                                                <th data-ordering="false">Staff</th>
+                                                <th data-ordering="false">Equipment</th>
                                                 <th data-ordering="false">Description</th>
                                                 <th data-ordering="false">Status</th>
-                                                <th data-ordering="false">Priority</th>
-                                                <th>Staff</th>
+                                                <th>Priority</th>                                                
                                                 <th>Updated At</th>                                                
                                                 <th>Action</th>
                                             </tr>
@@ -99,6 +99,17 @@
                                                     </div>
                                                 </th>
                                                 <td><?php echo $row['request_id'];?></td>
+                                                <?php
+                                  //select staff from ID
+                                  $office_user_id=$row['user_id'];
+                                  $userQuery="SELECT first_name, last_name from user where user_id=$office_user_id";
+                                  $userSelect=$db->select($userQuery);
+
+                                  foreach($userSelect as $row1)
+                                  {
+                                    echo '<td>'.$row1['first_name'].' '.$row1['last_name'].'</td>';
+                                  }
+                                  ?>
                                                 <td><?php echo $row['item_name'];?></td>
                                                 <td><?php echo $row['description'];?></td>                                                
                                                 <?php
@@ -132,18 +143,8 @@
                                   {
                                     echo '<td><span class="badge bg-danger">'.$row['priority'].'</span></td>';
                                   }
-                                  ?>                                  
-                                  <?php
-                                  //select staff from ID
-                                  $office_user_id=$row['user_id'];
-                                  $userQuery="SELECT first_name, last_name from user where user_id=$office_user_id";
-                                  $userSelect=$db->select($userQuery);
-
-                                  foreach($userSelect as $row1)
-                                  {
-                                    echo '<td>'.$row1['first_name'].' '.$row1['last_name'].'</td>';
-                                  }
-                                  ?>
+                                  ?>                                 
+                                  
                                   <td><?php echo $row['updated_at'];?></td>                                                                    
                                                 
                                                 <td>
