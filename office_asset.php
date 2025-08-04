@@ -28,6 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $placement = trim($_POST['placement']);
     $quantity = trim($_POST['quantity']);    
     $department = trim($_POST['department']);
+    $acquisition_date = trim($_POST['acquisition_date']);
+    $acquisition_cost = trim($_POST['acquisition_cost']);
 
 
     if (isset($_POST['item_name'])) $item_name = $_POST['item_name'];
@@ -35,6 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['placement'])) $placement = $_POST['placement'];
     if (isset($_POST['quantity'])) $quantity = $_POST['quantity'];
     if (isset($_POST['department'])) $department = $_POST['department'];
+    if (isset($_POST['acquisition_date'])) $acquisition_date = $_POST['acquisition_date'];
+    if (isset($_POST['acquisition_cost'])) $acquisition_cost = $_POST['acquisition_cost'];
 
 
     $error = array();
@@ -52,6 +56,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if (empty($_POST["department"])) {
         $error[] = 'Please select the department';
+    }
+    if (empty($_POST["acquisition_date"])) {
+        $error[] = 'Please select the acquisition date';
+    }
+    if (empty($_POST["acquisition_cost"])) {
+        $error[] = 'Please enter the acquisition cost';
     }
 }
 
@@ -135,6 +145,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             </div>
 
                                             <div class="mt-3">
+                                                <label class="form-label">Acquisition Date</label>
+                                                <div>                                                    
+                                                    <input name="acquisition_date" type="date" class="form-control" id="acquisition_date">
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <label class="form-label">Acquisition Cost</label>
+                                                <div class="form-icon">
+                                                        <input name="acquisition_cost" type="number" class="form-control form-control-icon" id="acquisition_cost" placeholder="Enter the Acquisition Cost">
+                                                        <i class="ri-hashtag"></i>
+                                                    </div>
+                                            </div>
+
+                                            <div class="mt-3">
                                                             <label class="form-label">Choose Department</label>
                                                             <div class="form-icon">
                                                                 <select name="department" id="department" class="form-select mb-3" aria-label="Default select example">
@@ -168,7 +193,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <strong>Error Imminent! </strong>' . @implode('</li><li>', $error) . ' 
     </div>';
                             } else {                                
-                                $insertQuery = "INSERT INTO `office_asset` (`asset_id`, `item_name`, `description`, `placement`, `quantity`, `user_id`, `department_id`, `updated_at`) VALUES (NULL, '".$item_name."', '".$description."', '".$placement."', '".$quantity."', '".$user_id."', '".$department."', CURRENT_TIMESTAMP);";
+                                $insertQuery = "INSERT INTO `office_asset` (`asset_id`, `item_name`, `description`, `placement`, `quantity`, `acquisition_date`, `acquisition_cost`, `user_id`, `department_id`, `updated_at`) VALUES (NULL, '".$item_name."', '".$description."', '".$placement."', '".$quantity."', '".$acquisition_date."', '".$acquisition_cost."', '".$user_id."', '".$department."', CURRENT_TIMESTAMP);";
                                 $db->insert($insertQuery);
                                 header('Location:office_asset_view.php');
                                 echo '<div class="alert alert-info">										

@@ -40,7 +40,8 @@ foreach($selectQuery as $row)
     $itemname=$row['item_name'];
     $description=$row['description'];
     $placement=$row['placement'];
-    $quantity=$row['quantity'];            
+    $quantity=$row['quantity'];
+    $acquisition_cost=$row['acquisition_cost'];            
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  
@@ -50,13 +51,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pdescription = @trim($_POST['pdescription']);
     $pplacement = @trim($_POST['pplacement']);
     $pquantity = @trim($_POST['pquantity']);
-    $pdepartment = @trim($_POST['pdepartment']);              
+    $pdepartment = @trim($_POST['pdepartment']);
+    $pacquisition_date = @trim($_POST['pacquisition_date']);
+    $pacquisition_cost = @trim($_POST['pacquisition_cost']);              
     
     if (isset($_POST['pitemname'])) $pitemname = $_POST['pitemname'];
     if (isset($_POST['pdescription'])) $pdescription = $_POST['pdescription'];
     if (isset($_POST['pplacement'])) $pplacement = $_POST['pplacement'];
     if (isset($_POST['pquantity'])) $pquantity = $_POST['pquantity'];
-    if (isset($_POST['pdepartment'])) $pdepartment = $_POST['pdepartment'];       
+    if (isset($_POST['pdepartment'])) $pdepartment = $_POST['pdepartment'];
+    if (isset($_POST['pacquisition_date'])) $pacquisition_date = $_POST['pacquisition_date'];
+    if (isset($_POST['pacquisition_cost'])) $pacquisition_cost = $_POST['pacquisition_cost'];       
     
     $error = array();    
     if (empty($_POST["pitemname"])) {
@@ -73,7 +78,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if (empty($_POST["pdepartment"])) {
         $error[] = 'Please choose the department';
-    }          
+    }
+    if (empty($_POST["pacquisition_date"])) {
+        $error[] = 'Please choose the acquisition date';
+    }
+    if (empty($_POST["pacquisition_cost"])) {
+        $error[] = 'Please enter the acquisition cost';
+    }           
        
 }
 }
@@ -158,6 +169,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             </div>
 
                                             <div class="mt-3">
+                                                <label class="form-label">Acquisition Date</label>
+                                                <div>                                                    
+                                                    <input name="pacquisition_date" type="date" class="form-control" id="pacquisition_date">
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <label class="form-label">Acquisition Cost</label>
+                                                <div class="form-icon">
+                                                        <input name="pacquisition_cost" type="number" class="form-control form-control-icon" id="pacquisition_cost" placeholder="<?php echo $acquisition_cost;?>" value="<?php echo $acquisition_cost;?>">
+                                                        <i class="ri-hashtag"></i>
+                                                    </div>
+                                            </div>
+
+                                            <div class="mt-3">
                                                             <label class="form-label">Choose Department</label>
                                                             <div class="form-icon">
                                                                 <select name="pdepartment" id="pdepartment" class="form-select mb-3" aria-label="Default select example">
@@ -197,7 +223,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <strong>Take Note! </strong>' . @implode('</li><li>', $error) . ' 
     </div>';
                             } else {                                
-                                $insertQuery = "UPDATE `office_asset` SET `item_name` = '".$pitemname."', `description` = '".$pdescription."', `placement` = '".$pplacement."', `quantity` = '".$pquantity."', `department_id` = '".$pdepartment."' WHERE `office_asset`.`asset_id` = '".$assetid."';";
+                                $insertQuery = "UPDATE `office_asset` SET `item_name` = '".$pitemname."', `description` = '".$pdescription."', `placement` = '".$pplacement."', `quantity` = '".$pquantity."', `acquisition_date` = '".$pacquisition_date."', `acquisition_cost` = '".$pacquisition_cost."', `department_id` = '".$pdepartment."' WHERE `office_asset`.`asset_id` = '".$assetid."';";
                                 $db->insert($insertQuery);
                                 header('Location:office_asset_view.php');
                                 echo '<div class="alert alert-info">										
