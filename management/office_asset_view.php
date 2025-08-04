@@ -82,7 +82,9 @@
                                                 <th>Description</th>
                                                 <th>Placement</th>                                                
                                                 <th>Quantity</th>
-                                                <th>Updated_At</th>                                                                                                
+                                                <th>Acquisition Date</th>
+                                                <th>Acquisition Cost</th>
+                                                <th>Updated_At</th>                                                                                               
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -118,7 +120,9 @@
                                   ?>
                                                 <td><?php echo $row['description'];?></td>
                                                 <td><?php echo $row['placement'];?></td>
-                                                <td><?php echo $row['quantity'];?></td> 
+                                                <td><?php echo $row['quantity'];?></td>
+                                                <td><?php echo $row['acquisition_date'];?></td>
+                                                <td><?php echo $row['acquisition_cost'];?></td> 
                                                 <td><?php echo $row['updated_at'];?></td>                                                
                                             </tr>
                                             <?php
