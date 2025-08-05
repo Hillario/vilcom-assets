@@ -172,6 +172,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                                         <div class="mt-2">
                                                             <button class="btn btn-info w-100" type="submit">Log In</button>
+                                                        </div></br>
+
+                                                        <div class="fs-16 pb-2">
+                                                            <p class="mb-0 fs-14 text-muted fst-italic">By signing in you agree to the Vilcom Networks Limited <a href="https://portal.vilcom.ke/IT_Asset_Management_&_Disposal.pdf" class="text-info text-decoration-underline fst-normal fw-medium">IT Asset Management & Disposal Policy</a></p>
                                                         </div>
 
                                                     </form>
