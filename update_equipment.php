@@ -202,19 +202,31 @@ foreach($selectStaff as $rowstaff){
                                     <div class="row g-3">
                                         <div class="col-lg-6">
                                         <div class="mt-3">
-                                                            <label class="form-label">Choose Staff</label>
-                                                            <div class="form-icon">
-                                                                <select name="staff" id="staff" class="form-select mb-3" aria-label="Default select example">
-                                                                    <?php
-                                                                    $squery = "SELECT * FROM user WHERE user_id=$uid";
-                                                                    $ssquery = $db->select($squery);
-                                                                    foreach ($ssquery as $row) {
-                                                                        echo '<option value="' . $row['user_id'] . '">' . $row['first_name']." ".$row['last_name'] . '</option>';
-                                                                    }
-                                                                    ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
+    <label class="form-label">Choose Staff</label>
+    <div class="form-icon">
+        <select name="staff" id="staff" class="form-select mb-3" aria-label="Default select example">
+            <?php
+            // Fetch the default logged-in user
+            $defaultQuery = "SELECT * FROM `user` WHERE user_id = $uid LIMIT 1";
+            $defaultUser = $db->select($defaultQuery);
+
+            if (!empty($defaultUser)) {
+                $row = $defaultUser[0];
+                echo '<option value="' . $row['user_id'] . '" selected>' . $row['first_name'] . ' ' . $row['last_name'] . '</option>';
+            }
+
+            // Fetch all other users except the default one
+            $squery = "SELECT * FROM `user` WHERE user_id != $uid ORDER BY first_name ASC";
+            $ssquery = $db->select($squery);
+
+            foreach ($ssquery as $row) {
+                echo '<option value="' . $row['user_id'] . '">' . $row['first_name'] . ' ' . $row['last_name'] . '</option>';
+            }
+            ?>
+        </select>
+    </div>
+</div>
+
                                             <div>
                                                 <label class="form-label">System Name</label>
                                                 <div class="form-icon">
