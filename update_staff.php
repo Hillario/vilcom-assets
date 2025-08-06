@@ -149,34 +149,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </div>
 
                                         <div class="mt-3">
-                                                            <label class="form-label">Choose Department</label>
-                                                            <div class="form-icon">
-                                                                <select name="department_id" id="department_id" class="form-select mb-3" aria-label="Default select example">
-                                                                    <?php
-                                                                    $squery = "SELECT * FROM department";
-                                                                    $ssquery = $db->select($squery);
-                                                                    foreach ($ssquery as $row) {
-                                                                        echo '<option value="' . $row['department_id'] . '">' . $row['name']. '</option>';
-                                                                    }
-                                                                    ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
+    <label class="form-label">Choose Department</label>
+    <div class="form-icon">
+        <select name="department_id" id="department_id" class="form-select mb-3" aria-label="Default select example">
+            <?php
+            // Fetch the default logged-in department
+            $defaultQuery = "SELECT * FROM `department` WHERE department_id = $departmentid LIMIT 1";
+            $defaultUser = $db->select($defaultQuery);
+
+            if (!empty($defaultUser)) {
+                $row = $defaultUser[0];
+                echo '<option value="' . $row['department_id'] . '" selected>' . $row['name'] . '</option>';
+            }
+
+            // Fetch all other departments except the default one
+            $squery = "SELECT * FROM `department` WHERE department_id != $departmentid ORDER BY name ASC";
+            $ssquery = $db->select($squery);
+
+            foreach ($ssquery as $row) {
+                echo '<option value="' . $row['department_id'] . '">' . $row['name'] . '</option>';
+            }
+            ?>
+        </select>
+    </div>
+</div>
 
                                                         <div class="mt-3">
-                                                            <label class="form-label">Choose Role</label>
-                                                            <div class="form-icon">
-                                                                <select name="role_id" id="role_id" class="form-select mb-3" aria-label="Default select example">
-                                                                    <?php
-                                                                    $squery = "SELECT * FROM role";
-                                                                    $ssquery = $db->select($squery);
-                                                                    foreach ($ssquery as $row) {
-                                                                        echo '<option value="' . $row['role_id'] . '">' . $row['name']. '</option>';
-                                                                    }
-                                                                    ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
+    <label class="form-label">Choose Role</label>
+    <div class="form-icon">
+        <select name="role_id" id="role_id" class="form-select mb-3" aria-label="Default select example">
+            <?php
+            // Fetch the default logged-in role
+            $defaultQuery = "SELECT * FROM `role` WHERE role_id = 4 LIMIT 1";
+            $defaultUser = $db->select($defaultQuery);
+
+            if (!empty($defaultUser)) {
+                $row = $defaultUser[0];
+                echo '<option value="' . $row['role_id'] . '" selected>' . $row['name'] . '</option>';
+            }
+
+            // Fetch all other roles except the default one
+            $squery = "SELECT * FROM `role` WHERE role_id != 4 ORDER BY name ASC";
+            $ssquery = $db->select($squery);
+
+            foreach ($ssquery as $row) {
+                echo '<option value="' . $row['role_id'] . '">' . $row['name'] . '</option>';
+            }
+            ?>
+        </select>
+    </div>
+</div>
 
                                        
 
