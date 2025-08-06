@@ -41,7 +41,8 @@ foreach($selectQuery as $row)
     $description=$row['description'];
     $placement=$row['placement'];
     $quantity=$row['quantity'];
-    $acquisition_cost=$row['acquisition_cost'];            
+    $acquisition_cost=$row['acquisition_cost'];
+    $dep_id=$row['department_id'];            
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  
@@ -148,7 +149,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <div class="mt-3">
                                                 <label class="form-label">Description</label>
                                                 <div class="form-icon">
-                                                        <textarea name="pdescription" class="form-control form-control-icon" id="pdescription"></textarea>                                                        
+                                                        <textarea name="pdescription" class="form-control bg-light border-0" id="pdescription" placeholder="<?php echo $description;?>" readonly="readonly"><?php echo $description;?></textarea>                                                        
                                                     </div>
                                             </div>
 
@@ -184,19 +185,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             </div>
 
                                             <div class="mt-3">
-                                                            <label class="form-label">Choose Department</label>
-                                                            <div class="form-icon">
-                                                                <select name="pdepartment" id="pdepartment" class="form-select mb-3" aria-label="Default select example">
-                                                                    <?php
-                                                                    $squery = "SELECT * FROM department";
-                                                                    $ssquery = $db->select($squery);
-                                                                    foreach ($ssquery as $row) {
-                                                                        echo '<option value="' . $row['department_id'] . '">' . $row['name']. '</option>';
-                                                                    }
-                                                                    ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
+    <label class="form-label">Choose Department</label>
+    <div class="form-icon">
+        <select name="pdepartment" id="pdepartment" class="form-select mb-3" aria-label="Default select example">
+            <?php
+            // Fetch the default logged-in department
+            $defaultQuery = "SELECT * FROM `department` WHERE department_id = $dep_id LIMIT 1";
+            $defaultUser = $db->select($defaultQuery);
+
+            if (!empty($defaultUser)) {
+                $row = $defaultUser[0];
+                echo '<option value="' . $row['department_id'] . '" selected>' . $row['name'] . '</option>';
+            }
+
+            // Fetch all other departments except the default one
+            $squery = "SELECT * FROM `department` WHERE department_id != $dep_id ORDER BY name ASC";
+            $ssquery = $db->select($squery);
+
+            foreach ($ssquery as $row) {
+                echo '<option value="' . $row['department_id'] . '">' . $row['name'] . '</option>';
+            }
+            ?>
+        </select>
+    </div>
+</div>
 
                                     </div>
 
