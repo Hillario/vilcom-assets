@@ -232,15 +232,10 @@
                                                 <th>Serial Number</th>
                                                 <th>Charger</th>
                                                 <th>Mouse Assigned</th>
-                                                <th>Date Issued</th>
-                                                <th>Date Of Purchase</th>
-                                                <th>Depreciation Rate</th>
-                                                <th>Current Value</th>
-                                                <th>Purchase Cost</th>
+                                                <th>Date Issued</th>                                                
                                                 <th>Origin</th>
                                                 <th>Staff</th>
-                                                <th>Category</th>
-                                                <th>Updated_At</th>                                                
+                                                <th>Category</th>                                                                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -275,11 +270,7 @@
                                     echo '<td><span class="badge bg-danger-subtle text-danger ">'.$row['mouse_assigned'].'</span></td>';
                                   }
                                   ?>
-                                  <td><?php echo $row['date_issued'];?></td>
-                                  <td><?php echo $row['date_of_purchase'];?></td>
-                                  <td><?php echo $row['depreciation_rate'];?></td>
-                                  <td><?php echo $row['current_value'];?></td>
-                                  <td><?php echo $row['purchase_cost'];?></td>
+                                  <td><?php echo $row['date_issued'];?></td>                                  
                                   <td><?php echo $row['origin'];?></td>
                                   <?php
                                   //select staff from ID
@@ -303,9 +294,8 @@
                                   {
                                     echo '<td>'.$row1['name'].'</td>';
                                   }
-                                  ?>
-                                  
-                                  <td><?php echo $row['updated_at'];?></td>                                                                  
+                                  ?>                                
+                                                                                                    
                                                 
                                                 
                                             </tr>
