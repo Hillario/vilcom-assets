@@ -68,7 +68,7 @@
                     <div class="row pb-4 gy-3">
                         <div class="col-sm-4">
                             <a href="view_request.php" class="btn btn-info addMembers-modal"><i class="las la-bullhorn me-1"></i>View Requests</a>
-                            <a href="https://careers.vilcom.ke/" target="_blank" class="btn btn-info addMembers-modal"><i class="las la-clone"></i> HR-Portal</a>
+                            <a href="https://staffportal.vilcom.co.ke:8092/Account/Login?ReturnUrl=%2F" target="_blank" class="btn btn-info addMembers-modal"><i class="las la-clone"></i> ESS-Portal</a>
                         </div>                        
                     </div>
 
