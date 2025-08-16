@@ -249,6 +249,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->addCC('solomon.mutua@vilcom.co.ke');
         $mail->addCC('hillary.chesaro@vilcom.co.ke');
         $mail->addCC('kelvin.nderitu@vilcom.co.ke');
+        $mail->addCC('systems@vilcom.co.ke');
+        $mail->addCC('admin@vilcom.co.ke');
 
         // Email Content
         $mail->isHTML(true);
