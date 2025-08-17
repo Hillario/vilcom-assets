@@ -206,7 +206,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                     <!-- Update button -->
             <div class="text-left">
-                <button type="submit" name="update" class="btn btn-info">Update & Reset</button>
+                <button type="submit" name="update" class="btn btn-info">Update Staff</button>
+            </div>
+
+            <!-- Reset Password button -->
+            <div class="text-left mt-2">
+                <button type="submit" name="reset" class="btn btn-warning">Reset Password</button>
             </div>
 
             <!-- Delete button -->
@@ -217,11 +222,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                         </form>
                         <?php
-                        if (isset($_POST['update'])) {
-                        $password=$pfirst_name.".".$plast_name;
-                        
-                        //hash password
-                        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                        if (isset($_POST['update'])) {                        
 
                         //  form operations
                         if (isset($error)) {
@@ -231,14 +232,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <strong>Take Note! </strong>' . @implode('</li><li>', $error) . ' 
     </div>';
                             } else {                                
-                                $insertQuery = "UPDATE `user` SET `first_name` = '".$pfirst_name."', `last_name` = '".$plast_name."', `email` = '".$pemail."', `password` = '".$hashedPassword."', `status` = 'Pending', `department_id` = '".$pdepartmentid."', `role_id` = '".$proleid."' WHERE `user`.`user_id` = '".$userid."';";
+                                $insertQuery = "UPDATE `user` SET `first_name` = '".$pfirst_name."', `last_name` = '".$plast_name."', `email` = '".$pemail."', `department_id` = '".$pdepartmentid."', `role_id` = '".$proleid."' WHERE `user`.`user_id` = '".$userid."';";
                                 $db->insert($insertQuery);
                                 header('Location:view_staff.php');
                                 echo '<div class="alert alert-info">										
-        <strong>Success! </strong>Staff has been updated and password reset
+        <strong>Success! </strong>Staff has been updated
     </div>';
                             }
                         }
+                    }
+
+                    if (isset($_POST['reset'])) {
+                         $password=$first_name.".".$last_name;
+                        
+                        //hash password
+                        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                        
+                        // Reset password for the staff
+                        $resetQuery = "UPDATE `user` SET  `password` = '".$hashedPassword."', `status` = 'Pending' WHERE `user`.`user_id` = '".$userid."';";
+                                $db->insert($resetQuery);
+                                header('Location:view_staff.php');
+                                echo '<div class="alert alert-info">										
+        <strong>Success! </strong>Password has been reset
+    </div>';
+                       
+                        
                     }
 
                     if (isset($_POST['delete'])) {
