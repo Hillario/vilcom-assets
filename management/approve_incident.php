@@ -57,11 +57,12 @@ foreach($selectQuery as $row)
 }
 
 //select staff
-$staffQuery= "SELECT first_name, last_name FROM user WHERE user_id=$uid";
+$staffQuery= "SELECT first_name, last_name, email FROM user WHERE user_id=$uid";
 $selectStaff=$db->select($staffQuery);
 foreach($selectStaff as $rowstaff){
     $fname=$rowstaff['first_name'];
     $lname=$rowstaff['last_name'];
+    $recipientEmail=$rowstaff['email'];
 }
 
 //select equipment
