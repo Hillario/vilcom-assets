@@ -104,7 +104,7 @@
                                                             <div class="form-icon">
                                                                 <select name="equipment" id="equipment" class="form-select mb-3" aria-label="Default select example">
                                                                     <?php
-                                                                    $squery = "SELECT system_name, E.equipment_id FROM office_equipment as E, equipment_incident as I WHERE E.equipment_id=I.equipment_id AND I.status='Approved';";
+                                                                    $squery = "SELECT E.system_name, E.equipment_id FROM office_equipment as E, equipment_incident as I WHERE E.equipment_id=I.equipment_id AND I.status='Approved';";
                                                                     $ssquery = $db->select($squery);
                                                                     foreach ($ssquery as $row) {
                                                                         echo '<option value="' . $row['equipment_id'] . '">' . $row['system_name'].'</option>';
