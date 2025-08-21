@@ -243,7 +243,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
 
                     if (isset($_POST['reset'])) {
-                         $password=$first_name.".".$last_name;
+                         $password="Vilcom@2025";
                         
                         //hash password
                         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
