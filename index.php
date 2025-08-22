@@ -60,8 +60,12 @@
                     <div class="row pb-4 gy-3">
                         <div class="col-sm-4">
                             <a href="view_request.php" class="btn btn-info addMembers-modal"><i class="las la-bullhorn me-1"></i>View Requests</a>
-                            <a href="https://staffportal.vilcom.co.ke:8092/Account/Login?ReturnUrl=%2F" target="_blank" class="btn btn-info addMembers-modal"><i class="las la-clone"></i> ESS-Portal</a>
-                        </div>                        
+                            <a href="https://staffportal.vilcom.co.ke:8092/Account/Login?ReturnUrl=%2F" target="_blank" class="btn btn-info addMembers-modal"><i class="las la-clone"></i> ESS-Portal</a>                            
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="https://lms.vilcom.ke/" target="_blank" class="btn btn-info addMembers-modal"><i class="las la-clone"></i> LMS-Portal</a>
+                            <a href="https://erp.vilcom.co.ke/BC130/" target="_blank" class="btn btn-info addMembers-modal"><i class="las la-clone"></i> ERP-Portal</a>
+                        </div>       
                     </div>
 
                     <div class="row">
