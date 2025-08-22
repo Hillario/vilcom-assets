@@ -71,8 +71,8 @@
                             <a href="https://staffportal.vilcom.co.ke:8092/Account/Login?ReturnUrl=%2F" target="_blank" class="btn btn-info addMembers-modal"><i class="las la-clone"></i> ESS-Portal</a>
                         </div>
                         <div class="col-sm-4">
-                            <a href="https://lms.vilcom.ke/" target="_blank" class="btn btn-info addMembers-modal"><i class="las la-clone"></i> LMS-Portal</a>
-                            <a href="https://erp.vilcom.co.ke/BC130/" target="_blank" class="btn btn-info addMembers-modal"><i class="las la-clone"></i> ERP-Portal</a>
+                            <a href="https://lms.vilcom.ke/" target="_blank" class="btn btn-info addMembers-modal"><i class="las la-edit"></i> LMS-Portal</a>
+                            <a href="https://erp.vilcom.co.ke/BC130/" target="_blank" class="btn btn-info addMembers-modal"><i class="las la-balance-scale"></i> ERP-Portal</a>
                         </div>                        
                     </div>
 
