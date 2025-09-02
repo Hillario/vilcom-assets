@@ -56,7 +56,8 @@ foreach($selectStaff as $rowstaff){
     $lname=$rowstaff['last_name'];
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {    
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (isset($_POST['send'])) {     
     $item_name = @trim($_POST['item_name']);
     $description = @trim($_POST['description']);
     $priority = @trim($_POST['priority']);          
@@ -76,7 +77,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if (empty($_POST["priority"])) {
         $error[] = 'Please check priority';
-    }    
+    }
+  }
+  
+  //post for update description
+  if (isset($_POST['updatedescription'])) {
+    $description = @trim($_POST['description']);
+
+    if (isset($_POST['description'])) $description = $_POST['description'];
+
+    $error = array();    
+    if (empty($_POST["description"])) {
+        $error[] = 'Please check description';
+    }
+  }
+  
+  //post for update status
+  if (isset($_POST['updatestatus'])) {
+
+    $status = @trim($_POST['status']);
+
+    if (isset($_POST['status'])) $status = $_POST['status'];
+
+    $error = array();    
+    if (empty($_POST["status"])) {
+        $error[] = 'Please check status';
+    }
+
+  }
        
 }
 
@@ -136,7 +164,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </div>
 
                                         <div class="mt-3">
-                                                <label class="form-label">Priority</label>
+                                                <label class="form-label">Priority(Ensure priority is set to high before sending)</label>
                                                 <div class="form-icon">
                                                 <select name="priority" class="form-select mb-3" aria-label="Default select example">
                                                     <option value="Low" selected>Low</option>
@@ -146,12 +174,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     <option value="Urgent">Urgent</option>                                                                                                        
                                                 </select>                                                        
                                                     </div>
+                                            </div>
+                                            
+                                            <div class="mt-3">
+                                                <label class="form-label">Status</label>
+                                                <div class="form-icon">
+                                                <select name="status" class="form-select mb-3" aria-label="Default select example">                                                    
+                                                    <option value="Received">Received</option>
+                                                    <option value="Rejected">Rejected</option>                                                                                                                                                            
+                                                </select>                                                        
+                                                    </div>
                                             </div> 
 
                                         <div class="mt-3">
-                                                <label class="form-label">Equipment description and Justification</label>
+                                                <label class="form-label">Description(Append your comment here and update before sending)</label>
                                                 <div class="form-icon">
-                                                <textarea name="description" class="form-control bg-light border-0" id="description" placeholder="<?php echo $desc;?>" readonly="readonly"><?php echo $desc;?></textarea>                                                       
+                                                <textarea name="description" class="form-control bg-light border-0" id="description" placeholder="<?php echo $desc;?>"><?php echo $desc;?></textarea>                                                       
                                                     </div>
                                             </div>
 
@@ -159,14 +197,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </div>
 
                                     <div class="text-left">
-                                        <button type="submit" class="btn btn-info">Send</button>
+                                        <button type="submit" name="updatedescription" class="btn btn-warning">Update Description</button>
                                     </div>
+
+                                    <div class="text-left">
+                                        <button type="submit" name="updatestatus" class="btn btn-success">Update Status</button>
+                                    </div>
+
+                                    <div class="text-left">
+                                        <button type="submit" name="send" class="btn btn-info">Send</button>
+                                    </div>
+
                                 </div>
                             </div>
                         </form>
                         <?php                     
 
                         //  form operations
+                        if (isset($_POST['send'])) {
                         if (isset($error)) {
                             if (!empty($error)) {
                                 echo '<div class="alert alert-info">
@@ -271,11 +319,27 @@ $message='
 
                                 $insertQuery = "UPDATE `request` SET `priority` = '".$priority."' WHERE `request`.`request_id` = '".$requestid."';";
                                 $db->insert($insertQuery);
+                                header('Location:view_request.php');
                                 echo '<div class="alert alert-info">										
         <strong>Success! </strong>Request has been sent for approval, monitor status for confirmation
     </div>';
                             }
                         }
+                      }
+                      
+                      //update description
+                      if (isset($_POST['updatedescription'])) {
+                        $insertQueryDescription = "UPDATE `request` SET `description` = '".$description."' WHERE `request`.`request_id` = '".$requestid."';";
+                                $db->insert($insertQueryDescription);
+                                header('Location:view_request.php');  
+                      }
+
+                      //update status
+                      if (isset($_POST['updatestatus'])) {
+                         $insertQueryStatus = "UPDATE `request` SET `status` = '".$status."' WHERE `request`.`request_id` = '".$requestid."';";
+                                $db->insert($insertQueryStatus);
+                                header('Location:view_request.php');                                
+                      }
 
                         ?>
                         <!-- end card body -->
