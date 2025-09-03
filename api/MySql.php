@@ -1,6 +1,6 @@
 <?php
 /**
- * @author Hillary Chesaro, Vilcom Networks
+ * @author Hillary Chesaro, Saro Labs
  * @version 1.0
  */
 include 'Config.php';
