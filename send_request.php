@@ -180,7 +180,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 <label class="form-label">Status</label>
                                                 <div class="form-icon">
                                                 <select name="status" class="form-select mb-3" aria-label="Default select example">                                                    
-                                                    <option value="Received">Completed</option>
+                                                    <option value="Completed">Completed</option>
                                                     <option value="Rejected">Rejected</option>                                                                                                                                                            
                                                 </select>                                                        
                                                     </div>
