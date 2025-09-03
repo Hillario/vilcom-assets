@@ -76,12 +76,12 @@
                                                         <input class="form-check-input fs-15" type="checkbox" id="checkAll" value="option">
                                                     </div>
                                                 </th>
-                                                <th data-ordering="false">ID</th>
-                                                <th data-ordering="false">Staff</th>
-                                                <th data-ordering="false">Equipment</th>
-                                                <th data-ordering="false">Description</th>
-                                                <th data-ordering="false">Status</th>
-                                                <th>Priority</th>                                                
+                                                <th>ID</th>
+                                                <th>Staff</th>
+                                                <th>Status</th>
+                                                <th>Priority</th>
+                                                <th>Equipment</th>
+                                                <th>Description</th>                                                                                                
                                                 <th>Updated At</th>                                                 
                                                 <th>Action</th>
                                             </tr>
@@ -110,9 +110,7 @@
                                     echo '<td>'.$row1['first_name'].' '.$row1['last_name'].'</td>';
                                   }
                                   ?>
-                                                <td><?php echo $row['item_name'];?></td>
-                                                <td><?php echo $row['description'];?></td>                                                
-                                                <?php
+                                  <?php
                                   if($row['status']=='Pending')
                                   {
                                     echo '<td><span class="badge bg-warning-subtle text-warning ">'.$row['status'].'</span></td>';                                    
@@ -143,7 +141,10 @@
                                   {
                                     echo '<td><span class="badge bg-danger">'.$row['priority'].'</span></td>';
                                   }
-                                  ?>    
+                                  ?> 
+                                                <td><?php echo $row['item_name'];?></td>
+                                                <td><?php echo $row['description'];?></td>                                                
+                                                   
                                   <td><?php echo $row['updated_at'];?></td>                                                                    
                                                 
                                                 <td>
