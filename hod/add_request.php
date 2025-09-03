@@ -219,11 +219,32 @@ $message='
 ';                                
                                 //send email
                                 send_Email_HOD($recipient,$subject,$message);                                    
-                                $insertQuery = "INSERT INTO `request` (`request_id`, `item_name`, `description`, `status`, `priority`, `user_id`, `updated_at`) VALUES (NULL, '".$item_name."', '".$description."', 'Pending', 'Medium', '".$user_id."', CURRENT_TIMESTAMP);";
-                                $db->insert($insertQuery);
-                                echo '<div class="alert alert-info">										
+                                // Include your database configuration
+                                //Escape characters supported
+try {
+    // Create a new PDO connection
+    $pdo = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    // Prepare and execute the statement
+    $sql = "INSERT INTO `request` (`item_name`, `description`, `status`, `priority`, `user_id`, `updated_at`) 
+            VALUES (:item_name, :description, 'Pending', 'Medium', :user_id, CURRENT_TIMESTAMP)";
+    
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':item_name', $item_name, PDO::PARAM_STR);
+    $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    
+    // Get the last inserted ID if needed
+    //$lastInsertId = $pdo->lastInsertId();
+    //echo "Insert successful! ID: " . $lastInsertId;
+    echo '<div class="alert alert-info">										
         <strong>Success! </strong>Request has been sent, go to view request to track
     </div>';
+    
+} catch (PDOException $e) {
+    die("Error: " . $e->getMessage());}
                             }
                         }
 
