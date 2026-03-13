@@ -15,7 +15,7 @@ define('DB_NAME','vilcom-ims');
 define('DB_USER','root');
 
 /*Database User Password*/
-define('DB_PASSWORD','');
+define('DB_PASSWORD','megasxlr');
 
 /*ADVANCED SETTINGS*/
 
