@@ -124,9 +124,17 @@
                                                 $logistics_equipments=$logistics_row['logistics_count'];
                                             }
 
+                                            //office assets count query
+                                            $assetsCountQuery="SELECT COUNT(*) AS assets_count FROM office_asset;";
+                                            $selectAssetsCount=$db->select($assetsCountQuery);
+                                            foreach($selectAssetsCount as $assets_row)
+                                            {
+                                                $all_assets=$assets_row['assets_count'];
+                                            }
 
 
-                                            $totalAssets=$office_equipments+$server_equipments+$network_equipments+$machine_equipments+$logistics_equipments;
+
+                                            $totalAssets=$office_equipments+$server_equipments+$network_equipments+$machine_equipments+$logistics_equipments+$all_assets;
                                             ?>
                                             <h4 class="fs-22 fw-semibold ff-secondary mb-2"><span class="counter-value" data-target="<?php echo $totalAssets;?>"></span></h4>
                                             <p class="text-uppercase fw-medium fs-14 text-muted mb-0">Total Assets
