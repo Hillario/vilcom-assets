@@ -260,7 +260,7 @@
         $mail->addAddress($recipientEmail);
 
         //Add CC
-        $mail->addCC('rodgers.momanyi@vilcom.co.ke');
+        $mail->addCC('elvis.chirchir@vilcom.co.ke');
         $mail->addCC('hillary.chesaro@vilcom.co.ke');
         $mail->addCC('kelvin.nderitu@vilcom.co.ke');
 

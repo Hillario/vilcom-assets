@@ -180,7 +180,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //Add CC
         $mail->addCC('peter.kipkoech@vilcom.co.ke');
-        $mail->addCC('rodgers.momanyi@vilcom.co.ke');
+        $mail->addCC('elvis.chirchir@vilcom.co.ke');
         $mail->addCC('solomon.mutua@vilcom.co.ke');
         $mail->addCC('hillary.chesaro@vilcom.co.ke');
         $mail->addCC('kelvin.nderitu@vilcom.co.ke');
